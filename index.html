@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>BrandInn Pages — Discover Local Businesses</title>
 
-<meta name="description" content="Discover local businesses near you. Browse shops, restaurants, and services on BrandInn Pages.">
+<meta name="description" content="Discover local businesses near you. Browse products from shops, restaurants, and services on BrandInn Pages.">
 <meta name="theme-color" content="#7c3aed">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -178,207 +178,348 @@ body {
   transition: all 0.2s;
   font-family: inherit;
   white-space: nowrap;
-}
-.nav-btn.primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: white;
-  box-shadow: 0 8px 20px -6px var(--primary-tint);
-}
-.nav-btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-primary);
-}
-.nav-btn.ghost {
   background: transparent;
   color: var(--text-soft);
 }
-.nav-btn.ghost:hover {
+.nav-btn:hover {
   background: var(--primary-bg);
   color: var(--primary);
 }
 
-/* ═══════════════════ HERO ═══════════════════ */
-.hero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: white;
-  padding: 3.5rem 5% 5rem;
+/* ═══════════════════ HERO CAROUSEL ═══════════════════ */
+.hero-carousel {
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+  background: #1e1b2f;
+}
+@media (max-width: 768px) {
+  .hero-carousel { height: 500px; }
+}
+@media (max-width: 500px) {
+  .hero-carousel { height: 460px; }
+}
+
+.hero-slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hero-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%; right: -10%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -60%; left: -10%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  text-decoration: none;
+  color: white;
+  display: block;
 }
 
-.hero-inner {
-  max-width: 900px;
-  margin: 0 auto;
+.hero-slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 9s ease-out;
+}
+.hero-slide.active .hero-slide-bg {
+  transform: scale(1.08);
+}
+
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(15, 23, 42, 0.88) 0%,
+    rgba(15, 23, 42, 0.72) 40%,
+    rgba(15, 23, 42, 0.35) 70%,
+    rgba(15, 23, 42, 0.15) 100%
+  );
+}
+@media (max-width: 640px) {
+  .hero-slide-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.4) 0%,
+      rgba(15, 23, 42, 0.65) 45%,
+      rgba(15, 23, 42, 0.9) 100%
+    );
+  }
+}
+
+.hero-slide-content {
   position: relative;
-  z-index: 1;
-  text-align: center;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.hero-eyebrow {
+.hero-slide-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 0.4rem 1rem;
   border-radius: var(--radius-full);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  align-self: flex-start;
+  animation: slideUp 0.7s 0.1s both;
+}
+.hero-slide-badge i { color: var(--gold-light); }
+
+.hero-slide-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: slideUp 0.7s 0.15s both;
 }
 
-.hero h1 {
+.hero-slide-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--primary);
+  font-size: 1.35rem;
+  overflow: hidden;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+.hero-slide-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero-slide-name {
   font-family: var(--font-display);
   font-size: 3rem;
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.05;
-  margin-bottom: 0.9rem;
-}
-.hero h1 .accent {
-  font-style: italic;
-  color: var(--gold-light);
-}
-.hero > .hero-inner > p {
-  font-size: 1.05rem;
-  opacity: 0.9;
-  max-width: 560px;
-  margin: 0 auto 1.8rem;
-  line-height: 1.6;
+  max-width: 620px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.7s 0.2s both;
+  margin-top: 0.4rem;
 }
 
-.hero-search {
-  max-width: 620px;
-  margin: 0 auto;
-  position: relative;
+.hero-slide-tagline {
+  font-size: 1.02rem;
+  opacity: 0.92;
+  max-width: 540px;
+  line-height: 1.55;
+  animation: slideUp 0.7s 0.25s both;
 }
-.hero-search i {
-  position: absolute;
-  left: 22px; top: 50%;
-  transform: translateY(-50%);
-  color: var(--muted);
-  font-size: 1rem;
+
+.hero-slide-meta {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  animation: slideUp 0.7s 0.3s both;
 }
-.hero-search input {
-  width: 100%;
-  padding: 1.1rem 6rem 1.1rem 3.5rem;
-  border: none;
+.hero-slide-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
-  font-size: 1rem;
-  font-family: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hero-slide-chip.shop {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.hero-slide-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   background: white;
   color: var(--text);
-  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.25);
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.9rem;
+  align-self: flex-start;
+  margin-top: 0.6rem;
   transition: all 0.2s;
+  animation: slideUp 0.7s 0.35s both;
 }
-.hero-search input:focus {
-  outline: none;
-  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.35), 0 0 0 4px rgba(255,255,255,0.3);
+.hero-slide:hover .hero-slide-cta {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.4);
+  background: var(--primary);
+  color: white;
 }
-.hero-search input::placeholder { color: var(--muted-light); }
-.hero-search button {
+.hero-slide-cta i {
+  transition: transform 0.2s;
+}
+.hero-slide:hover .hero-slide-cta i {
+  transform: translateX(4px);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero controls */
+.hero-nav-btn {
   position: absolute;
-  right: 8px;
   top: 50%;
   transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: all 0.2s;
+}
+.hero-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.08);
+}
+.hero-nav-btn.prev { left: 20px; }
+.hero-nav-btn.next { right: 20px; }
+@media (max-width: 900px) {
+  .hero-nav-btn { width: 42px; height: 42px; font-size: 0.85rem; }
+  .hero-nav-btn.prev { left: 12px; }
+  .hero-nav-btn.next { right: 12px; }
+}
+@media (max-width: 500px) {
+  .hero-nav-btn { display: none; }
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s;
+}
+.hero-dot.active {
+  background: white;
+  width: 32px;
+  border-radius: var(--radius-full);
+}
+.hero-dot:hover { background: rgba(255, 255, 255, 0.6); }
+
+/* ═══════════════════ SEARCH FLOAT ═══════════════════ */
+.search-float {
+  max-width: 900px;
+  margin: -2.5rem auto 0;
+  padding: 0 5%;
+  position: relative;
+  z-index: 10;
+}
+.search-float-inner {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 0.6rem 0.6rem 0.6rem 1.4rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.search-float-inner i.search-icon {
+  color: var(--muted-light);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.search-float-inner input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: transparent;
+  color: var(--text);
+  min-width: 0;
+  padding: 0.6rem 0;
+}
+.search-float-inner input::placeholder { color: var(--muted-light); }
+.search-float-inner button {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s;
   font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
-.hero-search button:hover {
-  transform: translateY(-50%) scale(1.03);
+.search-float-inner button:hover {
   box-shadow: var(--shadow-primary);
+  transform: translateY(-1px);
 }
-
-/* ═══════════════════ STATS STRIP ═══════════════════ */
-.stats-strip {
-  max-width: 900px;
-  margin: -2rem auto 0;
-  padding: 0 5%;
-  position: relative;
-  z-index: 10;
-}
-
-.stats-grid {
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-soft);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  text-align: center;
-}
-
-.stat-item {
-  padding: 0.5rem;
-  border-right: 1px solid var(--border-soft);
-}
-.stat-item:last-child { border-right: none; }
-
-.stat-value {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.72rem;
-  color: var(--muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 0.4rem;
+@media (max-width: 640px) {
+  .search-float { margin-top: -2rem; }
+  .search-float-inner { padding: 0.5rem 0.5rem 0.5rem 1rem; gap: 0.5rem; }
+  .search-float-inner input { font-size: 0.88rem; padding: 0.5rem 0; }
+  .search-float-inner button { padding: 0.65rem 1rem; font-size: 0.8rem; }
+  .search-float-inner button span { display: none; }
 }
 
 /* ═══════════════════ SECTIONS ═══════════════════ */
 .section {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 3rem 5% 0;
+  padding: 3.5rem 5% 0;
 }
 
 .section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   margin-bottom: 1.6rem;
-  gap: 1rem;
-  flex-wrap: wrap;
 }
-
-.section-head-left h2 {
+.section-head h2 {
   font-family: var(--font-display);
   font-size: 1.7rem;
   font-weight: 700;
@@ -389,42 +530,17 @@ body {
   gap: 10px;
   margin-bottom: 0.3rem;
 }
-.section-head-left h2 i {
+.section-head h2 i {
   color: var(--primary);
   font-size: 1.4rem;
 }
-.section-head-left p {
+.section-head p {
   color: var(--muted);
   font-size: 0.88rem;
 }
 
-.section-head-right {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.scroll-btn {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: white;
-  color: var(--text-soft);
-  font-size: 0.85rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-.scroll-btn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
-}
-
-/* ═══════════════════ CATEGORY PILLS ═══════════════════ */
-.categories-scroll {
+/* ═══════════════════ FILTER CHIPS ═══════════════════ */
+.filters-scroll {
   display: flex;
   gap: 0.6rem;
   overflow-x: auto;
@@ -433,14 +549,14 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.categories-scroll::-webkit-scrollbar { display: none; }
+.filters-scroll::-webkit-scrollbar { display: none; }
 
-.cat-pill {
-  padding: 0.7rem 1.3rem;
+.filter-chip {
+  padding: 0.65rem 1.2rem;
   background: white;
   border: 1.5px solid var(--border-soft);
   border-radius: var(--radius-full);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-soft);
   cursor: pointer;
@@ -449,202 +565,52 @@ body {
   font-family: inherit;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   flex-shrink: 0;
 }
-.cat-pill i {
-  font-size: 0.85rem;
-  color: var(--primary);
-}
-.cat-pill:hover {
+.filter-chip i { font-size: 0.82rem; color: var(--primary); }
+.filter-chip:hover {
   border-color: var(--primary);
   color: var(--primary);
   background: var(--primary-bg);
   transform: translateY(-2px);
 }
-.cat-pill.active {
+.filter-chip.active {
   background: var(--text);
   color: white;
   border-color: var(--text);
 }
-.cat-pill.active i { color: var(--gold-light); }
-
-.cat-pill .count {
+.filter-chip.active i { color: var(--gold-light); }
+.filter-chip .count {
   background: rgba(0, 0, 0, 0.08);
   padding: 1px 7px;
   border-radius: var(--radius-full);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 800;
 }
-.cat-pill.active .count { background: rgba(255,255,255,0.2); }
+.filter-chip.active .count { background: rgba(255,255,255,0.2); }
 
-.cat-pill.shop-only {
-  border-color: #86efac;
-  background: #f0fdf4;
+/* ═══════════════════ PRODUCTS GRID ═══════════════════ */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.3rem;
+  margin-bottom: 2rem;
 }
-.cat-pill.shop-only i { color: #059669; }
-.cat-pill.shop-only:hover {
-  background: #dcfce7;
-  border-color: #059669;
-  color: #059669;
+@media (max-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
 }
-.cat-pill.shop-only.active {
-  background: #059669;
-  border-color: #059669;
-  color: white;
-}
-.cat-pill.shop-only.active i { color: #bbf7d0; }
-
-/* ═══════════════════ FEATURED SCROLL ═══════════════════ */
-.featured-scroll {
-  display: flex;
-  gap: 1.2rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.featured-scroll::-webkit-scrollbar { display: none; }
-
-.featured-card {
-  flex-shrink: 0;
-  width: 320px;
-  background: white;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border-soft);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-}
-.featured-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-xl);
-  border-color: transparent;
+@media (max-width: 380px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+  }
 }
 
-.featured-cover {
-  height: 160px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  position: relative;
-  overflow: hidden;
-}
-.featured-cover img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-.featured-cover::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%);
-}
-
-.featured-badge {
-  position: absolute;
-  top: 14px; right: 14px;
-  background: var(--gold);
-  color: white;
-  padding: 0.35rem 0.8rem;
-  border-radius: var(--radius-full);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  backdrop-filter: blur(8px);
-  z-index: 2;
-}
-
-.featured-logo {
-  position: absolute;
-  bottom: -24px;
-  left: 18px;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: white;
-  border: 3px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  color: var(--primary);
-  font-size: 1.1rem;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  z-index: 2;
-}
-.featured-logo img { width: 100%; height: 100%; object-fit: cover; }
-
-.featured-body {
-  padding: 2rem 1.2rem 1.2rem;
-}
-.featured-name {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.01em;
-  margin-bottom: 0.2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.featured-tagline {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-bottom: 0.7rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-height: 1.1em;
-}
-.featured-meta {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 0.8rem;
-}
-.featured-chip {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--primary);
-  background: var(--primary-bg);
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-full);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-.featured-chip i { font-size: 0.6rem; }
-.featured-chip.shop { background: #ecfdf5; color: #059669; }
-
-.featured-cta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 0.8rem;
-  border-top: 1px solid var(--border-soft);
-  font-size: 0.8rem;
-  color: var(--primary);
-  font-weight: 700;
-}
-.featured-cta i {
-  transition: transform 0.2s;
-}
-.featured-card:hover .featured-cta i {
-  transform: translateX(4px);
-}
-
-/* ═══════════════════ FEATURED PRODUCTS ═══════════════════ */
-.fp-card {
-  flex-shrink: 0;
-  width: 220px;
+.product-card {
   background: white;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -656,41 +622,62 @@ body {
   display: flex;
   flex-direction: column;
 }
-.fp-card:hover {
+.product-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-xl);
   border-color: transparent;
 }
 
-.fp-image {
+.product-image {
   position: relative;
   aspect-ratio: 1 / 1;
   background: var(--bg-alt);
   overflow: hidden;
 }
-.fp-image img {
+.product-image img {
   width: 100%; height: 100%;
   object-fit: cover;
   transition: transform 0.5s;
 }
-.fp-card:hover .fp-image img {
+.product-card:hover .product-image img {
   transform: scale(1.06);
 }
-.fp-placeholder {
+.product-placeholder {
   width: 100%; height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary);
   opacity: 0.3;
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
-.fp-cat {
+.product-badge {
   position: absolute;
   top: 10px; left: 10px;
-  background: rgba(255,255,255,0.95);
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px -3px rgba(239, 68, 68, 0.5);
+}
+.product-badge.new { background: linear-gradient(135deg, var(--success), #059669); }
+.product-badge.low {
+  background: linear-gradient(135deg, var(--warning), #d97706);
+  left: auto;
+  right: 10px;
+}
+
+.product-cat-badge {
+  position: absolute;
+  bottom: 10px; left: 10px;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: var(--primary);
   font-size: 0.6rem;
   font-weight: 800;
@@ -700,15 +687,15 @@ body {
   border-radius: var(--radius-full);
 }
 
-.fp-body {
-  padding: 0.9rem 0.9rem 0.7rem;
+.product-body {
+  padding: 0.9rem 0.9rem 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   flex: 1;
 }
-.fp-name {
-  font-size: 0.85rem;
+.product-name {
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--text);
   line-height: 1.3;
@@ -716,26 +703,40 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 2.2em;
+  min-height: 2.3em;
 }
-.fp-price {
+.product-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.product-price {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--primary);
   letter-spacing: -0.02em;
 }
-.fp-biz {
+.product-price-was {
+  font-size: 0.78rem;
+  color: var(--muted-light);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.product-shop {
   display: flex;
   align-items: center;
   gap: 7px;
-  margin-top: auto;
-  padding-top: 0.5rem;
+  padding-top: 0.55rem;
   border-top: 1px solid var(--border-soft);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--muted);
+  min-width: 0;
 }
-.fp-biz-logo {
+.product-shop-logo {
   width: 22px; height: 22px;
   border-radius: 7px;
   background: var(--primary-bg);
@@ -748,209 +749,15 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
-.fp-biz-logo img {
+.product-shop-logo img {
   width: 100%; height: 100%;
   object-fit: cover;
 }
-.fp-biz-name {
+.product-shop-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 600;
-}
-
-.fp-cta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.6rem 0.9rem;
-  background: var(--bg-alt);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--primary);
-  transition: background 0.2s;
-}
-.fp-cta i {
-  transition: transform 0.2s;
-}
-.fp-card:hover .fp-cta {
-  background: var(--primary-bg);
-}
-.fp-card:hover .fp-cta i {
-  transform: translateX(4px);
-}
-
-/* ═══════════════════ BUSINESS GRID ═══════════════════ */
-.businesses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.biz-card {
-  background: white;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border-soft);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.biz-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary);
-}
-
-.biz-card.has-shop {
-  border-color: rgba(5, 150, 105, 0.25);
-}
-.biz-card.has-shop::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #10b981, #059669);
-  z-index: 3;
-}
-.biz-card.has-shop:hover {
-  border-color: #059669;
-  box-shadow: 0 20px 40px -15px rgba(5, 150, 105, 0.25);
-}
-
-.biz-cover {
-  height: 130px;
-  background: linear-gradient(135deg, var(--primary-bg), white);
-  position: relative;
-  overflow: hidden;
-}
-.biz-cover img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s;
-}
-.biz-card:hover .biz-cover img {
-  transform: scale(1.06);
-}
-
-.biz-cover-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  color: var(--primary);
-  opacity: 0.35;
-}
-
-.biz-logo {
-  position: absolute;
-  bottom: -22px;
-  left: 16px;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: white;
-  border: 3px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  color: var(--primary);
-  font-size: 1rem;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  z-index: 2;
-}
-.biz-logo img { width: 100%; height: 100%; object-fit: cover; }
-
-.biz-badge-row {
-  position: absolute;
-  top: 12px; right: 12px;
-  display: flex;
-  gap: 6px;
-  z-index: 2;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  max-width: 70%;
-}
-
-.biz-mini-badge {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(4px);
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-full);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  white-space: nowrap;
-}
-.biz-mini-badge.shop { color: #059669; }
-.biz-mini-badge.featured { color: var(--gold); }
-
-.biz-body {
-  padding: 1.9rem 1rem 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.biz-category {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 0.3rem;
-}
-.biz-card.has-shop .biz-category { color: #059669; }
-
-.biz-name {
-  font-size: 0.98rem;
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.01em;
-  margin-bottom: 0.3rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.biz-tagline {
-  font-size: 0.78rem;
-  color: var(--muted);
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  margin-bottom: 0.7rem;
-  flex: 1;
-}
-
-.biz-location {
-  font-size: 0.72rem;
-  color: var(--muted-light);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding-top: 0.7rem;
-  border-top: 1px solid var(--border-soft);
-  margin-top: auto;
-}
-.biz-location i { font-size: 0.65rem; }
-.biz-location span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* ═══════════════════ SKELETONS ═══════════════════ */
@@ -964,26 +771,25 @@ body {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
-
 .skeleton-card {
   background: white;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-soft);
   overflow: hidden;
 }
-.skeleton-cover {
-  height: 130px;
+.skeleton-image {
+  aspect-ratio: 1 / 1;
   background: linear-gradient(90deg, var(--border-soft) 0%, #e9eef5 50%, var(--border-soft) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.6s ease-in-out infinite;
 }
 .skeleton-body {
-  padding: 1.9rem 1rem 1rem;
+  padding: 0.9rem;
 }
 .skeleton-line {
-  height: 12px;
-  border-radius: 6px;
-  margin-bottom: 0.6rem;
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
   background: linear-gradient(90deg, var(--border-soft) 0%, #e9eef5 50%, var(--border-soft) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.6s ease-in-out infinite;
@@ -1021,38 +827,67 @@ body {
   margin: 0 auto 1.4rem;
   line-height: 1.6;
 }
-
-/* ═══════════════════ LOAD MORE ═══════════════════ */
-.load-more-wrap {
-  text-align: center;
-  padding: 1rem 0 3rem;
-}
-.load-more-btn {
-  padding: 0.9rem 2rem;
+.empty-state button {
+  padding: 0.85rem 1.8rem;
   background: white;
   border: 1.5px solid var(--primary);
   color: var(--primary);
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.2s;
   font-family: inherit;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  transition: all 0.2s;
 }
-.load-more-btn:hover {
+.empty-state button:hover {
   background: var(--primary);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-primary);
+}
+
+/* ═══════════════════ INFINITE LOADER ═══════════════════ */
+.infinite-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.infinite-loader.hidden { display: none; }
+.infinite-loader-spinner {
+  width: 24px; height: 24px;
+  border: 3px solid var(--border-soft);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.end-of-results {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  color: var(--muted-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: none;
+}
+.end-of-results.show { display: block; }
+.end-of-results i {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--success);
 }
 
 /* ═══════════════════ CTA BANNER ═══════════════════ */
 .cta-banner {
   max-width: 1280px;
-  margin: 3rem auto 0;
+  margin: 2rem auto 0;
   padding: 0 5%;
 }
 .cta-inner {
@@ -1080,7 +915,6 @@ body {
   background: radial-gradient(circle, rgba(202, 138, 4, 0.25), transparent 70%);
   border-radius: 50%;
 }
-
 .cta-content {
   position: relative;
   z-index: 1;
@@ -1104,14 +938,12 @@ body {
   margin-bottom: 1.8rem;
   line-height: 1.6;
 }
-
 .cta-buttons {
   display: flex;
   gap: 0.8rem;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .cta-btn {
   padding: 0.95rem 1.8rem;
   border-radius: var(--radius-full);
@@ -1181,7 +1013,6 @@ body {
   transition: color 0.2s;
 }
 .footer-col a:hover { color: var(--primary); }
-
 .footer-brand {
   display: flex;
   align-items: center;
@@ -1233,7 +1064,6 @@ body {
   color: white;
   transform: translateY(-2px);
 }
-
 .footer-bottom {
   max-width: 1280px;
   margin: 2.5rem auto 0;
@@ -1248,40 +1078,14 @@ body {
   color: var(--muted-light);
 }
 
-/* ═══════════════════ MOBILE FAB ═══════════════════ */
-.mobile-search-fab {
-  display: none;
-  position: fixed;
-  bottom: 24px;
-  right: 20px;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: white;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: var(--shadow-primary);
-  z-index: 998;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-.mobile-search-fab:hover {
-  transform: scale(1.08);
-}
-
 /* ═══════════════════ RESPONSIVE ═══════════════════ */
 @media (min-width: 800px) {
   .nav-search { display: block; }
 }
-
 @media (max-width: 900px) {
-  .hero h1 { font-size: 2.2rem; }
-  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-slide-name { font-size: 2.3rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 }
-
 @media (max-width: 640px) {
   .navbar { padding: 0.7rem 4%; }
   .brand-info p { display: none; }
@@ -1289,56 +1093,21 @@ body {
   .nav-btn span { display: none; }
   .nav-btn { padding: 0.55rem 0.8rem; }
 
-  .hero { padding: 2.5rem 5% 3.5rem; }
-  .hero h1 { font-size: 1.75rem; }
-  .hero > .hero-inner > p { font-size: 0.92rem; }
-  .hero-search input {
-    padding: 0.95rem 1rem 0.95rem 3rem;
-    font-size: 0.92rem;
-  }
-  .hero-search i { left: 16px; font-size: 0.9rem; }
-  .hero-search button {
-    padding: 0.65rem 1rem;
-    font-size: 0.82rem;
-    right: 6px;
-  }
+  .hero-slide-name { font-size: 1.75rem; }
+  .hero-slide-tagline { font-size: 0.88rem; }
+  .hero-slide-logo { width: 56px; height: 56px; font-size: 1.15rem; }
+  .hero-slide-content { gap: 0.75rem; }
 
-  .stats-strip { margin-top: -1.5rem; padding: 0 4%; }
-  .stats-grid { padding: 1rem; gap: 0.5rem; }
-  .stat-value { font-size: 1.4rem; }
-  .stat-label { font-size: 0.62rem; }
+  .section { padding: 2.2rem 4% 0; }
+  .section-head h2 { font-size: 1.35rem; }
+  .section-head h2 i { font-size: 1.1rem; }
+  .section-head p { font-size: 0.8rem; }
 
-  .section { padding: 2rem 4% 0; }
-  .section-head-left h2 { font-size: 1.35rem; }
-  .section-head-left h2 i { font-size: 1.1rem; }
-  .section-head-left p { font-size: 0.8rem; }
+  .filter-chip { padding: 0.55rem 1rem; font-size: 0.76rem; }
 
-  .cat-pill { padding: 0.55rem 1rem; font-size: 0.78rem; }
-  .cat-pill i { font-size: 0.78rem; }
-
-  .featured-card { width: 260px; }
-  .featured-cover { height: 130px; }
-  .featured-name { font-size: 0.95rem; }
-
-  .fp-card { width: 170px; }
-  .fp-body { padding: 0.7rem 0.7rem 0.5rem; }
-  .fp-name { font-size: 0.78rem; }
-  .fp-price { font-size: 0.95rem; }
-  .fp-biz { font-size: 0.65rem; }
-  .fp-cta { font-size: 0.68rem; padding: 0.5rem 0.7rem; }
-
-  .businesses-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-  }
-  .biz-cover { height: 100px; }
-  .biz-logo { width: 42px; height: 42px; font-size: 0.85rem; }
-  .biz-body { padding: 1.6rem 0.8rem 0.9rem; }
-  .biz-name { font-size: 0.85rem; }
-  .biz-tagline { font-size: 0.72rem; -webkit-line-clamp: 2; margin-bottom: 0.5rem; }
-  .biz-category { font-size: 0.6rem; }
-  .biz-location { font-size: 0.65rem; padding-top: 0.5rem; }
-  .biz-mini-badge { font-size: 0.55rem; padding: 0.2rem 0.5rem; }
+  .product-name { font-size: 0.78rem; }
+  .product-price { font-size: 0.95rem; }
+  .product-shop { font-size: 0.65rem; }
 
   .cta-inner { padding: 2rem 1.3rem; }
   .cta-content h2 { font-size: 1.4rem; }
@@ -1347,14 +1116,6 @@ body {
 
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
-
-  .mobile-search-fab { display: flex; }
-}
-
-@media (max-width: 380px) {
-  .businesses-grid { grid-template-columns: 1fr; }
-  .biz-cover { height: 130px; }
-  .fp-card { width: 150px; }
 }
 </style>
 </head>
@@ -1374,175 +1135,140 @@ body {
     </a>
     <div class="nav-search">
       <i class="fas fa-search"></i>
-      <input type="text" id="navSearchInput" placeholder="Search businesses or products..." autocomplete="off">
+      <input type="text" id="navSearchInput" placeholder="Search products..." autocomplete="off">
     </div>
   </div>
   <div class="nav-right">
-    <a href="#browseSection" class="nav-btn ghost">
-      <i class="fas fa-compass"></i>
-      <span>Browse</span>
+    <a href="#products" class="nav-btn">
+      <i class="fas fa-shopping-bag"></i>
+      <span>Shop</span>
     </a>
   </div>
 </nav>
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <i class="fas fa-map-marker-alt"></i>
-      Local businesses near you
-    </div>
-    <h1>Find what you need.<br><span class="accent">Support who's nearby.</span></h1>
-    <p>Discover shops, restaurants, and services in your community. Browse, search, and connect directly with the businesses you love.</p>
-    <div class="hero-search">
-      <i class="fas fa-search"></i>
-      <input type="text" id="heroSearchInput" placeholder="Search by name, product, category, or location..." autocomplete="off">
-      <button type="button" id="heroSearchBtn">
-        Search
-      </button>
+<!-- ═══════════════════ HERO CAROUSEL ═══════════════════ -->
+<header class="hero-carousel" id="heroCarousel">
+  <div class="hero-slides" id="heroSlides">
+    <!-- Slides injected by JS -->
+    <div class="hero-slide active">
+      <div class="hero-slide-bg" style="background-image: linear-gradient(135deg, #7c3aed, #a855f7);"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="hero-slide-badge">
+          <i class="fas fa-compass"></i> Welcome
+        </div>
+        <h2 class="hero-slide-name">Discover local shops</h2>
+        <p class="hero-slide-tagline">Browse products from the best businesses near you.</p>
+      </div>
     </div>
   </div>
+
+  <button class="hero-nav-btn prev" id="heroPrevBtn" aria-label="Previous">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="hero-nav-btn next" id="heroNextBtn" aria-label="Next">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
 </header>
 
-<!-- ═══════════════════ STATS STRIP ═══════════════════ -->
-<div class="stats-strip">
-  <div class="stats-grid">
-    <div class="stat-item">
-      <div class="stat-value" id="statTotalBiz">—</div>
-      <div class="stat-label">Businesses</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value" id="statCategories">—</div>
-      <div class="stat-label">Categories</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value" id="statWithShop">—</div>
-      <div class="stat-label">With Shops</div>
-    </div>
+<!-- ═══════════════════ FLOATING SEARCH ═══════════════════ -->
+<div class="search-float">
+  <div class="search-float-inner">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" id="mainSearchInput" placeholder="Search products by name, category, or shop..." autocomplete="off">
+    <button type="button" id="searchBtn">
+      <i class="fas fa-search"></i>
+      <span>Search</span>
+    </button>
   </div>
 </div>
 
-<!-- ═══════════════════ FEATURED SECTION ═══════════════════ -->
-<section class="section" id="featuredSection" style="display: none;">
+<!-- ═══════════════════ PRODUCTS ═══════════════════ -->
+<section class="section" id="products">
   <div class="section-head">
-    <div class="section-head-left">
-      <h2><i class="fas fa-star"></i> Featured businesses</h2>
-      <p>Handpicked spots we think you'll love</p>
-    </div>
-    <div class="section-head-right">
-      <button class="scroll-btn" id="featuredPrevBtn" aria-label="Previous">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="scroll-btn" id="featuredNextBtn" aria-label="Next">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
-  </div>
-  <div class="featured-scroll" id="featuredScroll">
-    <!-- Filled by JS -->
-  </div>
-</section>
-
-<!-- ═══════════════════ FEATURED PRODUCTS ═══════════════════ -->
-<section class="section" id="productsSection" style="display: none;">
-  <div class="section-head">
-    <div class="section-head-left">
-      <h2><i class="fas fa-shopping-bag"></i> Fresh from local shops</h2>
-      <p>The latest products added by businesses near you</p>
-    </div>
-    <div class="section-head-right">
-      <button class="scroll-btn" id="productsPrevBtn" aria-label="Previous">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="scroll-btn" id="productsNextBtn" aria-label="Next">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
-  </div>
-  <div class="featured-scroll" id="productsScroll">
-    <!-- Filled by JS -->
-  </div>
-</section>
-
-<!-- ═══════════════════ BROWSE ALL ═══════════════════ -->
-<section class="section" id="browseSection">
-  <div class="section-head">
-    <div class="section-head-left">
-      <h2><i class="fas fa-compass"></i> Browse all businesses</h2>
-      <p id="browseSubtitle">Loading businesses...</p>
-    </div>
+    <h2><i class="fas fa-shopping-bag"></i> <span id="productsTitle">All products</span></h2>
+    <p id="productsSubtitle">Loading products...</p>
   </div>
 
-  <div class="categories-scroll" id="categoriesScroll">
-    <!-- Filled by JS -->
+  <div class="filters-scroll" id="filtersScroll">
+    <!-- Filter chips injected by JS -->
   </div>
 
-  <div class="businesses-grid" id="businessesGrid">
+  <div class="products-grid" id="productsGrid">
+    <!-- Skeleton placeholders -->
     <div class="skeleton-card">
-      <div class="skeleton-cover"></div>
+      <div class="skeleton-image"></div>
       <div class="skeleton-body">
-        <div class="skeleton-line" style="width: 40%;"></div>
-        <div class="skeleton-line" style="width: 80%; height: 16px;"></div>
-        <div class="skeleton-line" style="width: 100%;"></div>
-        <div class="skeleton-line" style="width: 60%;"></div>
+        <div class="skeleton-line" style="width: 80%;"></div>
+        <div class="skeleton-line" style="width: 50%;"></div>
       </div>
     </div>
     <div class="skeleton-card">
-      <div class="skeleton-cover"></div>
+      <div class="skeleton-image"></div>
       <div class="skeleton-body">
-        <div class="skeleton-line" style="width: 40%;"></div>
-        <div class="skeleton-line" style="width: 80%; height: 16px;"></div>
-        <div class="skeleton-line" style="width: 100%;"></div>
-        <div class="skeleton-line" style="width: 60%;"></div>
+        <div class="skeleton-line" style="width: 80%;"></div>
+        <div class="skeleton-line" style="width: 50%;"></div>
       </div>
     </div>
     <div class="skeleton-card">
-      <div class="skeleton-cover"></div>
+      <div class="skeleton-image"></div>
       <div class="skeleton-body">
-        <div class="skeleton-line" style="width: 40%;"></div>
-        <div class="skeleton-line" style="width: 80%; height: 16px;"></div>
-        <div class="skeleton-line" style="width: 100%;"></div>
-        <div class="skeleton-line" style="width: 60%;"></div>
+        <div class="skeleton-line" style="width: 80%;"></div>
+        <div class="skeleton-line" style="width: 50%;"></div>
       </div>
     </div>
     <div class="skeleton-card">
-      <div class="skeleton-cover"></div>
+      <div class="skeleton-image"></div>
       <div class="skeleton-body">
-        <div class="skeleton-line" style="width: 40%;"></div>
-        <div class="skeleton-line" style="width: 80%; height: 16px;"></div>
-        <div class="skeleton-line" style="width: 100%;"></div>
-        <div class="skeleton-line" style="width: 60%;"></div>
+        <div class="skeleton-line" style="width: 80%;"></div>
+        <div class="skeleton-line" style="width: 50%;"></div>
       </div>
     </div>
     <div class="skeleton-card">
-      <div class="skeleton-cover"></div>
+      <div class="skeleton-image"></div>
       <div class="skeleton-body">
-        <div class="skeleton-line" style="width: 40%;"></div>
-        <div class="skeleton-line" style="width: 80%; height: 16px;"></div>
-        <div class="skeleton-line" style="width: 100%;"></div>
-        <div class="skeleton-line" style="width: 60%;"></div>
+        <div class="skeleton-line" style="width: 80%;"></div>
+        <div class="skeleton-line" style="width: 50%;"></div>
       </div>
     </div>
     <div class="skeleton-card">
-      <div class="skeleton-cover"></div>
+      <div class="skeleton-image"></div>
       <div class="skeleton-body">
-        <div class="skeleton-line" style="width: 40%;"></div>
-        <div class="skeleton-line" style="width: 80%; height: 16px;"></div>
-        <div class="skeleton-line" style="width: 100%;"></div>
-        <div class="skeleton-line" style="width: 60%;"></div>
+        <div class="skeleton-line" style="width: 80%;"></div>
+        <div class="skeleton-line" style="width: 50%;"></div>
+      </div>
+    </div>
+    <div class="skeleton-card">
+      <div class="skeleton-image"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-line" style="width: 80%;"></div>
+        <div class="skeleton-line" style="width: 50%;"></div>
+      </div>
+    </div>
+    <div class="skeleton-card">
+      <div class="skeleton-image"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-line" style="width: 80%;"></div>
+        <div class="skeleton-line" style="width: 50%;"></div>
       </div>
     </div>
   </div>
 
-  <div class="load-more-wrap" id="loadMoreWrap" style="display: none;">
-    <button class="load-more-btn" id="loadMoreBtn">
-      <i class="fas fa-plus"></i> Load more businesses
-    </button>
+  <div class="infinite-loader" id="infiniteLoader">
+    <div class="infinite-loader-spinner"></div>
+    <span>Loading more products...</span>
+  </div>
+
+  <div class="end-of-results" id="endOfResults">
+    <i class="fas fa-check-circle"></i>
+    You've seen all products
   </div>
 </section>
 
 <!-- ═══════════════════ CTA BANNER ═══════════════════ -->
-<section class="cta-banner" id="list-business">
+<section class="cta-banner">
   <div class="cta-inner">
     <div class="cta-content">
       <h2>Know a business that<br><span class="accent">should be here?</span></h2>
@@ -1583,11 +1309,10 @@ body {
     <div class="footer-col">
       <h4>Discover</h4>
       <ul>
-        <li><a href="#browseSection">All businesses</a></li>
-        <li><a href="#featuredSection">Featured</a></li>
-        <li><a href="#" data-cat-link="Food">Food & Drink</a></li>
-        <li><a href="#" data-cat-link="Fashion">Fashion</a></li>
-        <li><a href="#" data-cat-link="Furniture">Furniture</a></li>
+        <li><a href="#products">All products</a></li>
+        <li><a href="#" data-filter-link="Food">Food & Drink</a></li>
+        <li><a href="#" data-filter-link="Fashion">Fashion</a></li>
+        <li><a href="#" data-filter-link="Furniture">Furniture</a></li>
       </ul>
     </div>
 
@@ -1616,11 +1341,6 @@ body {
   </div>
 </footer>
 
-<!-- ═══════════════════ MOBILE FAB ═══════════════════ -->
-<button class="mobile-search-fab" id="mobileSearchFab" aria-label="Search">
-  <i class="fas fa-search"></i>
-</button>
-
 <!-- ═══════════════════ FIREBASE ═══════════════════ -->
 <script type="importmap">
 {
@@ -1646,24 +1366,28 @@ const firebaseConfig = {
   appId: "1:1024868637509:web:321faecddce8f11d9cfc2c"
 };
 
+// ═══════════════════ SITE CONFIG ═══════════════════
 const BUSINESS_DOMAIN = 'https://brandinn-business.vercel.app';
 
-/* ═══════════════════ SHOP CONFIG ═══════════════════ */
+// Strict shop: shop enabled + at least 1 valid product
 const SHOP_MIN_PRODUCTS = 1;
-const FEATURED_PRODUCTS_LIMIT = 12;
-const FEATURED_PRODUCTS_MIN = 1;   // show if at least 1 product
-const FEATURED_PRODUCTS_PER_BIZ = 3;
+const HERO_SLIDE_COUNT = 6;         // max featured slides
+const HERO_AUTOPLAY_MS = 6000;
+const PAGE_SIZE = 12;               // products per infinite-scroll batch
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 /* ═══════════════════ STATE ═══════════════════ */
-let allBusinesses = [];
-let filteredBusinesses = [];
+let allBusinesses = [];             // merged businesses with products + shop
+let allProducts = [];               // flat list of { product, biz }
+let filteredProducts = [];
 let currentCategory = 'all';
 let currentSearch = '';
 let visibleCount = 0;
-const PAGE_SIZE = 12;
+let heroIndex = 0;
+let heroTimer = null;
+let observer = null;
 
 /* ═══════════════════ HELPERS ═══════════════════ */
 const $ = (id) => document.getElementById(id);
@@ -1691,15 +1415,6 @@ function getCategory(biz) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function getLocation(biz) {
-  return biz.location
-    || biz.address
-    || biz.area
-    || biz.pageData?.contact?.address
-    || biz.zone
-    || '';
-}
-
 function isFeatured(biz) {
   const plan = (biz.plan || '').toLowerCase();
   return plan === 'premium' || plan === 'standard' || plan === 'complete_branding';
@@ -1714,7 +1429,7 @@ function isDiscoverable(biz) {
   return true;
 }
 
-/* ═══════════════════ SHOP / PRODUCT LOGIC ═══════════════════ */
+/* ═══════════════════ SHOP / PRODUCT VALIDATION ═══════════════════ */
 function isValidProduct(p) {
   if (!p || typeof p !== 'object') return false;
   if (p.active === false) return false;
@@ -1740,15 +1455,30 @@ function hasShop(biz) {
   return hasStockOrDigital;
 }
 
-/* ═══════════════════ BUSINESS URL ═══════════════════ */
-function businessUrl(slug) {
-  return `${BUSINESS_DOMAIN}/p/${encodeURIComponent(slug)}.html`;
+/* ═══════════════════ DYNAMIC SHOP URL ═══════════════════ */
+// Every product links to its OWN business shop — dynamic slug
+function shopUrl(slug) {
+  return `${BUSINESS_DOMAIN}/p/shop.html?slug=${encodeURIComponent(slug)}`;
 }
 
-/* ═══════════════════ DATA LOAD (MERGED) ═══════════════════ */
+/* ═══════════════════ FORMAT HELPERS ═══════════════════ */
+function formatPrice(price, currency) {
+  if (price == null || price === '') return '';
+  const n = Number(price);
+  if (!isFinite(n)) return String(price);
+  const c = currency || 'KSh';
+  return `${c} ${n.toLocaleString()}`;
+}
+
+function isNewProduct(p) {
+  const ts = p.createdAt || p.updatedAt;
+  if (!ts) return false;
+  return Date.now() - ts < 7 * 24 * 60 * 60 * 1000;
+}
+
+/* ═══════════════════ DATA LOAD ═══════════════════ */
 async function loadBusinesses() {
   try {
-    // Fetch both nodes in parallel — this is the critical fix
     const [subsSnap, usersSnap] = await Promise.all([
       get(ref(db, 'brandinn_subdomains')),
       get(ref(db, 'brandinn_users'))
@@ -1757,13 +1487,12 @@ async function loadBusinesses() {
     const subsData = subsSnap.val() || {};
     const usersData = usersSnap.val() || {};
 
-    // Build uid → user record map
     const usersByUid = {};
     Object.values(usersData).forEach(u => {
       if (u && u.uid) usersByUid[u.uid] = u;
     });
 
-    // Merge: pull products + shop + pageData from brandinn_users[uid]
+    // Merge pageData from brandinn_users[uid] into each subdomain
     const list = Object.entries(subsData)
       .map(([slug, b]) => {
         const merged = { slug, ...b };
@@ -1772,14 +1501,12 @@ async function loadBusinesses() {
         if (user?.pageData) {
           merged.pageData = merged.pageData || {};
 
-          // Products + shop are the critical ones
           if (user.pageData.products) {
             merged.pageData.products = user.pageData.products;
           }
           if (user.pageData.shop) {
             merged.pageData.shop = user.pageData.shop;
           }
-          // Fill in other pageData if missing on the subdomain
           ['business', 'contact', 'hero', 'social', 'services', 'offers'].forEach(k => {
             if (!merged.pageData[k] && user.pageData[k]) {
               merged.pageData[k] = user.pageData[k];
@@ -1790,64 +1517,211 @@ async function loadBusinesses() {
       })
       .filter(isDiscoverable);
 
-    // Sort: strict shops first, then featured, then newest
-    list.sort((a, b) => {
-      const aShop = hasShop(a) ? 1 : 0;
-      const bShop = hasShop(b) ? 1 : 0;
-      if (aShop !== bShop) return bShop - aShop;
-
-      const aFeat = isFeatured(a) ? 1 : 0;
-      const bFeat = isFeatured(b) ? 1 : 0;
-      if (aFeat !== bFeat) return bFeat - aFeat;
-
-      return (b.createdAt || 0) - (a.createdAt || 0);
-    });
-
     allBusinesses = list;
 
-    renderStats();
-    renderCategories();
-    renderFeatured();
-    renderFeaturedProducts();
+    // Build flat product list — one entry per (product, business)
+    allProducts = [];
+    list.forEach(biz => {
+      if (!hasShop(biz)) return;
+      getActiveProducts(biz).forEach(p => {
+        allProducts.push({
+          product: p,
+          biz,
+          ts: p.updatedAt || p.createdAt || 0
+        });
+      });
+    });
+
+    // Sort newest first
+    allProducts.sort((a, b) => b.ts - a.ts);
+
+    console.log('[BrandInn] Businesses:', list.length);
+    console.log('[BrandInn] Products:', allProducts.length);
+
+    renderHeroCarousel();
+    renderFilters();
     applyFilters();
 
   } catch (err) {
     console.error('Load error:', err);
-    $('businessesGrid').innerHTML = `
+    $('productsGrid').innerHTML = `
       <div class="empty-state">
         <div class="empty-state-icon"><i class="fas fa-exclamation-triangle"></i></div>
-        <h3>Could not load businesses</h3>
+        <h3>Could not load products</h3>
         <p>Please try again in a moment.</p>
-        <button class="load-more-btn" onclick="window.location.reload()">
+        <button onclick="window.location.reload()">
           <i class="fas fa-sync-alt"></i> Retry
         </button>
       </div>
     `;
+    $('infiniteLoader').classList.add('hidden');
   }
 }
 
-/* ═══════════════════ STATS ═══════════════════ */
-function renderStats() {
-  const total = allBusinesses.length;
-  const cats = new Set(allBusinesses.map(getCategory));
-  const withShop = allBusinesses.filter(hasShop).length;
+/* ═══════════════════ HERO CAROUSEL ═══════════════════ */
+function renderHeroCarousel() {
+  // Pick featured businesses (or fall back to any with a shop)
+  const featured = allBusinesses
+    .filter(b => isFeatured(b) || hasShop(b))
+    .sort((a, b) => {
+      const aShop = hasShop(a) ? 1 : 0;
+      const bShop = hasShop(b) ? 1 : 0;
+      if (aShop !== bShop) return bShop - aShop;
+      const aFeat = isFeatured(a) ? 1 : 0;
+      const bFeat = isFeatured(b) ? 1 : 0;
+      if (aFeat !== bFeat) return bFeat - aFeat;
+      return (b.createdAt || 0) - (a.createdAt || 0);
+    })
+    .slice(0, HERO_SLIDE_COUNT);
 
-  $('statTotalBiz').textContent = total;
-  $('statCategories').textContent = cats.size;
-  $('statWithShop').textContent = withShop;
+  if (featured.length === 0) {
+    // Keep the fallback welcome slide
+    return;
+  }
+
+  const container = $('heroSlides');
+  const dotsContainer = $('heroDots');
+
+  container.innerHTML = featured.map((biz, i) => {
+    const name = biz.businessName || biz.name || biz.slug;
+    const tagline = biz.tagline || biz.pageData?.business?.tagline || '';
+    const cat = getCategory(biz);
+    const logo = biz.logo || biz.pageData?.business?.logo || '';
+    const coverImg = biz.pageData?.hero?.slides?.[0]?.img || '';
+    const shop = hasShop(biz);
+    const plan = (biz.plan || 'basic').toLowerCase();
+    const planLabel = plan === 'premium' ? 'Premium' : 'Featured';
+    const productCount = getActiveProducts(biz).length;
+
+    const logoHtml = logo
+      ? `<img src="${escapeHtml(logo)}" alt="${escapeHtml(name)}" onerror="this.parentElement.textContent='${escapeHtml(getInitials(name))}'">`
+      : escapeHtml(getInitials(name));
+
+    const bgStyle = coverImg
+      ? `background-image: url('${escapeHtml(coverImg)}'), linear-gradient(135deg, #7c3aed, #a855f7);`
+      : `background-image: linear-gradient(135deg, #7c3aed, #a855f7);`;
+
+    return `
+      <a href="${shopUrl(biz.slug)}" class="hero-slide ${i === 0 ? 'active' : ''}" data-index="${i}">
+        <div class="hero-slide-bg" style="${bgStyle}"></div>
+        <div class="hero-slide-overlay"></div>
+        <div class="hero-slide-content">
+          <div class="hero-slide-badge">
+            <i class="fas fa-star"></i> ${planLabel}
+          </div>
+          <div class="hero-slide-top">
+            <div class="hero-slide-logo">${logoHtml}</div>
+          </div>
+          <h2 class="hero-slide-name">${escapeHtml(name)}</h2>
+          ${tagline ? `<p class="hero-slide-tagline">${escapeHtml(tagline)}</p>` : ''}
+          <div class="hero-slide-meta">
+            <span class="hero-slide-chip"><i class="fas fa-tag"></i> ${escapeHtml(cat)}</span>
+            ${shop ? `<span class="hero-slide-chip shop"><i class="fas fa-shopping-bag"></i> ${productCount} product${productCount !== 1 ? 's' : ''}</span>` : ''}
+          </div>
+          <span class="hero-slide-cta">
+            ${shop ? 'Visit shop' : 'View page'} <i class="fas fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+    `;
+  }).join('');
+
+  dotsContainer.innerHTML = featured.map((_, i) => `
+    <button class="hero-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>
+  `).join('');
+
+  heroIndex = 0;
+  updateHeroTransform();
+  startHeroAutoplay();
+  bindHeroControls();
 }
 
-/* ═══════════════════ CATEGORIES ═══════════════════ */
-function renderCategories() {
-  const container = $('categoriesScroll');
+function updateHeroTransform() {
+  $('heroSlides').style.transform = `translateX(-${heroIndex * 100}%)`;
+  document.querySelectorAll('.hero-slide').forEach((s, i) => {
+    s.classList.toggle('active', i === heroIndex);
+  });
+  document.querySelectorAll('.hero-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === heroIndex);
+  });
+}
+
+function heroNext() {
+  const total = document.querySelectorAll('.hero-slide').length;
+  if (total === 0) return;
+  heroIndex = (heroIndex + 1) % total;
+  updateHeroTransform();
+}
+
+function heroPrev() {
+  const total = document.querySelectorAll('.hero-slide').length;
+  if (total === 0) return;
+  heroIndex = (heroIndex - 1 + total) % total;
+  updateHeroTransform();
+}
+
+function startHeroAutoplay() {
+  stopHeroAutoplay();
+  if (document.querySelectorAll('.hero-slide').length < 2) return;
+  heroTimer = setInterval(heroNext, HERO_AUTOPLAY_MS);
+}
+
+function stopHeroAutoplay() {
+  if (heroTimer) {
+    clearInterval(heroTimer);
+    heroTimer = null;
+  }
+}
+
+function bindHeroControls() {
+  $('heroPrevBtn')?.addEventListener('click', () => {
+    heroPrev();
+    startHeroAutoplay();
+  });
+  $('heroNextBtn')?.addEventListener('click', () => {
+    heroNext();
+    startHeroAutoplay();
+  });
+
+  document.querySelectorAll('.hero-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      heroIndex = Number(dot.dataset.index);
+      updateHeroTransform();
+      startHeroAutoplay();
+    });
+  });
+
+  // Pause on hover
+  const carousel = $('heroCarousel');
+  carousel?.addEventListener('mouseenter', stopHeroAutoplay);
+  carousel?.addEventListener('mouseleave', startHeroAutoplay);
+
+  // Touch swipe
+  let touchStartX = 0;
+  carousel?.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    stopHeroAutoplay();
+  }, { passive: true });
+  carousel?.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx > 0) heroPrev();
+      else heroNext();
+    }
+    startHeroAutoplay();
+  }, { passive: true });
+}
+
+/* ═══════════════════ FILTERS ═══════════════════ */
+function renderFilters() {
+  const container = $('filtersScroll');
   const counts = {};
-  allBusinesses.forEach(b => {
-    const cat = getCategory(b);
+  allProducts.forEach(({ biz }) => {
+    const cat = getCategory(biz);
     counts[cat] = (counts[cat] || 0) + 1;
   });
 
   const sortedCats = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-  const shopCount = allBusinesses.filter(hasShop).length;
 
   const iconMap = {
     'Food': 'fa-utensils',
@@ -1865,27 +1739,17 @@ function renderCategories() {
   };
 
   let html = `
-    <button class="cat-pill active" data-cat="all">
+    <button class="filter-chip active" data-cat="all">
       <i class="fas fa-th-large"></i>
       All
-      <span class="count">${allBusinesses.length}</span>
+      <span class="count">${allProducts.length}</span>
     </button>
   `;
-
-  if (shopCount > 0) {
-    html += `
-      <button class="cat-pill shop-only" data-cat="__shops__">
-        <i class="fas fa-shopping-bag"></i>
-        Shops only
-        <span class="count">${shopCount}</span>
-      </button>
-    `;
-  }
 
   sortedCats.forEach(([cat, count]) => {
     const icon = iconMap[cat] || 'fa-tag';
     html += `
-      <button class="cat-pill" data-cat="${escapeHtml(cat)}">
+      <button class="filter-chip" data-cat="${escapeHtml(cat)}">
         <i class="fas ${icon}"></i>
         ${escapeHtml(cat)}
         <span class="count">${count}</span>
@@ -1895,9 +1759,9 @@ function renderCategories() {
 
   container.innerHTML = html;
 
-  container.querySelectorAll('.cat-pill').forEach(btn => {
+  container.querySelectorAll('.filter-chip').forEach(btn => {
     btn.addEventListener('click', () => {
-      container.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
+      container.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentCategory = btn.dataset.cat;
       applyFilters();
@@ -1905,201 +1769,28 @@ function renderCategories() {
   });
 }
 
-/* ═══════════════════ FEATURED BUSINESSES ═══════════════════ */
-function renderFeatured() {
-  const featured = allBusinesses
-    .filter(isFeatured)
-    .sort((a, b) => {
-      const aShop = hasShop(a) ? 1 : 0;
-      const bShop = hasShop(b) ? 1 : 0;
-      return bShop - aShop;
-    })
-    .slice(0, 8);
-
-  if (featured.length === 0) {
-    $('featuredSection').style.display = 'none';
-    return;
-  }
-  $('featuredSection').style.display = 'block';
-
-  const container = $('featuredScroll');
-  container.innerHTML = featured.map(biz => {
-    const name = biz.businessName || biz.name || biz.slug;
-    const tagline = biz.tagline || biz.pageData?.business?.tagline || '';
-    const cat = getCategory(biz);
-    const logo = biz.logo || biz.pageData?.business?.logo || '';
-    const coverImg = biz.pageData?.hero?.slides?.[0]?.img || '';
-    const shopBadge = hasShop(biz) ? '<span class="featured-chip shop"><i class="fas fa-shopping-bag"></i> Shop</span>' : '';
-    const plan = (biz.plan || 'basic').toLowerCase();
-    const planLabel = plan === 'premium' ? 'Premium' : 'Featured';
-
-    const logoHtml = logo
-      ? `<img src="${escapeHtml(logo)}" alt="${escapeHtml(name)}" onerror="this.parentElement.innerHTML='${escapeHtml(getInitials(name))}'">`
-      : escapeHtml(getInitials(name));
-
-    const coverHtml = coverImg
-      ? `<img src="${escapeHtml(coverImg)}" alt="" onerror="this.style.display='none'">`
-      : '';
-
-    return `
-      <a href="${businessUrl(biz.slug)}" class="featured-card">
-        <div class="featured-cover">
-          ${coverHtml}
-          <span class="featured-badge"><i class="fas fa-star"></i> ${planLabel}</span>
-          <div class="featured-logo">${logoHtml}</div>
-        </div>
-        <div class="featured-body">
-          <div class="featured-name">${escapeHtml(name)}</div>
-          <div class="featured-tagline">${escapeHtml(tagline) || '&nbsp;'}</div>
-          <div class="featured-meta">
-            <span class="featured-chip"><i class="fas fa-tag"></i> ${escapeHtml(cat)}</span>
-            ${shopBadge}
-          </div>
-          <div class="featured-cta">
-            <span>Visit page</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-      </a>
-    `;
-  }).join('');
-
-  const scroll = (dir) => {
-    container.scrollBy({ left: dir * 340, behavior: 'smooth' });
-  };
-  $('featuredPrevBtn').addEventListener('click', () => scroll(-1));
-  $('featuredNextBtn').addEventListener('click', () => scroll(1));
-}
-
-/* ═══════════════════ FEATURED PRODUCTS ═══════════════════ */
-function collectFeaturedProducts() {
-  const items = [];
-
-  allBusinesses.forEach(biz => {
-    if (!hasShop(biz)) return;
-    const products = getActiveProducts(biz);
-    products.forEach(p => {
-      items.push({
-        product: p,
-        biz,
-        ts: p.updatedAt || p.createdAt || 0
-      });
-    });
-  });
-
-  items.sort((a, b) => b.ts - a.ts);
-
-  const seen = {};
-  const diversified = [];
-  for (const item of items) {
-    const key = item.biz.slug;
-    seen[key] = (seen[key] || 0) + 1;
-    if (seen[key] <= FEATURED_PRODUCTS_PER_BIZ) {
-      diversified.push(item);
-    }
-    if (diversified.length >= FEATURED_PRODUCTS_LIMIT) break;
-  }
-
-  return diversified;
-}
-
-function formatPrice(price, currency) {
-  if (price == null || price === '') return '';
-  const n = Number(price);
-  if (!isFinite(n)) return String(price);
-  const c = currency || 'KSh';
-  return `${c} ${n.toLocaleString()}`;
-}
-
-function renderFeaturedProducts() {
-  const items = collectFeaturedProducts();
-
-  console.log('[BrandInn] Featured products collected:', items.length, items.map(i => i.product.name));
-
-  if (items.length < FEATURED_PRODUCTS_MIN) {
-    console.warn(`[BrandInn] Hiding products section: only ${items.length} products`);
-    $('productsSection').style.display = 'none';
-    return;
-  }
-  $('productsSection').style.display = 'block';
-
-  const container = $('productsScroll');
-
-  container.innerHTML = items.map(({ product, biz }) => {
-    const bizName = biz.businessName || biz.name || biz.slug;
-    const bizLogo = biz.logo || biz.pageData?.business?.logo || '';
-    const initials = getInitials(bizName);
-    const price = formatPrice(product.price, biz.pageData?.shop?.currency || 'KSh');
-    const img = product.img || product.image || product.imageUrl || '';
-
-    const imgHtml = img
-      ? `<img src="${escapeHtml(img)}" alt="${escapeHtml(product.name)}" loading="lazy">`
-      : `<div class="fp-placeholder"><i class="fas fa-box"></i></div>`;
-
-    const logoHtml = bizLogo
-      ? `<img src="${escapeHtml(bizLogo)}" alt="" onerror="this.parentElement.textContent='${escapeHtml(initials)}'">`
-      : escapeHtml(initials);
-
-    return `
-      <a href="${businessUrl(biz.slug)}" class="fp-card" title="View ${escapeHtml(bizName)}">
-        <div class="fp-image">
-          ${imgHtml}
-          ${product.category ? `<span class="fp-cat">${escapeHtml(product.category)}</span>` : ''}
-        </div>
-        <div class="fp-body">
-          <div class="fp-name">${escapeHtml(product.name)}</div>
-          <div class="fp-price">${escapeHtml(price)}</div>
-          <div class="fp-biz">
-            <span class="fp-biz-logo">${logoHtml}</span>
-            <span class="fp-biz-name">${escapeHtml(bizName)}</span>
-          </div>
-        </div>
-        <div class="fp-cta">
-          <span>View store</span>
-          <i class="fas fa-arrow-right"></i>
-        </div>
-      </a>
-    `;
-  }).join('');
-
-  const scroll = (dir) => {
-    container.scrollBy({ left: dir * 260, behavior: 'smooth' });
-  };
-  $('productsPrevBtn')?.addEventListener('click', () => scroll(-1));
-  $('productsNextBtn')?.addEventListener('click', () => scroll(1));
-}
-
-/* ═══════════════════ FILTERS ═══════════════════ */
+/* ═══════════════════ FILTER APPLICATION ═══════════════════ */
 function applyFilters() {
   const q = currentSearch.toLowerCase().trim();
 
-  filteredBusinesses = allBusinesses.filter(biz => {
-    if (currentCategory === '__shops__') {
-      if (!hasShop(biz)) return false;
-    } else if (currentCategory !== 'all' && getCategory(biz) !== currentCategory) {
+  filteredProducts = allProducts.filter(({ product, biz }) => {
+    // Category filter
+    if (currentCategory !== 'all' && getCategory(biz) !== currentCategory) {
       return false;
     }
 
+    // Search filter
     if (q) {
-      const haystackParts = [
+      const hay = [
+        product.name,
+        product.desc,
+        product.category,
         biz.businessName,
         biz.name,
         biz.tagline,
         biz.pageData?.business?.tagline,
-        getCategory(biz),
-        getLocation(biz),
-        biz.slug
-      ];
-
-      if (hasShop(biz)) {
-        getActiveProducts(biz).forEach(p => {
-          haystackParts.push(p.name);
-          if (p.category) haystackParts.push(p.category);
-          if (p.desc) haystackParts.push(p.desc);
-        });
-      }
-
-      const hay = haystackParts.filter(Boolean).join(' ').toLowerCase();
+        getCategory(biz)
+      ].filter(Boolean).join(' ').toLowerCase();
       if (!hay.includes(q)) return false;
     }
 
@@ -2107,39 +1798,49 @@ function applyFilters() {
   });
 
   visibleCount = PAGE_SIZE;
-  renderBusinesses();
-  updateBrowseSubtitle();
+  renderProducts();
+  updateProductsHeader();
 }
 
-function updateBrowseSubtitle() {
-  const total = filteredBusinesses.length;
-  const shown = Math.min(visibleCount, total);
+function updateProductsHeader() {
+  const total = filteredProducts.length;
+  const title = $('productsTitle');
+  const subtitle = $('productsSubtitle');
 
   if (total === 0) {
-    $('browseSubtitle').textContent = 'No businesses match your filters';
-  } else if (total === allBusinesses.length && currentCategory === 'all' && !currentSearch) {
-    $('browseSubtitle').textContent = `${total} businesses available`;
+    title.textContent = 'No products found';
+    subtitle.textContent = 'Try a different search or filter';
+    return;
+  }
+
+  if (currentSearch) {
+    title.textContent = `Results for "${currentSearch}"`;
+    subtitle.textContent = `${total} product${total !== 1 ? 's' : ''} across ${countUniqueShops(filteredProducts)} shop${countUniqueShops(filteredProducts) !== 1 ? 's' : ''}`;
+  } else if (currentCategory !== 'all') {
+    title.textContent = `${currentCategory} products`;
+    subtitle.textContent = `${total} product${total !== 1 ? 's' : ''} available`;
   } else {
-    const parts = [];
-    if (currentCategory === '__shops__') parts.push('with online shops');
-    else if (currentCategory !== 'all') parts.push(`in ${currentCategory}`);
-    if (currentSearch) parts.push(`matching "${currentSearch}"`);
-    $('browseSubtitle').textContent = `${shown} of ${total} ${parts.join(' ')}`;
+    title.textContent = 'All products';
+    subtitle.textContent = `${total} product${total !== 1 ? 's' : ''} from ${countUniqueShops(filteredProducts)} local shop${countUniqueShops(filteredProducts) !== 1 ? 's' : ''}`;
   }
 }
 
-/* ═══════════════════ RENDER BUSINESSES ═══════════════════ */
-function renderBusinesses() {
-  const container = $('businessesGrid');
-  const slice = filteredBusinesses.slice(0, visibleCount);
+function countUniqueShops(items) {
+  return new Set(items.map(i => i.biz.slug)).size;
+}
 
-  if (slice.length === 0) {
+/* ═══════════════════ RENDER PRODUCTS ═══════════════════ */
+function renderProducts() {
+  const container = $('productsGrid');
+  const slice = filteredProducts.slice(0, visibleCount);
+
+  if (filteredProducts.length === 0) {
     container.innerHTML = `
       <div class="empty-state">
         <div class="empty-state-icon"><i class="fas fa-search"></i></div>
-        <h3>No businesses found</h3>
-        <p>Try changing your search or filter to discover more businesses.</p>
-        <button class="load-more-btn" id="clearFiltersBtn">
+        <h3>No products found</h3>
+        <p>Try a different search term or clear the filters.</p>
+        <button id="clearFiltersBtn">
           <i class="fas fa-times"></i> Clear filters
         </button>
       </div>
@@ -2147,126 +1848,148 @@ function renderBusinesses() {
     $('clearFiltersBtn')?.addEventListener('click', () => {
       currentCategory = 'all';
       currentSearch = '';
+      $('mainSearchInput').value = '';
       $('navSearchInput').value = '';
-      $('heroSearchInput').value = '';
-      document.querySelectorAll('.cat-pill').forEach(b => {
+      document.querySelectorAll('.filter-chip').forEach(b => {
         b.classList.toggle('active', b.dataset.cat === 'all');
       });
       applyFilters();
     });
-    $('loadMoreWrap').style.display = 'none';
+    $('infiniteLoader').classList.add('hidden');
+    $('endOfResults').classList.remove('show');
     return;
   }
 
-  container.innerHTML = slice.map(renderBizCard).join('');
+  container.innerHTML = slice.map(renderProductCard).join('');
 
-  const hasMore = filteredBusinesses.length > visibleCount;
-  $('loadMoreWrap').style.display = hasMore ? 'block' : 'none';
-
-  if (hasMore) {
-    const remaining = filteredBusinesses.length - visibleCount;
-    $('loadMoreBtn').innerHTML = `<i class="fas fa-plus"></i> Load more (${remaining} remaining)`;
-  }
+  const hasMore = filteredProducts.length > visibleCount;
+  $('infiniteLoader').classList.toggle('hidden', !hasMore);
+  $('endOfResults').classList.toggle('show', !hasMore);
 }
 
-function renderBizCard(biz) {
-  const name = biz.businessName || biz.name || biz.slug;
-  const tagline = biz.tagline || biz.pageData?.business?.tagline || '';
-  const cat = getCategory(biz);
-  const location = getLocation(biz);
-  const logo = biz.logo || biz.pageData?.business?.logo || '';
-  const coverImg = biz.pageData?.hero?.slides?.[0]?.img || '';
-  const shop = hasShop(biz);
+function renderProductCard({ product, biz }) {
+  const bizName = biz.businessName || biz.name || biz.slug;
+  const bizLogo = biz.logo || biz.pageData?.business?.logo || '';
+  const initials = getInitials(bizName);
+  const currency = biz.pageData?.shop?.currency || 'KSh';
+  const price = formatPrice(product.price, currency);
+  const wasPrice = product.compareAtPrice && Number(product.compareAtPrice) > Number(product.price)
+    ? formatPrice(product.compareAtPrice, currency)
+    : '';
+  const img = product.img || product.image || product.imageUrl || '';
 
-  const logoHtml = logo
-    ? `<img src="${escapeHtml(logo)}" alt="${escapeHtml(name)}" onerror="this.parentElement.innerHTML='${escapeHtml(getInitials(name))}'">`
-    : escapeHtml(getInitials(name));
+  const imgHtml = img
+    ? `<img src="${escapeHtml(img)}" alt="${escapeHtml(product.name)}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'product-placeholder\\'><i class=\\'fas fa-box\\'></i></div>'">`
+    : `<div class="product-placeholder"><i class="fas fa-box"></i></div>`;
 
-  const coverHtml = coverImg
-    ? `<img src="${escapeHtml(coverImg)}" alt="" onerror="this.style.display='none';">`
-    : `<div class="biz-cover-placeholder"><i class="fas fa-store"></i></div>`;
+  const logoHtml = bizLogo
+    ? `<img src="${escapeHtml(bizLogo)}" alt="" onerror="this.parentElement.textContent='${escapeHtml(initials)}'">`
+    : escapeHtml(initials);
 
   const badges = [];
-  if (shop) {
-    badges.push('<span class="biz-mini-badge shop"><i class="fas fa-shopping-bag"></i> Shop</span>');
+  if (wasPrice) {
+    const pct = Math.round((1 - Number(product.price) / Number(product.compareAtPrice)) * 100);
+    badges.push(`<span class="product-badge">-${pct}%</span>`);
+  } else if (isNewProduct(product)) {
+    badges.push(`<span class="product-badge new">New</span>`);
   }
-  if (isFeatured(biz)) {
-    badges.push('<span class="biz-mini-badge featured"><i class="fas fa-star"></i> Featured</span>');
+  if (product.stock != null && product.stock > 0 && product.stock <= 5) {
+    badges.push(`<span class="product-badge low"><i class="fas fa-fire"></i> ${product.stock}</span>`);
   }
 
+  // ⬇️ DYNAMIC SHOP LINK — uses THIS business's slug
+  const href = shopUrl(biz.slug);
+
   return `
-    <a href="${businessUrl(biz.slug)}" class="biz-card ${shop ? 'has-shop' : ''}">
-      <div class="biz-cover">
-        ${coverHtml}
-        ${badges.length ? `<div class="biz-badge-row">${badges.join('')}</div>` : ''}
-        <div class="biz-logo">${logoHtml}</div>
+    <a href="${href}" class="product-card" title="View ${escapeHtml(bizName)}">
+      <div class="product-image">
+        ${imgHtml}
+        ${badges.join('')}
+        ${product.category ? `<span class="product-cat-badge">${escapeHtml(product.category)}</span>` : ''}
       </div>
-      <div class="biz-body">
-        <div class="biz-category">${escapeHtml(cat)}</div>
-        <div class="biz-name">${escapeHtml(name)}</div>
-        <div class="biz-tagline">${escapeHtml(tagline) || 'Explore this business on BrandInn'}</div>
-        ${location ? `
-          <div class="biz-location">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>${escapeHtml(location)}</span>
-          </div>
-        ` : ''}
+      <div class="product-body">
+        <div class="product-name">${escapeHtml(product.name)}</div>
+        <div class="product-price-row">
+          <span class="product-price">${escapeHtml(price)}</span>
+          ${wasPrice ? `<span class="product-price-was">${escapeHtml(wasPrice)}</span>` : ''}
+        </div>
+        <div class="product-shop">
+          <span class="product-shop-logo">${logoHtml}</span>
+          <span class="product-shop-name">${escapeHtml(bizName)}</span>
+        </div>
       </div>
     </a>
   `;
+}
+
+/* ═══════════════════ INFINITE SCROLL ═══════════════════ */
+function setupInfiniteScroll() {
+  const sentinel = $('infiniteLoader');
+
+  if (observer) observer.disconnect();
+
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      if (filteredProducts.length <= visibleCount) return;
+      // Load next batch
+      visibleCount += PAGE_SIZE;
+      renderProducts();
+    });
+  }, {
+    rootMargin: '400px 0px',
+    threshold: 0
+  });
+
+  observer.observe(sentinel);
 }
 
 /* ═══════════════════ SEARCH ═══════════════════ */
 function handleSearch(value) {
   currentSearch = value;
   applyFilters();
+
+  // Scroll to products on search
+  if (value.trim().length > 0) {
+    setTimeout(() => {
+      $('products')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
 }
 
 $('navSearchInput')?.addEventListener('input', (e) => {
-  $('heroSearchInput').value = e.target.value;
+  $('mainSearchInput').value = e.target.value;
   handleSearch(e.target.value);
 });
 
-$('heroSearchInput')?.addEventListener('input', (e) => {
+$('mainSearchInput')?.addEventListener('input', (e) => {
   $('navSearchInput').value = e.target.value;
   handleSearch(e.target.value);
 });
 
-$('heroSearchBtn')?.addEventListener('click', () => {
-  $('browseSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+$('searchBtn')?.addEventListener('click', () => {
+  $('products')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-$('mobileSearchFab')?.addEventListener('click', () => {
-  $('browseSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  setTimeout(() => {
-    $('heroSearchInput')?.focus();
-  }, 400);
-});
-
-document.querySelectorAll('[data-cat-link]').forEach(link => {
+document.querySelectorAll('[data-filter-link]').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
-    const cat = link.dataset.catLink;
-    const pill = document.querySelector(`.cat-pill[data-cat="${cat}"]`);
-    if (pill) {
-      pill.click();
-      $('browseSection')?.scrollIntoView({ behavior: 'smooth' });
+    const cat = link.dataset.filterLink;
+    const chip = document.querySelector(`.filter-chip[data-cat="${cat}"]`);
+    if (chip) {
+      chip.click();
+      $('products')?.scrollIntoView({ behavior: 'smooth' });
     }
   });
-});
-
-/* ═══════════════════ LOAD MORE ═══════════════════ */
-$('loadMoreBtn')?.addEventListener('click', () => {
-  visibleCount += PAGE_SIZE;
-  renderBusinesses();
-  updateBrowseSubtitle();
 });
 
 /* ═══════════════════ FOOTER YEAR ═══════════════════ */
 $('footerYear').textContent = new Date().getFullYear();
 
 /* ═══════════════════ BOOT ═══════════════════ */
-loadBusinesses();
+loadBusinesses().then(() => {
+  setupInfiniteScroll();
+});
 </script>
 </body>
 </html>
