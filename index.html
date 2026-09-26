@@ -642,6 +642,145 @@ body {
   transform: translateX(4px);
 }
 
+/* ═══════════════════ FEATURED PRODUCTS ═══════════════════ */
+.fp-card {
+  flex-shrink: 0;
+  width: 220px;
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.fp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: transparent;
+}
+
+.fp-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-alt);
+  overflow: hidden;
+}
+.fp-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.fp-card:hover .fp-image img {
+  transform: scale(1.06);
+}
+.fp-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  opacity: 0.3;
+  font-size: 2rem;
+}
+
+.fp-cat {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
+  color: var(--primary);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.fp-body {
+  padding: 0.9rem 0.9rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+.fp-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.2em;
+}
+.fp-price {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+.fp-biz {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-soft);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.fp-biz-logo {
+  width: 22px; height: 22px;
+  border-radius: 7px;
+  background: var(--primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  font-weight: 800;
+  color: var(--primary);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.fp-biz-logo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.fp-biz-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.fp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.9rem;
+  background: var(--bg-alt);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary);
+  transition: background 0.2s;
+}
+.fp-cta i {
+  transition: transform 0.2s;
+}
+.fp-card:hover .fp-cta {
+  background: var(--primary-bg);
+}
+.fp-card:hover .fp-cta i {
+  transform: translateX(4px);
+}
+
 /* ═══════════════════ BUSINESS GRID ═══════════════════ */
 .businesses-grid {
   display: grid;
@@ -1183,6 +1322,13 @@ body {
   .featured-cover { height: 130px; }
   .featured-name { font-size: 0.95rem; }
 
+  .fp-card { width: 170px; }
+  .fp-body { padding: 0.7rem 0.7rem 0.5rem; }
+  .fp-name { font-size: 0.78rem; }
+  .fp-price { font-size: 0.95rem; }
+  .fp-biz { font-size: 0.65rem; }
+  .fp-cta { font-size: 0.68rem; padding: 0.5rem 0.7rem; }
+
   .businesses-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
@@ -1210,6 +1356,7 @@ body {
 @media (max-width: 380px) {
   .businesses-grid { grid-template-columns: 1fr; }
   .biz-cover { height: 130px; }
+  .fp-card { width: 150px; }
 }
 </style>
 </head>
@@ -1229,7 +1376,7 @@ body {
     </a>
     <div class="nav-search">
       <i class="fas fa-search"></i>
-      <input type="text" id="navSearchInput" placeholder="Search businesses..." autocomplete="off">
+      <input type="text" id="navSearchInput" placeholder="Search businesses or products..." autocomplete="off">
     </div>
   </div>
   <div class="nav-right">
@@ -1251,7 +1398,7 @@ body {
     <p>Discover shops, restaurants, and services in your community. Browse, search, and connect directly with the businesses you love.</p>
     <div class="hero-search">
       <i class="fas fa-search"></i>
-      <input type="text" id="heroSearchInput" placeholder="Search by name, category, or location..." autocomplete="off">
+      <input type="text" id="heroSearchInput" placeholder="Search by name, product, category, or location..." autocomplete="off">
       <button type="button" id="heroSearchBtn">
         Search
       </button>
@@ -1294,6 +1441,27 @@ body {
     </div>
   </div>
   <div class="featured-scroll" id="featuredScroll">
+    <!-- Filled by JS -->
+  </div>
+</section>
+
+<!-- ═══════════════════ FEATURED PRODUCTS ═══════════════════ -->
+<section class="section" id="productsSection" style="display: none;">
+  <div class="section-head">
+    <div class="section-head-left">
+      <h2><i class="fas fa-shopping-bag"></i> Fresh from local shops</h2>
+      <p>The latest products added by businesses near you</p>
+    </div>
+    <div class="section-head-right">
+      <button class="scroll-btn" id="productsPrevBtn" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="scroll-btn" id="productsNextBtn" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+  <div class="featured-scroll" id="productsScroll">
     <!-- Filled by JS -->
   </div>
 </section>
@@ -1481,8 +1649,13 @@ const firebaseConfig = {
 };
 
 // ═══════════════════ SITE CONFIG ═══════════════════
-// All business pages live here:
 const BUSINESS_DOMAIN = 'https://brandinn-business.vercel.app';
+
+// ═══════════════════ SHOP / PRODUCTS CONFIG ═══════════════════
+const SHOP_MIN_PRODUCTS = 3;        // strict: min active products to count as a shop
+const FEATURED_PRODUCTS_LIMIT = 12; // how many latest products to show
+const FEATURED_PRODUCTS_MIN = 4;    // hide section if fewer than this
+const FEATURED_PRODUCTS_PER_BIZ = 3; // max products shown per business in the carousel
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -1530,11 +1703,6 @@ function getLocation(biz) {
     || '';
 }
 
-function hasShop(biz) {
-  const products = biz.pageData?.products;
-  return Array.isArray(products) && products.length > 0;
-}
-
 function isFeatured(biz) {
   const plan = (biz.plan || '').toLowerCase();
   return plan === 'premium' || plan === 'standard' || plan === 'complete_branding';
@@ -1547,6 +1715,35 @@ function isDiscoverable(biz) {
   if (status === 'suspended' || status === 'inactive') return false;
   if (!biz.businessName && !biz.name) return false;
   return true;
+}
+
+/* ═══════════════════ STRICT SHOP LOGIC ═══════════════════ */
+function isValidProduct(p) {
+  if (!p || typeof p !== 'object') return false;
+  if (p.active === false) return false;
+  if (!p.name || !String(p.name).trim()) return false;
+  if (p.price == null || p.price === '' || Number(p.price) < 0) return false;
+  return true;
+}
+
+function getActiveProducts(biz) {
+  const products = biz?.pageData?.products;
+  if (!Array.isArray(products)) return [];
+  return products.filter(isValidProduct);
+}
+
+/* Strict: shop must be enabled + enough valid products + at least one in stock or no stock field */
+function hasShop(biz) {
+  const shop = biz?.pageData?.shop;
+  if (!shop || shop.enabled !== true) return false;
+
+  const products = getActiveProducts(biz);
+  if (products.length < SHOP_MIN_PRODUCTS) return false;
+
+  const hasStockOrDigital = products.some(p =>
+    p.stock == null || Number(p.stock) > 0
+  );
+  return hasStockOrDigital;
 }
 
 /* ═══════════════════ BUSINESS URL ═══════════════════ */
@@ -1565,7 +1762,7 @@ async function loadBusinesses() {
       .filter(isDiscoverable);
 
     // ═══════════════════ SORT ORDER ═══════════════════
-    // 1. Businesses WITH shops first
+    // 1. Businesses WITH strict shops first
     // 2. Featured plans next
     // 3. Newest first
     list.sort((a, b) => {
@@ -1585,6 +1782,7 @@ async function loadBusinesses() {
     renderStats();
     renderCategories();
     renderFeatured();
+    renderFeaturedProducts();
     applyFilters();
 
   } catch (err) {
@@ -1648,7 +1846,6 @@ function renderCategories() {
     </button>
   `;
 
-  // Shops-only pill — shown first if there are shops
   if (shopCount > 0) {
     html += `
       <button class="cat-pill shop-only" data-cat="__shops__">
@@ -1682,12 +1879,11 @@ function renderCategories() {
   });
 }
 
-/* ═══════════════════ FEATURED ═══════════════════ */
+/* ═══════════════════ FEATURED BUSINESSES ═══════════════════ */
 function renderFeatured() {
   const featured = allBusinesses
     .filter(isFeatured)
     .sort((a, b) => {
-      // Featured shops first within the featured set
       const aShop = hasShop(a) ? 1 : 0;
       const bShop = hasShop(b) ? 1 : 0;
       return bShop - aShop;
@@ -1749,21 +1945,118 @@ function renderFeatured() {
   $('featuredNextBtn').addEventListener('click', () => scroll(1));
 }
 
+/* ═══════════════════ FEATURED PRODUCTS ═══════════════════ */
+function collectFeaturedProducts() {
+  const items = [];
+
+  allBusinesses.forEach(biz => {
+    if (!hasShop(biz)) return;
+
+    const products = getActiveProducts(biz);
+    products.forEach(p => {
+      items.push({
+        product: p,
+        biz,
+        ts: p.updatedAt || p.createdAt || 0
+      });
+    });
+  });
+
+  // Latest first
+  items.sort((a, b) => b.ts - a.ts);
+
+  // Per-business cap so one business doesn't dominate
+  const seen = {};
+  const diversified = [];
+  for (const item of items) {
+    const key = item.biz.slug;
+    seen[key] = (seen[key] || 0) + 1;
+    if (seen[key] <= FEATURED_PRODUCTS_PER_BIZ) {
+      diversified.push(item);
+    }
+    if (diversified.length >= FEATURED_PRODUCTS_LIMIT) break;
+  }
+
+  return diversified;
+}
+
+function formatPrice(price, currency) {
+  if (price == null || price === '') return '';
+  const n = Number(price);
+  if (!isFinite(n)) return String(price);
+  const c = currency || 'KSh';
+  return `${c} ${n.toLocaleString()}`;
+}
+
+function renderFeaturedProducts() {
+  const items = collectFeaturedProducts();
+
+  if (items.length < FEATURED_PRODUCTS_MIN) {
+    $('productsSection').style.display = 'none';
+    return;
+  }
+  $('productsSection').style.display = 'block';
+
+  const container = $('productsScroll');
+
+  container.innerHTML = items.map(({ product, biz }) => {
+    const bizName = biz.businessName || biz.name || biz.slug;
+    const bizLogo = biz.logo || biz.pageData?.business?.logo || '';
+    const initials = getInitials(bizName);
+    const price = formatPrice(product.price, biz.pageData?.shop?.currency || 'KSh');
+    const img = product.img || product.image || product.imageUrl || '';
+
+    const imgHtml = img
+      ? `<img src="${escapeHtml(img)}" alt="${escapeHtml(product.name)}" loading="lazy">`
+      : `<div class="fp-placeholder"><i class="fas fa-box"></i></div>`;
+
+    const logoHtml = bizLogo
+      ? `<img src="${escapeHtml(bizLogo)}" alt="" onerror="this.parentElement.textContent='${escapeHtml(initials)}'">`
+      : escapeHtml(initials);
+
+    return `
+      <a href="${businessUrl(biz.slug)}" class="fp-card" title="View ${escapeHtml(bizName)}">
+        <div class="fp-image">
+          ${imgHtml}
+          ${product.category ? `<span class="fp-cat">${escapeHtml(product.category)}</span>` : ''}
+        </div>
+        <div class="fp-body">
+          <div class="fp-name">${escapeHtml(product.name)}</div>
+          <div class="fp-price">${escapeHtml(price)}</div>
+          <div class="fp-biz">
+            <span class="fp-biz-logo">${logoHtml}</span>
+            <span class="fp-biz-name">${escapeHtml(bizName)}</span>
+          </div>
+        </div>
+        <div class="fp-cta">
+          <span>View store</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </a>
+    `;
+  }).join('');
+
+  const scroll = (dir) => {
+    container.scrollBy({ left: dir * 260, behavior: 'smooth' });
+  };
+  $('productsPrevBtn')?.addEventListener('click', () => scroll(-1));
+  $('productsNextBtn')?.addEventListener('click', () => scroll(1));
+}
+
 /* ═══════════════════ FILTERS ═══════════════════ */
 function applyFilters() {
   const q = currentSearch.toLowerCase().trim();
 
   filteredBusinesses = allBusinesses.filter(biz => {
-    // Special "Shops only" filter
     if (currentCategory === '__shops__') {
       if (!hasShop(biz)) return false;
     } else if (currentCategory !== 'all' && getCategory(biz) !== currentCategory) {
       return false;
     }
 
-    // Search filter
     if (q) {
-      const hay = [
+      // Build haystack including product names for shops
+      const haystackParts = [
         biz.businessName,
         biz.name,
         biz.tagline,
@@ -1771,7 +2064,17 @@ function applyFilters() {
         getCategory(biz),
         getLocation(biz),
         biz.slug
-      ].filter(Boolean).join(' ').toLowerCase();
+      ];
+
+      if (hasShop(biz)) {
+        getActiveProducts(biz).forEach(p => {
+          haystackParts.push(p.name);
+          if (p.category) haystackParts.push(p.category);
+          if (p.desc) haystackParts.push(p.desc);
+        });
+      }
+
+      const hay = haystackParts.filter(Boolean).join(' ').toLowerCase();
       if (!hay.includes(q)) return false;
     }
 
