@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>BrandInn Pages — Discover Local Businesses</title>
 
-<meta name="description" content="Discover local businesses on BrandInn Pages. Browse shops, restaurants, and services in your area.">
+<meta name="description" content="Discover local businesses near you. Browse shops, restaurants, and services on BrandInn Pages.">
 <meta name="theme-color" content="#7c3aed">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -422,12 +422,6 @@ body {
   border-color: var(--primary);
   color: white;
 }
-.scroll-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.scroll-btn:disabled:hover {
-  background: white;
-  border-color: var(--border);
-  color: var(--text-soft);
-}
 
 /* ═══════════════════ CATEGORY PILLS ═══════════════════ */
 .categories-scroll {
@@ -725,7 +719,6 @@ body {
 }
 .biz-mini-badge.shop { color: #059669; }
 .biz-mini-badge.featured { color: var(--gold); }
-.biz-mini-badge.new { color: var(--primary); }
 
 .biz-body {
   padding: 1.9rem 1rem 1rem;
@@ -781,7 +774,7 @@ body {
   text-overflow: ellipsis;
 }
 
-/* ═══════════════════ LOADING SKELETONS ═══════════════════ */
+/* ═══════════════════ SKELETONS ═══════════════════ */
 .skeleton {
   background: linear-gradient(90deg, var(--border-soft) 0%, #e9eef5 50%, var(--border-soft) 100%);
   background-size: 200% 100%;
@@ -1076,7 +1069,7 @@ body {
   color: var(--muted-light);
 }
 
-/* ═══════════════════ MOBILE FLOATING SEARCH ═══════════════════ */
+/* ═══════════════════ MOBILE FAB ═══════════════════ */
 .mobile-search-fab {
   display: none;
   position: fixed;
@@ -1132,10 +1125,7 @@ body {
   }
 
   .stats-strip { margin-top: -1.5rem; padding: 0 4%; }
-  .stats-grid {
-    padding: 1rem;
-    gap: 0.5rem;
-  }
+  .stats-grid { padding: 1rem; gap: 0.5rem; }
   .stat-value { font-size: 1.4rem; }
   .stat-label { font-size: 0.62rem; }
 
@@ -1200,13 +1190,9 @@ body {
     </div>
   </div>
   <div class="nav-right">
-    <a href="#list-business" class="nav-btn ghost">
-      <i class="fas fa-store"></i>
-      <span>List business</span>
-    </a>
-    <a href="/p/subscription.html" class="nav-btn primary">
-      <i class="fas fa-rocket"></i>
-      <span>Get started</span>
+    <a href="#browseSection" class="nav-btn ghost">
+      <i class="fas fa-compass"></i>
+      <span>Browse</span>
     </a>
   </div>
 </nav>
@@ -1269,7 +1255,7 @@ body {
   </div>
 </section>
 
-<!-- ═══════════════════ CATEGORIES + ALL BUSINESSES ═══════════════════ -->
+<!-- ═══════════════════ BROWSE ALL BUSINESSES ═══════════════════ -->
 <section class="section" id="browseSection">
   <div class="section-head">
     <div class="section-head-left">
@@ -1283,7 +1269,6 @@ body {
   </div>
 
   <div class="businesses-grid" id="businessesGrid">
-    <!-- Skeleton while loading -->
     <div class="skeleton-card">
       <div class="skeleton-cover"></div>
       <div class="skeleton-body">
@@ -1351,14 +1336,14 @@ body {
 <section class="cta-banner" id="list-business">
   <div class="cta-inner">
     <div class="cta-content">
-      <h2>Own a business?<br><span class="accent">Get discovered.</span></h2>
-      <p>Join hundreds of local businesses already connecting with customers on BrandInn Pages. Your own page, your own shop, real customers.</p>
+      <h2>Know a business that<br><span class="accent">should be here?</span></h2>
+      <p>Help your favourite local business get discovered. Send them our way — listing is free and takes minutes.</p>
       <div class="cta-buttons">
-        <a href="/p/subscription.html" class="cta-btn primary">
-          <i class="fas fa-rocket"></i> Get started
+        <a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I'd%20like%20to%20recommend%20a%20business" target="_blank" class="cta-btn primary">
+          <i class="fab fa-whatsapp"></i> Recommend a business
         </a>
-        <a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I'd%20like%20to%20list%20my%20business" target="_blank" class="cta-btn secondary">
-          <i class="fab fa-whatsapp"></i> Talk to us
+        <a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I%20own%20a%20business%20and%20would%20like%20to%20list%20it" target="_blank" class="cta-btn secondary">
+          <i class="fas fa-store"></i> List my business
         </a>
       </div>
     </div>
@@ -1376,7 +1361,7 @@ body {
         <span class="footer-brand-text">BrandInn Pages</span>
       </div>
       <p class="footer-description">
-        Discover and support local businesses in your community. Every business gets a professional page and online shop.
+        Discover and support local businesses in your community. Every business gets a professional page and online presence.
       </p>
       <div class="footer-socials">
         <a href="#" class="footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1400,9 +1385,8 @@ body {
     <div class="footer-col">
       <h4>For business</h4>
       <ul>
-        <li><a href="/p/subscription.html">Get started</a></li>
-        <li><a href="/p/subscription.html">Pricing</a></li>
-        <li><a href="/p/dashboard.html">Dashboard</a></li>
+        <li><a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I%20own%20a%20business%20and%20would%20like%20to%20list%20it" target="_blank">List your business</a></li>
+        <li><a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I'd%20like%20to%20know%20more%20about%20your%20services" target="_blank">Contact us</a></li>
         <li><a href="https://wa.me/254727211191" target="_blank">Support</a></li>
       </ul>
     </div>
@@ -1413,7 +1397,6 @@ body {
         <li><a href="#">About</a></li>
         <li><a href="#">Privacy</a></li>
         <li><a href="#">Terms</a></li>
-        <li><a href="https://wa.me/254727211191" target="_blank">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -1454,12 +1437,16 @@ const firebaseConfig = {
   appId: "1:1024868637509:web:321faecddce8f11d9cfc2c"
 };
 
+// ═══════════════════ SITE CONFIG ═══════════════════
+// All business pages live here:
+const BUSINESS_DOMAIN = 'https://brandinn-business.vercel.app';
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 /* ═══════════════════ STATE ═══════════════════ */
-let allBusinesses = [];           // all loaded
-let filteredBusinesses = [];      // filtered by category + search
+let allBusinesses = [];
+let filteredBusinesses = [];
 let currentCategory = 'all';
 let currentSearch = '';
 let visibleCount = 0;
@@ -1481,7 +1468,6 @@ function getInitials(name) {
 }
 
 function getCategory(biz) {
-  // Try business.category first, then pageData.business.category, then infer from industry
   const raw = biz.category
     || biz.pageData?.business?.category
     || biz.industry
@@ -1489,7 +1475,6 @@ function getCategory(biz) {
     || 'Other';
   const str = String(raw).trim();
   if (!str) return 'Other';
-  // Capitalize first letter
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
@@ -1508,21 +1493,22 @@ function hasShop(biz) {
 }
 
 function isFeatured(biz) {
-  // Featured = premium or standard plan
   const plan = (biz.plan || '').toLowerCase();
   return plan === 'premium' || plan === 'standard' || plan === 'complete_branding';
 }
 
 function isDiscoverable(biz) {
-  // Exclude internal/admin businesses
   const excluded = ['iammugera', 'the-heritage', 'epitome', 'luczai'];
   if (excluded.includes(biz.slug)) return false;
-  // Exclude suspended/inactive
   const status = (biz.status || 'active').toLowerCase();
   if (status === 'suspended' || status === 'inactive') return false;
-  // Must have a business name
   if (!biz.businessName && !biz.name) return false;
   return true;
+}
+
+/* ═══════════════════ BUSINESS URL ═══════════════════ */
+function businessUrl(slug) {
+  return `${BUSINESS_DOMAIN}/p/${encodeURIComponent(slug)}.html`;
 }
 
 /* ═══════════════════ DATA LOAD ═══════════════════ */
@@ -1531,12 +1517,10 @@ async function loadBusinesses() {
     const snap = await get(ref(db, 'brandinn_subdomains'));
     const data = snap.val() || {};
 
-    // Build array
     const list = Object.entries(data)
       .map(([slug, b]) => ({ slug, ...b }))
       .filter(isDiscoverable);
 
-    // Sort: featured first, then by createdAt desc
     list.sort((a, b) => {
       const aFeat = isFeatured(a) ? 1 : 0;
       const bFeat = isFeatured(b) ? 1 : 0;
@@ -1624,7 +1608,6 @@ function renderCategories() {
 
   container.innerHTML = html;
 
-  // Click handlers
   container.querySelectorAll('.cat-pill').forEach(btn => {
     btn.addEventListener('click', () => {
       container.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
@@ -1649,12 +1632,11 @@ function renderFeatured() {
     const name = biz.businessName || biz.name || biz.slug;
     const tagline = biz.tagline || biz.pageData?.business?.tagline || '';
     const cat = getCategory(biz);
-    const location = getLocation(biz);
     const logo = biz.logo || biz.pageData?.business?.logo || '';
     const coverImg = biz.pageData?.hero?.slides?.[0]?.img || '';
     const shopBadge = hasShop(biz) ? '<span class="featured-chip shop"><i class="fas fa-shopping-bag"></i> Shop</span>' : '';
     const plan = (biz.plan || 'basic').toLowerCase();
-    const planLabel = plan === 'premium' ? 'Premium' : plan === 'standard' || plan === 'complete_branding' ? 'Featured' : 'Featured';
+    const planLabel = plan === 'premium' ? 'Premium' : 'Featured';
 
     const logoHtml = logo
       ? `<img src="${escapeHtml(logo)}" alt="${escapeHtml(name)}" onerror="this.parentElement.innerHTML='${escapeHtml(getInitials(name))}'">`
@@ -1665,7 +1647,7 @@ function renderFeatured() {
       : '';
 
     return `
-      <a href="/p/${escapeHtml(biz.slug)}.html" class="featured-card">
+      <a href="${businessUrl(biz.slug)}" class="featured-card">
         <div class="featured-cover">
           ${coverHtml}
           <span class="featured-badge"><i class="fas fa-star"></i> ${planLabel}</span>
@@ -1687,7 +1669,6 @@ function renderFeatured() {
     `;
   }).join('');
 
-  // Scroll buttons
   const scroll = (dir) => {
     container.scrollBy({ left: dir * 340, behavior: 'smooth' });
   };
@@ -1700,10 +1681,8 @@ function applyFilters() {
   const q = currentSearch.toLowerCase().trim();
 
   filteredBusinesses = allBusinesses.filter(biz => {
-    // Category
     if (currentCategory !== 'all' && getCategory(biz) !== currentCategory) return false;
 
-    // Search
     if (q) {
       const hay = [
         biz.businessName,
@@ -1773,7 +1752,6 @@ function renderBusinesses() {
 
   container.innerHTML = slice.map(renderBizCard).join('');
 
-  // Show/hide load more
   const hasMore = filteredBusinesses.length > visibleCount;
   $('loadMoreWrap').style.display = hasMore ? 'block' : 'none';
 
@@ -1808,7 +1786,7 @@ function renderBizCard(biz) {
   }
 
   return `
-    <a href="/p/${escapeHtml(biz.slug)}.html" class="biz-card">
+    <a href="${businessUrl(biz.slug)}" class="biz-card">
       <div class="biz-cover">
         ${coverHtml}
         ${badges.length ? `<div class="biz-badge-row">${badges.join('')}</div>` : ''}
@@ -1835,25 +1813,20 @@ function handleSearch(value) {
   applyFilters();
 }
 
-// Nav search (desktop)
 $('navSearchInput')?.addEventListener('input', (e) => {
-  // Sync with hero input
   $('heroSearchInput').value = e.target.value;
   handleSearch(e.target.value);
 });
 
-// Hero search
 $('heroSearchInput')?.addEventListener('input', (e) => {
   $('navSearchInput').value = e.target.value;
   handleSearch(e.target.value);
 });
 
 $('heroSearchBtn')?.addEventListener('click', () => {
-  // Scroll to browse section
   $('browseSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// Mobile FAB
 $('mobileSearchFab')?.addEventListener('click', () => {
   $('browseSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => {
@@ -1861,7 +1834,6 @@ $('mobileSearchFab')?.addEventListener('click', () => {
   }, 400);
 });
 
-// Footer category links
 document.querySelectorAll('[data-cat-link]').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
