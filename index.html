@@ -1646,16 +1646,13 @@ const firebaseConfig = {
   appId: "1:1024868637509:web:321faecddce8f11d9cfc2c"
 };
 
-// ═══════════════════ SITE CONFIG ═══════════════════
 const BUSINESS_DOMAIN = 'https://brandinn-business.vercel.app';
 
-// ═══════════════════ SHOP / PRODUCTS CONFIG ═══════════════════
-// TUNED FOR CURRENT DATA: two active shops (Best Furniture 12 products,
-// IAM MUGERA 1 product). Set SHOP_MIN_PRODUCTS = 1 so both count.
-const SHOP_MIN_PRODUCTS = 1;          // min active products to count as a shop
-const FEATURED_PRODUCTS_LIMIT = 12;   // max products in the carousel
-const FEATURED_PRODUCTS_MIN = 3;      // hide section if fewer than this
-const FEATURED_PRODUCTS_PER_BIZ = 3;  // max products shown per business
+/* ═══════════════════ SHOP CONFIG ═══════════════════ */
+const SHOP_MIN_PRODUCTS = 1;
+const FEATURED_PRODUCTS_LIMIT = 12;
+const FEATURED_PRODUCTS_MIN = 1;   // show if at least 1 product
+const FEATURED_PRODUCTS_PER_BIZ = 3;
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -1717,7 +1714,7 @@ function isDiscoverable(biz) {
   return true;
 }
 
-/* ═══════════════════ STRICT SHOP LOGIC ═══════════════════ */
+/* ═══════════════════ SHOP / PRODUCT LOGIC ═══════════════════ */
 function isValidProduct(p) {
   if (!p || typeof p !== 'object') return false;
   if (p.active === false) return false;
@@ -1735,10 +1732,8 @@ function getActiveProducts(biz) {
 function hasShop(biz) {
   const shop = biz?.pageData?.shop;
   if (!shop || shop.enabled !== true) return false;
-
   const products = getActiveProducts(biz);
   if (products.length < SHOP_MIN_PRODUCTS) return false;
-
   const hasStockOrDigital = products.some(p =>
     p.stock == null || Number(p.stock) > 0
   );
@@ -1750,16 +1745,52 @@ function businessUrl(slug) {
   return `${BUSINESS_DOMAIN}/p/${encodeURIComponent(slug)}.html`;
 }
 
-/* ═══════════════════ DATA LOAD ═══════════════════ */
+/* ═══════════════════ DATA LOAD (MERGED) ═══════════════════ */
 async function loadBusinesses() {
   try {
-    const snap = await get(ref(db, 'brandinn_subdomains'));
-    const data = snap.val() || {};
+    // Fetch both nodes in parallel — this is the critical fix
+    const [subsSnap, usersSnap] = await Promise.all([
+      get(ref(db, 'brandinn_subdomains')),
+      get(ref(db, 'brandinn_users'))
+    ]);
 
-    const list = Object.entries(data)
-      .map(([slug, b]) => ({ slug, ...b }))
+    const subsData = subsSnap.val() || {};
+    const usersData = usersSnap.val() || {};
+
+    // Build uid → user record map
+    const usersByUid = {};
+    Object.values(usersData).forEach(u => {
+      if (u && u.uid) usersByUid[u.uid] = u;
+    });
+
+    // Merge: pull products + shop + pageData from brandinn_users[uid]
+    const list = Object.entries(subsData)
+      .map(([slug, b]) => {
+        const merged = { slug, ...b };
+        const user = usersByUid[merged.uid];
+
+        if (user?.pageData) {
+          merged.pageData = merged.pageData || {};
+
+          // Products + shop are the critical ones
+          if (user.pageData.products) {
+            merged.pageData.products = user.pageData.products;
+          }
+          if (user.pageData.shop) {
+            merged.pageData.shop = user.pageData.shop;
+          }
+          // Fill in other pageData if missing on the subdomain
+          ['business', 'contact', 'hero', 'social', 'services', 'offers'].forEach(k => {
+            if (!merged.pageData[k] && user.pageData[k]) {
+              merged.pageData[k] = user.pageData[k];
+            }
+          });
+        }
+        return merged;
+      })
       .filter(isDiscoverable);
 
+    // Sort: strict shops first, then featured, then newest
     list.sort((a, b) => {
       const aShop = hasShop(a) ? 1 : 0;
       const bShop = hasShop(b) ? 1 : 0;
@@ -1946,7 +1977,6 @@ function collectFeaturedProducts() {
 
   allBusinesses.forEach(biz => {
     if (!hasShop(biz)) return;
-
     const products = getActiveProducts(biz);
     products.forEach(p => {
       items.push({
@@ -1959,7 +1989,6 @@ function collectFeaturedProducts() {
 
   items.sort((a, b) => b.ts - a.ts);
 
-  // Per-business cap so one business doesn't dominate
   const seen = {};
   const diversified = [];
   for (const item of items) {
@@ -1985,11 +2014,10 @@ function formatPrice(price, currency) {
 function renderFeaturedProducts() {
   const items = collectFeaturedProducts();
 
-  // Debug logging so you can see what's happening in the console
   console.log('[BrandInn] Featured products collected:', items.length, items.map(i => i.product.name));
 
   if (items.length < FEATURED_PRODUCTS_MIN) {
-    console.warn(`[BrandInn] Hiding products section: only ${items.length} products (need ${FEATURED_PRODUCTS_MIN})`);
+    console.warn(`[BrandInn] Hiding products section: only ${items.length} products`);
     $('productsSection').style.display = 'none';
     return;
   }
