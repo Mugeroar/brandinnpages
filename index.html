@@ -478,7 +478,6 @@ body {
 }
 .cat-pill.active .count { background: rgba(255,255,255,0.2); }
 
-/* Shop-only pill variant */
 .cat-pill.shop-only {
   border-color: #86efac;
   background: #f0fdf4;
@@ -808,7 +807,6 @@ body {
   border-color: var(--primary);
 }
 
-/* Highlight shop cards with a green accent */
 .biz-card.has-shop {
   border-color: rgba(5, 150, 105, 0.25);
 }
@@ -1652,10 +1650,12 @@ const firebaseConfig = {
 const BUSINESS_DOMAIN = 'https://brandinn-business.vercel.app';
 
 // ═══════════════════ SHOP / PRODUCTS CONFIG ═══════════════════
-const SHOP_MIN_PRODUCTS = 3;        // strict: min active products to count as a shop
-const FEATURED_PRODUCTS_LIMIT = 12; // how many latest products to show
-const FEATURED_PRODUCTS_MIN = 4;    // hide section if fewer than this
-const FEATURED_PRODUCTS_PER_BIZ = 3; // max products shown per business in the carousel
+// TUNED FOR CURRENT DATA: two active shops (Best Furniture 12 products,
+// IAM MUGERA 1 product). Set SHOP_MIN_PRODUCTS = 1 so both count.
+const SHOP_MIN_PRODUCTS = 1;          // min active products to count as a shop
+const FEATURED_PRODUCTS_LIMIT = 12;   // max products in the carousel
+const FEATURED_PRODUCTS_MIN = 3;      // hide section if fewer than this
+const FEATURED_PRODUCTS_PER_BIZ = 3;  // max products shown per business
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -1732,7 +1732,6 @@ function getActiveProducts(biz) {
   return products.filter(isValidProduct);
 }
 
-/* Strict: shop must be enabled + enough valid products + at least one in stock or no stock field */
 function hasShop(biz) {
   const shop = biz?.pageData?.shop;
   if (!shop || shop.enabled !== true) return false;
@@ -1761,10 +1760,6 @@ async function loadBusinesses() {
       .map(([slug, b]) => ({ slug, ...b }))
       .filter(isDiscoverable);
 
-    // ═══════════════════ SORT ORDER ═══════════════════
-    // 1. Businesses WITH strict shops first
-    // 2. Featured plans next
-    // 3. Newest first
     list.sort((a, b) => {
       const aShop = hasShop(a) ? 1 : 0;
       const bShop = hasShop(b) ? 1 : 0;
@@ -1962,7 +1957,6 @@ function collectFeaturedProducts() {
     });
   });
 
-  // Latest first
   items.sort((a, b) => b.ts - a.ts);
 
   // Per-business cap so one business doesn't dominate
@@ -1991,7 +1985,11 @@ function formatPrice(price, currency) {
 function renderFeaturedProducts() {
   const items = collectFeaturedProducts();
 
+  // Debug logging so you can see what's happening in the console
+  console.log('[BrandInn] Featured products collected:', items.length, items.map(i => i.product.name));
+
   if (items.length < FEATURED_PRODUCTS_MIN) {
+    console.warn(`[BrandInn] Hiding products section: only ${items.length} products (need ${FEATURED_PRODUCTS_MIN})`);
     $('productsSection').style.display = 'none';
     return;
   }
@@ -2055,7 +2053,6 @@ function applyFilters() {
     }
 
     if (q) {
-      // Build haystack including product names for shops
       const haystackParts = [
         biz.businessName,
         biz.name,
