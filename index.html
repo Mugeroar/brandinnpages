@@ -1149,7 +1149,6 @@ body {
 <!-- ═══════════════════ HERO CAROUSEL ═══════════════════ -->
 <header class="hero-carousel" id="heroCarousel">
   <div class="hero-slides" id="heroSlides">
-    <!-- Slides injected by JS -->
     <div class="hero-slide active">
       <div class="hero-slide-bg" style="background-image: linear-gradient(135deg, #7c3aed, #a855f7);"></div>
       <div class="hero-slide-overlay"></div>
@@ -1197,7 +1196,6 @@ body {
   </div>
 
   <div class="products-grid" id="productsGrid">
-    <!-- Skeleton placeholders -->
     <div class="skeleton-card">
       <div class="skeleton-image"></div>
       <div class="skeleton-body">
@@ -1369,18 +1367,17 @@ const firebaseConfig = {
 // ═══════════════════ SITE CONFIG ═══════════════════
 const BUSINESS_DOMAIN = 'https://brandinn-business.vercel.app';
 
-// Strict shop: shop enabled + at least 1 valid product
 const SHOP_MIN_PRODUCTS = 1;
-const HERO_SLIDE_COUNT = 6;         // max featured slides
+const HERO_SLIDE_COUNT = 6;
 const HERO_AUTOPLAY_MS = 6000;
-const PAGE_SIZE = 12;               // products per infinite-scroll batch
+const PAGE_SIZE = 12;
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 /* ═══════════════════ STATE ═══════════════════ */
-let allBusinesses = [];             // merged businesses with products + shop
-let allProducts = [];               // flat list of { product, biz }
+let allBusinesses = [];
+let allProducts = [];
 let filteredProducts = [];
 let currentCategory = 'all';
 let currentSearch = '';
@@ -1455,10 +1452,14 @@ function hasShop(biz) {
   return hasStockOrDigital;
 }
 
-/* ═══════════════════ DYNAMIC SHOP URL ═══════════════════ */
-// Every product links to its OWN business shop — dynamic slug
-function shopUrl(slug) {
-  return `${BUSINESS_DOMAIN}/p/shop.html?slug=${encodeURIComponent(slug)}`;
+/* ═══════════════════ DYNAMIC SHOP URL (deep-link to product) ═══════════════════ */
+// Builds: https://brandinn-business.vercel.app/p/shop.html?slug=X&product=Y
+// The shop page reads ?product=Y and auto-opens that product's modal.
+function shopUrl(slug, productId) {
+  const base = `${BUSINESS_DOMAIN}/p/shop.html?slug=${encodeURIComponent(slug)}`;
+  return productId
+    ? `${base}&product=${encodeURIComponent(productId)}`
+    : base;
 }
 
 /* ═══════════════════ FORMAT HELPERS ═══════════════════ */
@@ -1492,7 +1493,6 @@ async function loadBusinesses() {
       if (u && u.uid) usersByUid[u.uid] = u;
     });
 
-    // Merge pageData from brandinn_users[uid] into each subdomain
     const list = Object.entries(subsData)
       .map(([slug, b]) => {
         const merged = { slug, ...b };
@@ -1519,7 +1519,6 @@ async function loadBusinesses() {
 
     allBusinesses = list;
 
-    // Build flat product list — one entry per (product, business)
     allProducts = [];
     list.forEach(biz => {
       if (!hasShop(biz)) return;
@@ -1532,7 +1531,6 @@ async function loadBusinesses() {
       });
     });
 
-    // Sort newest first
     allProducts.sort((a, b) => b.ts - a.ts);
 
     console.log('[BrandInn] Businesses:', list.length);
@@ -1560,7 +1558,6 @@ async function loadBusinesses() {
 
 /* ═══════════════════ HERO CAROUSEL ═══════════════════ */
 function renderHeroCarousel() {
-  // Pick featured businesses (or fall back to any with a shop)
   const featured = allBusinesses
     .filter(b => isFeatured(b) || hasShop(b))
     .sort((a, b) => {
@@ -1574,10 +1571,7 @@ function renderHeroCarousel() {
     })
     .slice(0, HERO_SLIDE_COUNT);
 
-  if (featured.length === 0) {
-    // Keep the fallback welcome slide
-    return;
-  }
+  if (featured.length === 0) return;
 
   const container = $('heroSlides');
   const dotsContainer = $('heroDots');
@@ -1691,12 +1685,10 @@ function bindHeroControls() {
     });
   });
 
-  // Pause on hover
   const carousel = $('heroCarousel');
   carousel?.addEventListener('mouseenter', stopHeroAutoplay);
   carousel?.addEventListener('mouseleave', startHeroAutoplay);
 
-  // Touch swipe
   let touchStartX = 0;
   carousel?.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
@@ -1774,12 +1766,10 @@ function applyFilters() {
   const q = currentSearch.toLowerCase().trim();
 
   filteredProducts = allProducts.filter(({ product, biz }) => {
-    // Category filter
     if (currentCategory !== 'all' && getCategory(biz) !== currentCategory) {
       return false;
     }
 
-    // Search filter
     if (q) {
       const hay = [
         product.name,
@@ -1897,11 +1887,11 @@ function renderProductCard({ product, biz }) {
     badges.push(`<span class="product-badge low"><i class="fas fa-fire"></i> ${product.stock}</span>`);
   }
 
-  // ⬇️ DYNAMIC SHOP LINK — uses THIS business's slug
-  const href = shopUrl(biz.slug);
+  // ⬇️ DEEP LINK: goes straight to this product in its business's shop
+  const href = shopUrl(biz.slug, product.id);
 
   return `
-    <a href="${href}" class="product-card" title="View ${escapeHtml(bizName)}">
+    <a href="${href}" class="product-card" title="View ${escapeHtml(product.name)} at ${escapeHtml(bizName)}">
       <div class="product-image">
         ${imgHtml}
         ${badges.join('')}
@@ -1932,7 +1922,6 @@ function setupInfiniteScroll() {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       if (filteredProducts.length <= visibleCount) return;
-      // Load next batch
       visibleCount += PAGE_SIZE;
       renderProducts();
     });
@@ -1949,7 +1938,6 @@ function handleSearch(value) {
   currentSearch = value;
   applyFilters();
 
-  // Scroll to products on search
   if (value.trim().length > 0) {
     setTimeout(() => {
       $('products')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
