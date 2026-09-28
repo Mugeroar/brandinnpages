@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>BrandInn Business — Get your business online</title>
 
-<meta name="description" content="BrandInn Business gives every business a professional page and online shop. Free to start.">
+<meta name="description" content="Get a professional page and online shop for your business in minutes.">
 <meta name="theme-color" content="#2563eb">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -32,16 +32,14 @@
   --blue-600: #2563eb;
   --blue-700: #1d4ed8;
   --blue-800: #1e40af;
-  --blue-900: #1e3a8a;
 
-  --accent:   #06b6d4;
+  --accent: #06b6d4;
   --accent-light: #22d3ee;
 
-  --pink:   #ec4899;
-  --amber:  #f59e0b;
-  --green:  #10b981;
-  --green-dark: #047857;
+  --green: #10b981;
+  --amber: #f59e0b;
   --purple: #8b5cf6;
+  --pink: #ec4899;
   --orange: #f97316;
 
   --text:       #0f172a;
@@ -111,100 +109,56 @@ input, textarea, select { font-family: inherit; }
   align-items: center;
   gap: 1rem;
 }
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
+.nav-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-brand-logo {
-  width: 38px;
-  height: 38px;
+  width: 38px; height: 38px;
   border-radius: 11px;
   background: linear-gradient(135deg, var(--blue-600), var(--accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1rem;
   box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.4);
   overflow: hidden;
 }
 .nav-brand-logo img { width: 100%; height: 100%; object-fit: cover; }
-.nav-brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-.nav-brand-text strong {
-  font-weight: 800;
-  font-size: 1rem;
-  letter-spacing: -0.02em;
-}
-.nav-brand-text span {
-  font-size: 0.68rem;
-  color: var(--muted);
-  font-weight: 600;
-}
+.nav-brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.nav-brand-text strong { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; }
+.nav-brand-text span { font-size: 0.68rem; color: var(--muted); font-weight: 600; }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
+.nav-links { display: flex; gap: 1.8rem; align-items: center; }
 .nav-links a {
   color: var(--text-soft);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--blue-600); }
 
-.nav-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
+.nav-actions { display: flex; gap: 10px; align-items: center; }
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex; align-items: center; justify-content: center;
   gap: 8px;
   padding: 0.7rem 1.4rem;
   border-radius: var(--radius-full);
-  font-weight: 700;
-  font-size: 0.88rem;
+  font-weight: 700; font-size: 0.88rem;
   transition: all 0.2s;
   white-space: nowrap;
   font-family: inherit;
-  cursor: pointer;
-  border: none;
+  cursor: pointer; border: none;
 }
 .btn-primary {
   background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
   color: white;
   box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.35);
 }
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-blue);
-}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-blue); }
 .btn-outline {
   background: white;
   color: var(--blue-600);
   border: 1.5px solid var(--blue-200);
 }
-.btn-outline:hover {
-  background: var(--blue-50);
-  border-color: var(--blue-400);
-}
-.btn-lg {
-  padding: 0.95rem 1.8rem;
-  font-size: 0.95rem;
-}
-.btn-block { width: 100%; }
+.btn-outline:hover { background: var(--blue-50); border-color: var(--blue-400); }
+.btn-lg { padding: 0.95rem 1.8rem; font-size: 0.95rem; }
 
 /* ═══════════════════ HERO ═══════════════════ */
 .hero {
@@ -226,15 +180,12 @@ input, textarea, select { font-family: inherit; }
 }
 
 .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-flex; align-items: center; gap: 8px;
   background: var(--blue-50);
   color: var(--blue-700);
   padding: 0.4rem 0.95rem;
   border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin-bottom: 1.4rem;
@@ -244,11 +195,10 @@ input, textarea, select { font-family: inherit; }
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: 3.4rem;
-  font-weight: 700;
+  font-size: 3.2rem; font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.05;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.2rem;
   color: var(--text);
 }
 .hero h1 .accent {
@@ -260,50 +210,20 @@ input, textarea, select { font-family: inherit; }
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.02rem;
   color: var(--text-soft);
-  max-width: 560px;
+  max-width: 500px;
   margin-bottom: 2rem;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-.hero-trust {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-soft);
-}
-.hero-trust-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  color: var(--muted);
-  font-weight: 600;
-}
-.hero-trust-item i {
-  color: var(--green);
-  font-size: 0.85rem;
-}
+.hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
 /* Hero visual */
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
+.hero-visual { position: relative; display: flex; justify-content: center; }
 
 .hero-mock {
-  width: 100%;
-  max-width: 420px;
+  width: 100%; max-width: 400px;
   background: white;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
@@ -317,53 +237,40 @@ input, textarea, select { font-family: inherit; }
 }
 
 .hero-mock-browser {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  display: flex; align-items: center; gap: 6px;
   padding: 12px 14px;
   background: var(--bg-alt);
   border-bottom: 1px solid var(--border-soft);
 }
-.hero-mock-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
+.hero-mock-dot { width: 10px; height: 10px; border-radius: 50%; }
 .hero-mock-dot.r { background: #ef4444; }
 .hero-mock-dot.y { background: #f59e0b; }
 .hero-mock-dot.g { background: #10b981; }
 .hero-mock-url {
-  margin-left: 8px;
-  flex: 1;
+  margin-left: 8px; flex: 1;
   background: white;
   border-radius: var(--radius-full);
   padding: 5px 12px;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--muted);
   font-weight: 600;
   border: 1px solid var(--border);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 
-.hero-mock-content { padding: 1.2rem; }
+.hero-mock-content { padding: 1.1rem; }
 
 .hero-mock-hero {
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, var(--blue-600), var(--accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   color: white;
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.4rem; font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
 }
 .hero-mock-hero::before {
   content: '';
@@ -375,35 +282,28 @@ input, textarea, select { font-family: inherit; }
 }
 
 .hero-mock-logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 52px; height: 52px;
+  border-radius: 15px;
   background: white;
   border: 3px solid white;
   box-shadow: var(--shadow-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -32px;
-  margin-left: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: -30px; margin-left: 12px;
   font-weight: 800;
   color: var(--blue-600);
-  font-size: 1.1rem;
-  position: relative;
-  z-index: 1;
+  font-size: 1rem;
+  position: relative; z-index: 1;
 }
 
 .hero-mock-name {
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 0.95rem; font-weight: 800;
   letter-spacing: -0.02em;
-  margin-top: 0.7rem;
-  margin-bottom: 0.2rem;
+  margin-top: 0.6rem; margin-bottom: 0.15rem;
 }
 .hero-mock-tagline {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--muted);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.8rem;
 }
 
 .hero-mock-grid {
@@ -411,55 +311,44 @@ input, textarea, select { font-family: inherit; }
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
-.hero-mock-product {
-  background: var(--bg-alt);
-  border-radius: var(--radius-sm);
-  padding: 8px;
-}
+.hero-mock-product { background: var(--bg-alt); border-radius: var(--radius-sm); padding: 8px; }
 .hero-mock-product-img {
   aspect-ratio: 1;
   background: linear-gradient(135deg, var(--blue-100), white);
   border-radius: 8px;
   margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   color: var(--blue-500);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 .hero-mock-product-name {
-  font-size: 0.68rem;
-  font-weight: 700;
+  font-size: 0.65rem; font-weight: 700;
   color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .hero-mock-product-price {
-  font-size: 0.75rem;
-  font-weight: 800;
+  font-size: 0.72rem; font-weight: 800;
   color: var(--blue-600);
   margin-top: 2px;
 }
 
 /* ═══════════════════ SECTIONS ═══════════════════ */
 .section {
-  padding: 5rem 5%;
+  padding: 4.5rem 5%;
   max-width: 1200px;
   margin: 0 auto;
 }
 .section-head {
   text-align: center;
-  max-width: 640px;
-  margin: 0 auto 3.5rem;
+  max-width: 560px;
+  margin: 0 auto 3rem;
 }
 .section-head h2 {
   font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.4rem; font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.8rem;
   color: var(--text);
 }
 .section-head h2 .accent {
@@ -470,57 +359,83 @@ input, textarea, select { font-family: inherit; }
   color: transparent;
 }
 .section-head p {
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   color: var(--text-soft);
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
-/* ═══════════════════ QUICK FEATURES ═══════════════════ */
-.features-grid {
+/* ═══════════════════ INDUSTRIES ═══════════════════ */
+.industries-section {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--white) 100%);
+  border-top: 1px solid var(--border-soft);
+}
+.industries-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
-.feature-card {
+.industry-card {
   background: white;
   border-radius: var(--radius-lg);
-  padding: 1.8rem;
+  padding: 1.6rem 1.4rem;
   border: 1px solid var(--border-soft);
   transition: all 0.3s;
 }
-.feature-card:hover {
+.industry-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--blue-200);
 }
-.feature-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--blue-50), var(--blue-100));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--blue-600);
-  font-size: 1.25rem;
-  margin-bottom: 1.1rem;
+.industry-icon {
+  width: 48px; height: 48px;
+  border-radius: 13px;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
 }
-.feature-card h3 {
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
+.industry-icon.food { background: linear-gradient(135deg, #f59e0b, #f97316); }
+.industry-icon.pharmacy { background: linear-gradient(135deg, #10b981, #059669); }
+.industry-icon.grocery { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+.industry-icon.fashion { background: linear-gradient(135deg, #ec4899, #f472b6); }
+.industry-icon.services { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+.industry-icon.retail { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+
+.industry-card h3 {
+  font-size: 1rem; font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
   color: var(--text);
 }
-.feature-card p {
-  font-size: 0.88rem;
+.industry-card p {
+  font-size: 0.82rem;
   color: var(--text-soft);
-  line-height: 1.6;
+  line-height: 1.5;
+  margin-bottom: 0.9rem;
+}
+.industry-features {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.45rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--border);
+}
+.industry-features li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 0.76rem;
+  color: var(--text-soft);
+  line-height: 1.4;
+}
+.industry-features li i {
+  color: var(--green);
+  font-size: 0.65rem;
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 
 /* ═══════════════════ DEEP DIVE ═══════════════════ */
 .deep-dive-section {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--white) 100%);
+  background: linear-gradient(180deg, var(--white) 0%, var(--bg) 100%);
   border-top: 1px solid var(--border-soft);
 }
 
@@ -529,39 +444,35 @@ input, textarea, select { font-family: inherit; }
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  padding: 4rem 0;
+  padding: 3.5rem 0;
   border-bottom: 1px solid var(--border-soft);
 }
 .deep-feature:last-of-type { border-bottom: none; }
 .deep-feature.reverse > .deep-feature-content { order: 2; }
 .deep-feature.reverse > .deep-feature-visual { order: 1; }
 
-.deep-feature-content { max-width: 520px; }
+.deep-feature-content { max-width: 460px; }
 
 .deep-feature-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-flex; align-items: center; gap: 8px;
   background: var(--blue-50);
   color: var(--blue-700);
-  padding: 0.35rem 0.85rem;
+  padding: 0.32rem 0.8rem;
   border-radius: var(--radius-full);
-  font-size: 0.68rem;
-  font-weight: 800;
+  font-size: 0.66rem; font-weight: 800;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   border: 1px solid var(--blue-100);
 }
-.deep-feature-tag i { color: var(--accent); font-size: 0.7rem; }
+.deep-feature-tag i { color: var(--accent); font-size: 0.68rem; }
 
 .deep-feature h3 {
   font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.8rem; font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   color: var(--text);
 }
 .deep-feature h3 .accent {
@@ -573,87 +484,66 @@ input, textarea, select { font-family: inherit; }
 }
 
 .deep-feature-desc {
-  font-size: 1rem;
+  font-size: 0.92rem;
   color: var(--text-soft);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
 }
 
 .deep-feature-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
 }
 .deep-feature-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 0.9rem;
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.84rem;
   color: var(--text-soft);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 .deep-feature-list li i {
-  width: 22px;
-  height: 22px;
-  border-radius: 7px;
+  width: 20px; height: 20px;
+  border-radius: 6px;
   background: linear-gradient(135deg, var(--blue-50), var(--blue-100));
   color: var(--blue-600);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.68rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.62rem;
   flex-shrink: 0;
   margin-top: 1px;
 }
-.deep-feature-list li strong { color: var(--text); font-weight: 700; }
 
 .deep-feature-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  display: flex; justify-content: center; align-items: center;
 }
 
 .deep-mock {
-  width: 100%;
-  max-width: 460px;
+  width: 100%; max-width: 440px;
   background: white;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-soft);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
-  position: relative;
 }
 
 .deep-mock-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  display: flex; align-items: center; gap: 6px;
   padding: 10px 14px;
   background: var(--bg-alt);
   border-bottom: 1px solid var(--border-soft);
 }
-.deep-mock-header .dot {
-  width: 9px; height: 9px;
-  border-radius: 50%;
-}
+.deep-mock-header .dot { width: 9px; height: 9px; border-radius: 50%; }
 .deep-mock-header .dot.r { background: #ef4444; }
 .deep-mock-header .dot.y { background: #f59e0b; }
 .deep-mock-header .dot.g { background: #10b981; }
 .deep-mock-header .url {
-  margin-left: 6px;
-  flex: 1;
+  margin-left: 6px; flex: 1;
   background: white;
   border-radius: var(--radius-full);
   padding: 4px 10px;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--muted);
   font-weight: 600;
   border: 1px solid var(--border);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 
 .deep-mock-body { padding: 1rem; }
@@ -662,53 +552,34 @@ input, textarea, select { font-family: inherit; }
   aspect-ratio: 3 / 1;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, var(--blue-600), var(--accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   color: white;
   font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.1rem; font-weight: 700;
   margin-bottom: 0.9rem;
-  position: relative;
-  overflow: hidden;
-}
-.mini-page-banner::before {
-  content: '';
-  position: absolute;
-  top: -50%; right: -20%;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
-  border-radius: 50%;
+  position: relative; overflow: hidden;
 }
 
 .mini-page-row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+  display: flex; gap: 12px; align-items: center;
   margin-bottom: 0.9rem;
 }
 .mini-page-logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 44px; height: 44px;
+  border-radius: 13px;
   background: linear-gradient(135deg, var(--blue-600), var(--accent));
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 0.95rem;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.9rem;
   flex-shrink: 0;
 }
 .mini-page-name {
-  font-size: 0.92rem;
-  font-weight: 800;
+  font-size: 0.88rem; font-weight: 800;
   color: var(--text);
   line-height: 1.2;
 }
 .mini-page-tagline {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--muted);
   margin-top: 2px;
 }
@@ -717,21 +588,20 @@ input, textarea, select { font-family: inherit; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
-  padding: 0.7rem 0;
+  padding: 0.65rem 0;
   border-top: 1px solid var(--border-soft);
   border-bottom: 1px solid var(--border-soft);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.85rem;
 }
 .mini-page-stat { text-align: center; }
 .mini-page-stat strong {
   display: block;
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-size: 0.85rem; font-weight: 800;
   color: var(--text);
   line-height: 1.1;
 }
 .mini-page-stat span {
-  font-size: 0.58rem;
+  font-size: 0.55rem;
   color: var(--muted);
   font-weight: 700;
   letter-spacing: 0.4px;
@@ -740,12 +610,11 @@ input, textarea, select { font-family: inherit; }
 
 .mini-page-btn {
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.65rem;
   border-radius: var(--radius-full);
   background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
   color: white;
-  font-size: 0.82rem;
-  font-weight: 800;
+  font-size: 0.78rem; font-weight: 800;
   text-align: center;
 }
 
@@ -763,30 +632,23 @@ input, textarea, select { font-family: inherit; }
 .mini-product-img {
   aspect-ratio: 1;
   background: linear-gradient(135deg, var(--blue-100), white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   color: var(--blue-500);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 .mini-product-info { padding: 8px 10px 10px; }
 .mini-product-name {
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.68rem; font-weight: 800;
   color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .mini-product-price {
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-size: 0.75rem; font-weight: 800;
   color: var(--blue-600);
   margin-top: 2px;
 }
 .mini-product-stock {
-  font-size: 0.6rem;
-  font-weight: 700;
+  font-size: 0.56rem; font-weight: 700;
   color: var(--green);
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -794,9 +656,7 @@ input, textarea, select { font-family: inherit; }
 }
 
 .mini-order {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: flex; align-items: center; gap: 12px;
   padding: 10px;
   background: var(--bg-alt);
   border-radius: var(--radius-md);
@@ -805,123 +665,31 @@ input, textarea, select { font-family: inherit; }
 }
 .mini-order:last-child { margin-bottom: 0; }
 .mini-order-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
+  width: 36px; height: 36px;
+  border-radius: 11px;
   background: linear-gradient(135deg, var(--green), #059669);
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
   flex-shrink: 0;
 }
 .mini-order-icon.amber { background: linear-gradient(135deg, var(--amber), #f97316); }
 .mini-order-icon.blue { background: linear-gradient(135deg, var(--blue-500), var(--blue-600)); }
 .mini-order-info { flex: 1; min-width: 0; }
 .mini-order-title {
-  font-size: 0.82rem;
-  font-weight: 800;
+  font-size: 0.78rem; font-weight: 800;
   color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .mini-order-meta {
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   color: var(--muted);
   margin-top: 2px;
 }
 .mini-order-amount {
-  font-size: 0.85rem;
-  font-weight: 800;
+  font-size: 0.8rem; font-weight: 800;
   color: var(--blue-600);
   flex-shrink: 0;
-}
-
-.mini-dashboard {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-bottom: 0.9rem;
-}
-.mini-stat-card {
-  background: var(--bg-alt);
-  border-radius: var(--radius-md);
-  padding: 0.8rem;
-  border: 1px solid var(--border-soft);
-}
-.mini-stat-label {
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-.mini-stat-value {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--text);
-  line-height: 1;
-}
-.mini-stat-trend {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--green);
-  margin-top: 4px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.mini-chart {
-  background: var(--bg-alt);
-  border-radius: var(--radius-md);
-  padding: 0.8rem;
-  border: 1px solid var(--border-soft);
-}
-.mini-chart-bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  height: 60px;
-}
-.mini-chart-bar {
-  flex: 1;
-  border-radius: 4px;
-  background: linear-gradient(180deg, var(--blue-500), var(--blue-600));
-  min-height: 8px;
-  transition: height 0.3s;
-}
-
-.mini-brand-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.mini-brand-item {
-  background: var(--bg-alt);
-  border-radius: var(--radius-md);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  aspect-ratio: 1;
-  border: 1px solid var(--border-soft);
-  text-align: center;
-}
-.mini-brand-item i {
-  font-size: 1.6rem;
-  color: var(--blue-600);
-}
-.mini-brand-item span {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--text-soft);
-  letter-spacing: 0.3px;
 }
 
 /* ═══════════════════ HOW IT WORKS ═══════════════════ */
@@ -934,75 +702,67 @@ input, textarea, select { font-family: inherit; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  position: relative;
 }
 .step { text-align: center; }
 .step-num {
-  width: 56px;
-  height: 56px;
+  width: 52px; height: 52px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--blue-600), var(--accent));
   color: white;
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.2rem;
+  font-size: 1.3rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
   box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.4);
 }
 .step h3 {
-  font-size: 1.05rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
+  font-size: 1rem; font-weight: 800;
+  margin-bottom: 0.4rem;
   color: var(--text);
 }
 .step p {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: var(--text-soft);
-  line-height: 1.6;
-  max-width: 300px;
+  line-height: 1.5;
+  max-width: 260px;
   margin: 0 auto;
 }
 
 /* ═══════════════════ INQUIRY FORM ═══════════════════ */
 .inquiry-section {
-  background: linear-gradient(180deg, var(--white) 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--white) 100%);
   border-top: 1px solid var(--border-soft);
 }
 
 .inquiry-wrapper {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  gap: 3.5rem;
   align-items: flex-start;
 }
 
-.inquiry-content { max-width: 460px; }
+.inquiry-content { max-width: 400px; }
+
 .inquiry-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-flex; align-items: center; gap: 8px;
   background: var(--blue-50);
   color: var(--blue-700);
   padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
-  font-size: 0.68rem;
-  font-weight: 800;
+  font-size: 0.68rem; font-weight: 800;
   letter-spacing: 0.6px;
   text-transform: uppercase;
   margin-bottom: 1.2rem;
   border: 1px solid var(--blue-100);
 }
 .inquiry-tag i { color: var(--accent); font-size: 0.7rem; }
+
 .inquiry-content h2 {
   font-family: var(--font-display);
-  font-size: 2.4rem;
-  font-weight: 700;
+  font-size: 2rem; font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 1rem;
+  line-height: 1.15;
+  margin-bottom: 0.9rem;
   color: var(--text);
 }
 .inquiry-content h2 .accent {
@@ -1013,104 +773,88 @@ input, textarea, select { font-family: inherit; }
   color: transparent;
 }
 .inquiry-content p {
-  font-size: 1rem;
+  font-size: 0.92rem;
   color: var(--text-soft);
-  line-height: 1.7;
-  margin-bottom: 2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
+
 .inquiry-perks {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
 }
 .inquiry-perks li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 0.9rem;
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.84rem;
   color: var(--text-soft);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 .inquiry-perks li i {
-  width: 22px;
-  height: 22px;
-  border-radius: 7px;
+  width: 20px; height: 20px;
+  border-radius: 6px;
   background: linear-gradient(135deg, #dcfce7, #bbf7d0);
   color: #166534;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.68rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.62rem;
   flex-shrink: 0;
   margin-top: 1px;
 }
 
-/* Form card */
 .inquiry-card {
   background: white;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
-  padding: 2rem;
+  padding: 1.8rem;
   position: sticky;
   top: 90px;
 }
 
 .inquiry-card-head {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-soft);
 }
 .inquiry-card-head h3 {
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: 1.2rem; font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 .inquiry-card-head p {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--muted);
-  line-height: 1.5;
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.form-group { margin-bottom: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-group { margin-bottom: 0.9rem; }
 
 .form-label {
   display: block;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.76rem; font-weight: 700;
   color: var(--text-soft);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 .form-label .req { color: #ef4444; }
 
 .input-wrap { position: relative; }
 .input-wrap > i {
   position: absolute;
-  left: 14px;
-  top: 50%;
+  left: 13px; top: 50%;
   transform: translateY(-50%);
   color: var(--muted-light);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   pointer-events: none;
 }
 .input-wrap input,
 .input-wrap textarea,
 .input-wrap select {
   width: 100%;
-  padding: 0.8rem 1rem 0.8rem 2.6rem;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-md);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   background: var(--bg-alt);
   color: var(--text);
   transition: all 0.2s;
@@ -1126,15 +870,15 @@ input, textarea, select { font-family: inherit; }
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
 }
 .input-wrap input::placeholder,
-.input-wrap textarea::placeholder {
-  color: var(--muted-light);
-}
+.input-wrap textarea::placeholder { color: var(--muted-light); }
+
 .input-wrap textarea {
   resize: vertical;
-  min-height: 80px;
-  padding-top: 0.8rem;
+  min-height: 65px;
+  padding-top: 0.75rem;
   line-height: 1.5;
 }
+
 .input-wrap select {
   cursor: pointer;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
@@ -1144,67 +888,39 @@ input, textarea, select { font-family: inherit; }
   padding-right: 2.5rem;
 }
 
-.form-hint {
-  font-size: 0.7rem;
-  color: var(--muted);
-  margin-top: 5px;
-  line-height: 1.4;
-  display: flex;
-  align-items: flex-start;
-  gap: 5px;
-}
-.form-hint i {
-  color: var(--blue-500);
-  font-size: 0.65rem;
-  margin-top: 3px;
-  flex-shrink: 0;
-}
-
 .btn-whatsapp-submit {
   width: 100%;
-  padding: 1rem 1.2rem;
+  padding: 0.95rem 1.2rem;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, #25d366, #1ea855);
   color: white;
-  font-size: 0.95rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 0.92rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
   gap: 10px;
   transition: all 0.2s;
   box-shadow: 0 12px 28px -8px rgba(37, 211, 102, 0.4);
-  border: none;
-  cursor: pointer;
+  border: none; cursor: pointer;
   font-family: inherit;
-  margin-top: 1.3rem;
+  margin-top: 1.1rem;
 }
 .btn-whatsapp-submit:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 36px -10px rgba(37, 211, 102, 0.5);
 }
-.btn-whatsapp-submit:active {
-  transform: translateY(0);
-}
-.btn-whatsapp-submit i {
-  font-size: 1.15rem;
-}
+.btn-whatsapp-submit i { font-size: 1.1rem; }
 
 .form-footer-note {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--muted);
   text-align: center;
-  margin-top: 0.9rem;
-  line-height: 1.5;
+  margin-top: 0.8rem;
+  line-height: 1.4;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
 }
-.form-footer-note i {
-  color: var(--green);
-  font-size: 0.7rem;
-}
+.form-footer-note i { color: var(--green); font-size: 0.68rem; }
 
 /* Validation */
 .form-group.has-error input,
@@ -1214,7 +930,7 @@ input, textarea, select { font-family: inherit; }
   background: #fef2f2;
 }
 .form-error {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: #dc2626;
   font-weight: 600;
   margin-top: 4px;
@@ -1224,52 +940,8 @@ input, textarea, select { font-family: inherit; }
 }
 .form-group.has-error .form-error { display: flex; }
 
-/* ═══════════════════ FAQ ═══════════════════ */
-.faq-list {
-  max-width: 780px;
-  margin: 0 auto;
-}
-.faq-item {
-  background: white;
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-md);
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.faq-item summary {
-  padding: 1.1rem 1.3rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  transition: background 0.15s;
-}
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary:hover { background: var(--bg-alt); }
-.faq-item summary::after {
-  content: '\f067';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  color: var(--blue-600);
-  font-size: 0.78rem;
-  transition: transform 0.25s;
-  flex-shrink: 0;
-  margin-left: 1rem;
-}
-.faq-item[open] summary::after { content: '\f068'; }
-.faq-item-body {
-  padding: 0 1.3rem 1.2rem;
-  font-size: 0.88rem;
-  color: var(--text-soft);
-  line-height: 1.65;
-}
-
 /* ═══════════════════ CTA ═══════════════════ */
-.cta-section { padding: 5rem 5%; }
+.cta-section { padding: 4.5rem 5%; }
 .cta-inner {
   max-width: 1000px;
   margin: 0 auto;
@@ -1278,7 +950,7 @@ input, textarea, select { font-family: inherit; }
     radial-gradient(circle at 85% 100%, rgba(6, 182, 212, 0.3), transparent 60%),
     linear-gradient(135deg, var(--blue-800), var(--blue-900));
   border-radius: var(--radius-xl);
-  padding: 4rem 2.5rem;
+  padding: 3.5rem 2.5rem;
   text-align: center;
   color: white;
   position: relative;
@@ -1293,80 +965,57 @@ input, textarea, select { font-family: inherit; }
   border-radius: 50%;
 }
 .cta-content {
-  position: relative;
-  z-index: 1;
-  max-width: 620px;
+  position: relative; z-index: 1;
+  max-width: 560px;
   margin: 0 auto;
 }
 .cta-content h2 {
   font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.2rem; font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
-.cta-content h2 .accent {
-  font-style: italic;
-  color: var(--accent-light);
-}
+.cta-content h2 .accent { font-style: italic; color: var(--accent-light); }
 .cta-content p {
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   opacity: 0.9;
-  margin-bottom: 2rem;
-  line-height: 1.65;
+  margin-bottom: 1.8rem;
+  line-height: 1.55;
 }
 .cta-actions {
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex; gap: 0.8rem;
+  justify-content: center; flex-wrap: wrap;
 }
 .cta-btn-primary {
-  background: white;
-  color: var(--blue-700);
-  padding: 0.95rem 1.8rem;
+  background: white; color: var(--blue-700);
+  padding: 0.9rem 1.7rem;
   border-radius: var(--radius-full);
-  font-weight: 800;
-  font-size: 0.92rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  font-weight: 800; font-size: 0.9rem;
+  display: inline-flex; align-items: center; gap: 8px;
   transition: all 0.2s;
-  border: none;
-  cursor: pointer;
+  border: none; cursor: pointer;
   font-family: inherit;
 }
-.cta-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px -8px rgba(255, 255, 255, 0.4);
-}
+.cta-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px rgba(255, 255, 255, 0.4); }
 .cta-btn-secondary {
-  background: rgba(255,255,255,0.1);
-  color: white;
-  padding: 0.95rem 1.8rem;
+  background: rgba(255,255,255,0.1); color: white;
+  padding: 0.9rem 1.7rem;
   border-radius: var(--radius-full);
-  font-weight: 800;
-  font-size: 0.92rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  font-weight: 800; font-size: 0.9rem;
+  display: inline-flex; align-items: center; gap: 8px;
   transition: all 0.2s;
   border: 1.5px solid rgba(255,255,255,0.25);
-  cursor: pointer;
-  font-family: inherit;
+  cursor: pointer; font-family: inherit;
   backdrop-filter: blur(8px);
 }
-.cta-btn-secondary:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
-}
+.cta-btn-secondary:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
 
 /* ═══════════════════ FOOTER ═══════════════════ */
 .footer {
   background: white;
   border-top: 1px solid var(--border-soft);
-  padding: 3rem 5% 2rem;
+  padding: 2.5rem 5% 1.8rem;
 }
 .footer-inner {
   max-width: 1200px;
@@ -1376,73 +1025,74 @@ input, textarea, select { font-family: inherit; }
   gap: 2rem;
 }
 .footer-col h4 {
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.76rem; font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 .footer-col ul {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  display: flex; flex-direction: column; gap: 0.55rem;
 }
 .footer-col a {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--muted);
   transition: color 0.2s;
 }
 .footer-col a:hover { color: var(--blue-600); }
 
 .footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 0.9rem;
 }
 .footer-brand-logo {
-  width: 34px;
-  height: 34px;
+  width: 34px; height: 34px;
   border-radius: 10px;
   background: linear-gradient(135deg, var(--blue-600), var(--accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 0.9rem;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 0.9rem;
   overflow: hidden;
 }
 .footer-brand-logo img { width: 100%; height: 100%; object-fit: cover; }
 .footer-brand-text {
-  font-weight: 800;
-  font-size: 1rem;
+  font-weight: 800; font-size: 0.95rem;
   letter-spacing: -0.02em;
   color: var(--text);
 }
 .footer-desc {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--muted);
-  line-height: 1.6;
-  max-width: 320px;
-  margin-bottom: 1.2rem;
+  line-height: 1.55;
+  max-width: 300px;
+  margin-bottom: 1rem;
 }
-.footer-socials {
+.footer-contact {
+  font-size: 0.8rem;
+  color: var(--muted);
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
 }
+.footer-contact a {
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.footer-contact a:hover { color: var(--blue-600); }
+.footer-contact i { font-size: 0.75rem; color: var(--blue-500); }
+
+.footer-socials { display: flex; gap: 8px; }
 .footer-social {
-  width: 36px;
-  height: 36px;
+  width: 34px; height: 34px;
   border-radius: 10px;
   background: var(--bg-alt);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   color: var(--muted);
   transition: all 0.2s;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 .footer-social:hover {
   background: var(--blue-600);
@@ -1451,15 +1101,15 @@ input, textarea, select { font-family: inherit; }
 }
 .footer-bottom {
   max-width: 1200px;
-  margin: 2.5rem auto 0;
-  padding-top: 1.5rem;
+  margin: 2rem auto 0;
+  padding-top: 1.3rem;
   border-top: 1px solid var(--border-soft);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--muted-light);
 }
 
@@ -1468,36 +1118,25 @@ input, textarea, select { font-family: inherit; }
   .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
   .hero-subtitle { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
-  .hero-trust { justify-content: center; }
   .hero-visual { order: -1; }
   .nav-links { display: none; }
-  .features-grid { grid-template-columns: 1fr; }
+  .industries-grid { grid-template-columns: repeat(2, 1fr); }
   .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .hero h1 { font-size: 2.4rem; }
   .section-head h2 { font-size: 2rem; }
-  .cta-content h2 { font-size: 2rem; }
+  .cta-content h2 { font-size: 1.9rem; }
 
-  .deep-feature {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 3rem 0;
-  }
+  .deep-feature { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 0; }
   .deep-feature.reverse > .deep-feature-content { order: 1; }
   .deep-feature.reverse > .deep-feature-visual { order: 2; }
   .deep-feature-content { max-width: 100%; }
-  .deep-feature h3 { font-size: 1.7rem; }
+  .deep-feature h3 { font-size: 1.6rem; }
 
-  .inquiry-wrapper {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+  .inquiry-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
   .inquiry-content { max-width: 100%; }
-  .inquiry-card {
-    position: static;
-    top: auto;
-  }
-  .inquiry-content h2 { font-size: 2rem; }
+  .inquiry-card { position: static; top: auto; }
+  .inquiry-content h2 { font-size: 1.8rem; }
 }
 
 @media (max-width: 640px) {
@@ -1507,36 +1146,34 @@ input, textarea, select { font-family: inherit; }
 
   .hero { padding: 3rem 5% 4rem; }
   .hero h1 { font-size: 2rem; }
-  .hero-subtitle { font-size: 1rem; }
+  .hero-subtitle { font-size: 0.95rem; }
   .btn-lg { padding: 0.85rem 1.4rem; font-size: 0.88rem; }
-  .hero-trust { flex-direction: column; gap: 0.8rem; align-items: center; }
 
   .section { padding: 3.5rem 5%; }
   .section-head { margin-bottom: 2.5rem; }
   .section-head h2 { font-size: 1.7rem; }
-  .section-head p { font-size: 0.92rem; }
+  .section-head p { font-size: 0.9rem; }
 
   .hero-mock { max-width: 320px; }
-  .hero-mock-hero { font-size: 1.2rem; }
-  .hero-mock-name { font-size: 0.9rem; }
+  .hero-mock-hero { font-size: 1.15rem; }
+  .hero-mock-name { font-size: 0.88rem; }
 
-  .feature-card { padding: 1.5rem; }
-  .faq-item summary { padding: 1rem 1.1rem; font-size: 0.9rem; }
-  .faq-item-body { padding: 0 1.1rem 1rem; }
+  .industries-grid { grid-template-columns: 1fr; }
+  .industry-card { padding: 1.4rem 1.2rem; }
 
-  .deep-feature h3 { font-size: 1.5rem; }
-  .deep-feature-desc { font-size: 0.95rem; }
+  .deep-feature h3 { font-size: 1.4rem; }
+  .deep-feature-desc { font-size: 0.88rem; }
 
-  .inquiry-content h2 { font-size: 1.7rem; }
-  .inquiry-content p { font-size: 0.92rem; }
-  .inquiry-card { padding: 1.4rem; }
-  .inquiry-card-head h3 { font-size: 1.15rem; }
+  .inquiry-content h2 { font-size: 1.55rem; }
+  .inquiry-content p { font-size: 0.88rem; }
+  .inquiry-card { padding: 1.3rem; }
+  .inquiry-card-head h3 { font-size: 1.1rem; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
 
-  .cta-inner { padding: 3rem 1.5rem; }
-  .cta-content h2 { font-size: 1.7rem; }
-  .cta-content p { font-size: 0.95rem; }
-  .cta-btn-primary, .cta-btn-secondary { padding: 0.85rem 1.3rem; font-size: 0.85rem; }
+  .cta-inner { padding: 2.5rem 1.5rem; }
+  .cta-content h2 { font-size: 1.55rem; }
+  .cta-content p { font-size: 0.9rem; }
+  .cta-btn-primary, .cta-btn-secondary { padding: 0.8rem 1.3rem; font-size: 0.84rem; }
 
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
@@ -1559,11 +1196,10 @@ input, textarea, select { font-family: inherit; }
     </a>
 
     <div class="nav-links">
+      <a href="#industries">Industries</a>
       <a href="#features">Features</a>
-      <a href="#deep-dive">Why BrandInn</a>
       <a href="#how">How it works</a>
       <a href="#inquiry">Get started</a>
-      <a href="#faq">FAQ</a>
     </div>
 
     <div class="nav-actions">
@@ -1579,16 +1215,16 @@ input, textarea, select { font-family: inherit; }
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-eyebrow">
-        <i class="fas fa-bolt"></i> For every business
+        <i class="fas fa-bolt"></i> For every industry
       </div>
 
       <h1>
         Your business.<br>
-        <span class="accent">Your website.</span>
+        <span class="accent">Online in minutes.</span>
       </h1>
 
       <p class="hero-subtitle">
-        Get a professional page and online shop in minutes. Sell products, receive orders, and get discovered by customers — all from one simple dashboard.
+        A professional page and online shop for any business — restaurants, pharmacies, grocery stores, retail, services. Sell, showcase, and get discovered.
       </p>
 
       <div class="hero-actions">
@@ -1598,21 +1234,6 @@ input, textarea, select { font-family: inherit; }
         <a href="https://brandinn-business.vercel.app/p/bestfurnitures" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
           <i class="fas fa-eye"></i> View live demo
         </a>
-      </div>
-
-      <div class="hero-trust">
-        <div class="hero-trust-item">
-          <i class="fas fa-check-circle"></i>
-          <span>No credit card required</span>
-        </div>
-        <div class="hero-trust-item">
-          <i class="fas fa-check-circle"></i>
-          <span>Setup in under 10 minutes</span>
-        </div>
-        <div class="hero-trust-item">
-          <i class="fas fa-check-circle"></i>
-          <span>Mobile & desktop ready</span>
-        </div>
       </div>
     </div>
 
@@ -1648,58 +1269,94 @@ input, textarea, select { font-family: inherit; }
   </div>
 </header>
 
-<!-- ═══════════════════ QUICK FEATURES ═══════════════════ -->
-<section class="section" id="features">
+<!-- ═══════════════════ INDUSTRIES ═══════════════════ -->
+<section class="section industries-section" id="industries">
   <div class="section-head">
-    <h2>Everything your business <span class="accent">needs online</span></h2>
-    <p>No coding. No designers. No expensive developers. Just a professional page and shop, ready in minutes.</p>
+    <h2>Built for <span class="accent">every industry</span></h2>
+    <p>Whether you sell products or services, BrandInn adapts to how your business works.</p>
   </div>
 
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-store"></i></div>
-      <h3>Professional business page</h3>
-      <p>A clean, mobile-first page with your logo, hero images, services, offers, and contact — automatically designed.</p>
+  <div class="industries-grid">
+    <!-- Restaurant -->
+    <div class="industry-card">
+      <div class="industry-icon food"><i class="fas fa-utensils"></i></div>
+      <h3>Restaurants</h3>
+      <p>Feature your menu, take orders, and let customers reserve tables.</p>
+      <ul class="industry-features">
+        <li><i class="fas fa-check"></i> Digital menu with photos</li>
+        <li><i class="fas fa-check"></i> Online food orders</li>
+        <li><i class="fas fa-check"></i> Table reservations</li>
+      </ul>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-shopping-cart"></i></div>
-      <h3>Online shop & orders</h3>
-      <p>Add products with prices and images. Accept orders via mobile money or cash on delivery. Manage everything from one dashboard.</p>
+    <!-- Pharmacy -->
+    <div class="industry-card">
+      <div class="industry-icon pharmacy"><i class="fas fa-prescription-bottle-medical"></i></div>
+      <h3>Pharmacies</h3>
+      <p>Showcase your services and let customers order medicine online.</p>
+      <ul class="industry-features">
+        <li><i class="fas fa-check"></i> Medicine catalog</li>
+        <li><i class="fas fa-check"></i> Order & delivery</li>
+        <li><i class="fas fa-check"></i> Health services</li>
+      </ul>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-compass"></i></div>
-      <h3>Get discovered</h3>
-      <p>Your business appears in the BrandInn directory — seen by customers actively looking for what you sell.</p>
+    <!-- Grocery -->
+    <div class="industry-card">
+      <div class="industry-icon grocery"><i class="fas fa-basket-shopping"></i></div>
+      <h3>Grocery Stores</h3>
+      <p>Show what you offer and let customers shop fresh produce online.</p>
+      <ul class="industry-features">
+        <li><i class="fas fa-check"></i> Product listings</li>
+        <li><i class="fas fa-check"></i> Online shopping cart</li>
+        <li><i class="fas fa-check"></i> Home delivery</li>
+      </ul>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
-      <h3>Mobile-first design</h3>
-      <p>Every page looks great on phones, tablets, and desktops. Your customers shop wherever they are.</p>
+    <!-- Fashion -->
+    <div class="industry-card">
+      <div class="industry-icon fashion"><i class="fas fa-tshirt"></i></div>
+      <h3>Fashion & Retail</h3>
+      <p>Display your collection and sell directly to customers.</p>
+      <ul class="industry-features">
+        <li><i class="fas fa-check"></i> Collection showcase</li>
+        <li><i class="fas fa-check"></i> Size & color options</li>
+        <li><i class="fas fa-check"></i> Mobile checkout</li>
+      </ul>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-      <h3>Orders & insights</h3>
-      <p>See every order in real time. Track what's selling, what's not, and what your customers want more of.</p>
+    <!-- Services -->
+    <div class="industry-card">
+      <div class="industry-icon services"><i class="fas fa-tools"></i></div>
+      <h3>Service Providers</h3>
+      <p>Showcase what you do and take bookings online.</p>
+      <ul class="industry-features">
+        <li><i class="fas fa-check"></i> Service catalog</li>
+        <li><i class="fas fa-check"></i> Appointment booking</li>
+        <li><i class="fas fa-check"></i> Client inquiries</li>
+      </ul>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-headset"></i></div>
-      <h3>Real support</h3>
-      <p>Direct WhatsApp support from real people. We help you get set up and stay online.</p>
+    <!-- General Retail -->
+    <div class="industry-card">
+      <div class="industry-icon retail"><i class="fas fa-store"></i></div>
+      <h3>Any Business</h3>
+      <p>If you sell something, BrandInn can put it online.</p>
+      <ul class="industry-features">
+        <li><i class="fas fa-check"></i> Custom product listings</li>
+        <li><i class="fas fa-check"></i> Flexible pricing</li>
+        <li><i class="fas fa-check"></i> Works on any device</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ DEEP DIVE ═══════════════════ -->
-<section class="deep-dive-section" id="deep-dive">
+<!-- ═══════════════════ DEEP DIVE FEATURES ═══════════════════ -->
+<section class="deep-dive-section" id="features">
   <div class="section">
     <div class="section-head">
-      <h2>Built for real businesses,<br><span class="accent">designed for real customers</span></h2>
-      <p>Every feature is crafted around how businesses actually sell — and how customers actually buy. Here's what makes BrandInn different.</p>
+      <h2>Everything you need,<br><span class="accent">nothing you don't</span></h2>
+      <p>Simple, powerful tools that just work.</p>
     </div>
 
     <!-- Feature 1: Business Page -->
@@ -1710,29 +1367,14 @@ input, textarea, select { font-family: inherit; }
         </div>
         <h3>Your own <span class="accent">professional page</span></h3>
         <p class="deep-feature-desc">
-          A beautiful, mobile-first page that tells your story — your logo, hero banner, services, offers, testimonials, and contact details. It's the storefront customers see when they search for your business.
+          Logo, banner, services, and contact — auto-designed to look professional on any device.
         </p>
         <ul class="deep-feature-list">
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Auto-designed layout</strong> — you provide text and images, we make it look professional.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Custom brand colors</strong> — pick your primary color, the whole page adapts.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Multiple hero slides</strong> — showcase your best work with rotating images.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Services & offers</strong> — list what you do and what's on promotion.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>One-click share</strong> — copy your unique link and share it anywhere.</span>
-          </li>
+          <li><i class="fas fa-check"></i> <span>Auto-designed layout</span></li>
+          <li><i class="fas fa-check"></i> <span>Custom brand colors</span></li>
+          <li><i class="fas fa-check"></i> <span>Hero image slides</span></li>
+          <li><i class="fas fa-check"></i> <span>Services & offers</span></li>
+          <li><i class="fas fa-check"></i> <span>Shareable link</span></li>
         </ul>
       </div>
 
@@ -1783,29 +1425,14 @@ input, textarea, select { font-family: inherit; }
         </div>
         <h3>Sell directly from <span class="accent">your page</span></h3>
         <p class="deep-feature-desc">
-          Add products with images, prices, descriptions, and stock levels. Customers browse, add to cart, and order — the whole flow works end-to-end without leaving your page.
+          Add products with images, prices, and stock. Customers browse, order, and pay — end to end.
         </p>
         <ul class="deep-feature-list">
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Unlimited products</strong> — add as many as you need, organised by category.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Real-time stock tracking</strong> — no more selling what you don't have.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Discount pricing</strong> — set compare-at prices to show savings.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Multi-payment</strong> — accept mobile money, cards, or cash on delivery.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Product deep links</strong> — share a specific product link, and it opens right to that item.</span>
-          </li>
+          <li><i class="fas fa-check"></i> <span>Unlimited products</span></li>
+          <li><i class="fas fa-check"></i> <span>Real-time stock tracking</span></li>
+          <li><i class="fas fa-check"></i> <span>Discount pricing</span></li>
+          <li><i class="fas fa-check"></i> <span>Mobile money, cards, or COD</span></li>
+          <li><i class="fas fa-check"></i> <span>Product deep links</span></li>
         </ul>
       </div>
 
@@ -1857,37 +1484,22 @@ input, textarea, select { font-family: inherit; }
       </div>
     </div>
 
-    <!-- Feature 3: Order Management -->
+    <!-- Feature 3: Orders -->
     <div class="deep-feature">
       <div class="deep-feature-content">
         <div class="deep-feature-tag">
-          <i class="fas fa-receipt"></i> Order Management
+          <i class="fas fa-receipt"></i> Orders
         </div>
         <h3>Never miss <span class="accent">an order</span></h3>
         <p class="deep-feature-desc">
-          Every order lands in your dashboard instantly — with customer details, items, delivery address, and payment method. Move orders through the workflow: pending → confirmed → shipped → delivered.
+          Every order lands in your dashboard instantly — with customer details, items, and payment method.
         </p>
         <ul class="deep-feature-list">
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Real-time order feed</strong> — new orders appear the moment they're placed.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Customer details</strong> — name, phone, address, notes — all captured automatically.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Order statuses</strong> — mark as pending, confirmed, shipped, or delivered.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Payment tracking</strong> — mark payments as paid or unpaid as you receive them.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>WhatsApp handoff</strong> — one tap to message the customer about their order.</span>
-          </li>
+          <li><i class="fas fa-check"></i> <span>Real-time order feed</span></li>
+          <li><i class="fas fa-check"></i> <span>Customer details captured</span></li>
+          <li><i class="fas fa-check"></i> <span>Order statuses</span></li>
+          <li><i class="fas fa-check"></i> <span>Payment tracking</span></li>
+          <li><i class="fas fa-check"></i> <span>WhatsApp handoff</span></li>
         </ul>
       </div>
 
@@ -1937,29 +1549,14 @@ input, textarea, select { font-family: inherit; }
         </div>
         <h3>Get found by <span class="accent">new customers</span></h3>
         <p class="deep-feature-desc">
-          Your business appears in the BrandInn directory, searchable by category, location, and name. Customers discover you while browsing — and every product becomes a mini storefront with its own shareable link.
+          Your business appears in the BrandInn directory. Every product gets its own shareable link.
         </p>
         <ul class="deep-feature-list">
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Directory listing</strong> — searchable by category, location, and name.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Product deep links</strong> — every product has a shareable, indexable URL.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Featured placement</strong> — stand out with a highlighted business card.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Social-ready</strong> — share any product to WhatsApp, Instagram, or Facebook.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Search-friendly</strong> — pages are optimised so customers can find you.</span>
-          </li>
+          <li><i class="fas fa-check"></i> <span>Directory listing</span></li>
+          <li><i class="fas fa-check"></i> <span>Shareable product links</span></li>
+          <li><i class="fas fa-check"></i> <span>Featured placement option</span></li>
+          <li><i class="fas fa-check"></i> <span>Social-media ready</span></li>
+          <li><i class="fas fa-check"></i> <span>Search-friendly pages</span></li>
         </ul>
       </div>
 
@@ -2000,143 +1597,6 @@ input, textarea, select { font-family: inherit; }
         </div>
       </div>
     </div>
-
-    <!-- Feature 5: Insights -->
-    <div class="deep-feature">
-      <div class="deep-feature-content">
-        <div class="deep-feature-tag">
-          <i class="fas fa-chart-line"></i> Insights
-        </div>
-        <h3>Know what's <span class="accent">actually working</span></h3>
-        <p class="deep-feature-desc">
-          A clean dashboard shows your business at a glance — total revenue, orders this week, best-selling products, customer growth, and how your listings are performing. No spreadsheets, no guesswork.
-        </p>
-        <ul class="deep-feature-list">
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Revenue tracking</strong> — daily, weekly, and monthly totals.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Best sellers</strong> — see which products drive the most revenue.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Customer growth</strong> — track new vs. returning customers.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Product views</strong> — how many people looked at each product.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Share insights</strong> — which products get shared the most.</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="deep-feature-visual">
-        <div class="deep-mock">
-          <div class="deep-mock-header">
-            <span class="dot r"></span>
-            <span class="dot y"></span>
-            <span class="dot g"></span>
-            <span class="url">your-business/insights</span>
-          </div>
-          <div class="deep-mock-body">
-            <div class="mini-dashboard">
-              <div class="mini-stat-card">
-                <div class="mini-stat-label">Revenue (7d)</div>
-                <div class="mini-stat-value">KSh 48K</div>
-                <div class="mini-stat-trend"><i class="fas fa-arrow-up"></i> 18%</div>
-              </div>
-              <div class="mini-stat-card">
-                <div class="mini-stat-label">Orders</div>
-                <div class="mini-stat-value">23</div>
-                <div class="mini-stat-trend"><i class="fas fa-arrow-up"></i> 9%</div>
-              </div>
-            </div>
-            <div class="mini-chart">
-              <div class="mini-chart-bars">
-                <div class="mini-chart-bar" style="height: 40%;"></div>
-                <div class="mini-chart-bar" style="height: 65%;"></div>
-                <div class="mini-chart-bar" style="height: 30%;"></div>
-                <div class="mini-chart-bar" style="height: 85%;"></div>
-                <div class="mini-chart-bar" style="height: 55%;"></div>
-                <div class="mini-chart-bar" style="height: 95%;"></div>
-                <div class="mini-chart-bar" style="height: 70%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 6: Complete Branding -->
-    <div class="deep-feature reverse">
-      <div class="deep-feature-content">
-        <div class="deep-feature-tag">
-          <i class="fas fa-paint-brush"></i> Complete Branding
-        </div>
-        <h3>Full brand, <span class="accent">handled</span></h3>
-        <p class="deep-feature-desc">
-          Don't have a logo? No product photos? No brand colors? Our team builds your entire identity — logo, business card, banners, stickers, and social media templates. You get a complete brand in days, not months.
-        </p>
-        <ul class="deep-feature-list">
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Logo design</strong> — a unique, professional logo for your business.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Business cards</strong> — print-ready designs with your details.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Banners & stickers</strong> — for your shopfront, vehicle, or events.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Social media kit</strong> — post templates, covers, and profile images.</span>
-          </li>
-          <li>
-            <i class="fas fa-check"></i>
-            <span><strong>Brand guidelines</strong> — how to use your logo, colors, and fonts consistently.</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="deep-feature-visual">
-        <div class="deep-mock">
-          <div class="deep-mock-header">
-            <span class="dot r"></span>
-            <span class="dot y"></span>
-            <span class="dot g"></span>
-            <span class="url">your-business/brand-kit</span>
-          </div>
-          <div class="deep-mock-body">
-            <div class="mini-brand-grid">
-              <div class="mini-brand-item">
-                <i class="fas fa-palette"></i>
-                <span>Logo Design</span>
-              </div>
-              <div class="mini-brand-item">
-                <i class="fas fa-id-card"></i>
-                <span>Business Cards</span>
-              </div>
-              <div class="mini-brand-item">
-                <i class="fas fa-scroll"></i>
-                <span>Banners</span>
-              </div>
-              <div class="mini-brand-item">
-                <i class="fas fa-hashtag"></i>
-                <span>Social Kit</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -2144,26 +1604,26 @@ input, textarea, select { font-family: inherit; }
 <section class="section steps-section" id="how">
   <div class="section-head">
     <h2>Online in <span class="accent">three steps</span></h2>
-    <p>From sign-up to selling — most businesses are live the same day.</p>
+    <p>Most businesses are live the same day.</p>
   </div>
 
   <div class="steps-grid">
     <div class="step">
       <div class="step-num">1</div>
       <h3>Tell us about your business</h3>
-      <p>Fill in your name, tagline, contact info, and location. Upload a logo — or let us create one for you.</p>
+      <p>Name, tagline, contact, location. We handle the rest.</p>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
-      <h3>Add your products or services</h3>
-      <p>Upload photos, set prices, and choose which payment methods you accept. Everything is managed from your dashboard.</p>
+      <h3>Add products or services</h3>
+      <p>Photos, prices, payment methods. All from your dashboard.</p>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Get discovered & start selling</h3>
-      <p>Your page goes live on BrandInn. Customers find you through the directory — orders start flowing in.</p>
+      <h3>Go live & start selling</h3>
+      <p>Your page appears in the directory. Orders come in.</p>
     </div>
   </div>
 </section>
@@ -2171,44 +1631,29 @@ input, textarea, select { font-family: inherit; }
 <!-- ═══════════════════ INQUIRY FORM ═══════════════════ -->
 <section class="section inquiry-section" id="inquiry">
   <div class="inquiry-wrapper">
-    <!-- Left: Content -->
     <div class="inquiry-content">
       <div class="inquiry-tag">
         <i class="fas fa-rocket"></i> Get started
       </div>
-      <h2>Let's get your business <span class="accent">online</span></h2>
+      <h2>Let's get you <span class="accent">online</span></h2>
       <p>
-        Fill in the form and we'll reach out on WhatsApp to walk you through setup. We'll ask a few questions about your business, book a quick appointment, and get your page live — usually the same day.
+        Fill in the form — we'll reach out on WhatsApp, book a quick appointment, and get your page live.
       </p>
       <ul class="inquiry-perks">
-        <li>
-          <i class="fas fa-check"></i>
-          <span>Free consultation — no commitment</span>
-        </li>
-        <li>
-          <i class="fas fa-check"></i>
-          <span>We come to you (if within our service area)</span>
-        </li>
-        <li>
-          <i class="fas fa-check"></i>
-          <span>Your page can be live the same day</span>
-        </li>
-        <li>
-          <i class="fas fa-check"></i>
-          <span>WhatsApp support from start to finish</span>
-        </li>
+        <li><i class="fas fa-check"></i> <span>Free consultation</span></li>
+        <li><i class="fas fa-check"></i> <span>We come to you (if local)</span></li>
+        <li><i class="fas fa-check"></i> <span>Live the same day</span></li>
+        <li><i class="fas fa-check"></i> <span>WhatsApp support</span></li>
       </ul>
     </div>
 
-    <!-- Right: Form -->
     <div class="inquiry-card">
       <div class="inquiry-card-head">
         <h3>Tell us about your business</h3>
-        <p>We'll respond on WhatsApp within a few hours.</p>
+        <p>We'll reply on WhatsApp within a few hours.</p>
       </div>
 
       <form id="inquiryForm" novalidate>
-        <!-- Business name -->
         <div class="form-group" data-field="business">
           <label class="form-label" for="businessName">Business name <span class="req">*</span></label>
           <div class="input-wrap">
@@ -2218,7 +1663,6 @@ input, textarea, select { font-family: inherit; }
           <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please enter your business name</div>
         </div>
 
-        <!-- Owner name -->
         <div class="form-group" data-field="owner">
           <label class="form-label" for="ownerName">Your name <span class="req">*</span></label>
           <div class="input-wrap">
@@ -2228,7 +1672,6 @@ input, textarea, select { font-family: inherit; }
           <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please enter your name</div>
         </div>
 
-        <!-- Phone + Email -->
         <div class="form-row">
           <div class="form-group" data-field="phone">
             <label class="form-label" for="phone">Phone <span class="req">*</span></label>
@@ -2248,15 +1691,16 @@ input, textarea, select { font-family: inherit; }
           </div>
         </div>
 
-        <!-- Business type -->
         <div class="form-group" data-field="category">
           <label class="form-label" for="category">What do you sell? <span class="req">*</span></label>
           <div class="input-wrap">
             <select id="category" name="category">
-              <option value="">Select a category</option>
+              <option value="">Select an industry</option>
+              <option value="Restaurant / Food">Restaurant / Food</option>
+              <option value="Pharmacy">Pharmacy</option>
+              <option value="Grocery Store">Grocery Store</option>
               <option value="Furniture">Furniture</option>
               <option value="Fashion & Clothing">Fashion & Clothing</option>
-              <option value="Food & Beverage">Food & Beverage</option>
               <option value="Electronics">Electronics</option>
               <option value="Beauty & Wellness">Beauty & Wellness</option>
               <option value="Fitness">Fitness</option>
@@ -2266,23 +1710,21 @@ input, textarea, select { font-family: inherit; }
             </select>
             <i class="fas fa-tag"></i>
           </div>
-          <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please choose a category</div>
+          <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please choose an industry</div>
         </div>
 
-        <!-- Location -->
         <div class="form-group" data-field="location">
           <label class="form-label" for="location">Business location <span class="req">*</span></label>
           <div class="input-wrap">
             <input type="text" id="location" name="location" placeholder="e.g. Ngong Road, Nairobi" autocomplete="street-address">
             <i class="fas fa-map-marker-alt"></i>
           </div>
-          <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please tell us where your business is</div>
+          <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please tell us where you are</div>
         </div>
 
-        <!-- Appointment date + time -->
         <div class="form-row">
           <div class="form-group" data-field="appointmentDate">
-            <label class="form-label" for="appointmentDate">Preferred appointment date <span class="req">*</span></label>
+            <label class="form-label" for="appointmentDate">Preferred date <span class="req">*</span></label>
             <div class="input-wrap">
               <input type="date" id="appointmentDate" name="appointmentDate">
               <i class="fas fa-calendar-alt"></i>
@@ -2304,20 +1746,14 @@ input, textarea, select { font-family: inherit; }
           </div>
         </div>
 
-        <!-- Notes -->
         <div class="form-group">
           <label class="form-label" for="notes">Anything else? (optional)</label>
           <div class="input-wrap">
-            <textarea id="notes" name="notes" placeholder="Tell us about your business — how long you've been running, what you'd like to achieve, etc."></textarea>
+            <textarea id="notes" name="notes" placeholder="Briefly describe your business and what you'd like to achieve"></textarea>
             <i class="fas fa-comment-alt" style="top: 14px; transform: none;"></i>
-          </div>
-          <div class="form-hint">
-            <i class="fas fa-info-circle"></i>
-            <span>The more you tell us, the faster we can set you up.</span>
           </div>
         </div>
 
-        <!-- Submit via WhatsApp -->
         <button type="submit" class="btn-whatsapp-submit" id="submitBtn">
           <i class="fab fa-whatsapp"></i>
           Send inquiry via WhatsApp
@@ -2325,69 +1761,10 @@ input, textarea, select { font-family: inherit; }
 
         <div class="form-footer-note">
           <i class="fas fa-shield-alt"></i>
-          <span>Your details are sent directly to us on WhatsApp. We never share your information.</span>
+          <span>Your details go straight to our WhatsApp. Never shared.</span>
         </div>
       </form>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ FAQ ═══════════════════ -->
-<section class="section" id="faq">
-  <div class="section-head">
-    <h2>Questions? <span class="accent">Answers.</span></h2>
-    <p>Everything you need to know before getting started.</p>
-  </div>
-
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary>How long does it take to set up?</summary>
-      <div class="faq-item-body">
-        Most businesses are live in under 30 minutes. Fill in your business details, upload a few products, and your page is ready. If you don't have a logo or product photos, our team can help you create them in 24–48 hours.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Do I need my own website or domain?</summary>
-      <div class="faq-item-body">
-        No. We give you a free page at <strong>brandinn-business.vercel.app/p/your-business-name</strong>. You can share this link on WhatsApp, Instagram, Facebook, or anywhere else. If you have your own domain later, you can connect it.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>How do I receive orders and payments?</summary>
-      <div class="faq-item-body">
-        Customers can order directly on your page and pay via mobile money or cash on delivery. You'll see every order in your dashboard. You can also enable card payments by connecting a payment provider.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>What if I sell services instead of products?</summary>
-      <div class="faq-item-body">
-        Perfect — BrandInn works for services too. Fitness clubs, restaurants, salons, and consultants all use BrandInn. You can list services, accept bookings, and manage schedules from the same dashboard.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>What if I need help?</summary>
-      <div class="faq-item-body">
-        WhatsApp us anytime. Real people answer, usually within an hour during business hours.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Can I cancel anytime?</summary>
-      <div class="faq-item-body">
-        Yes. No contracts, no cancellation fees. If you cancel, your page stays live until the end of your billing period, then goes offline.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Is my data safe?</summary>
-      <div class="faq-item-body">
-        All your data is encrypted in transit and stored on enterprise-grade infrastructure. We never sell your information to third parties. Only you can see your customers and orders.
-      </div>
-    </details>
   </div>
 </section>
 
@@ -2396,7 +1773,7 @@ input, textarea, select { font-family: inherit; }
   <div class="cta-inner">
     <div class="cta-content">
       <h2>Ready to get your business <span class="accent">online?</span></h2>
-      <p>Fill in the inquiry form above and we'll reach out on WhatsApp. Free to start — no credit card required.</p>
+      <p>Free to start. No credit card required.</p>
       <div class="cta-actions">
         <a href="#inquiry" class="cta-btn-primary">
           <i class="fas fa-rocket"></i> Fill the inquiry form
@@ -2420,32 +1797,38 @@ input, textarea, select { font-family: inherit; }
         <span class="footer-brand-text">BrandInn Business</span>
       </div>
       <p class="footer-desc">
-        Every business deserves a professional website. Get yours today — free to start.
+        Every business deserves a professional website. Free to start.
       </p>
+      <div class="footer-contact">
+        <a href="https://wa.me/254734458036" target="_blank">
+          <i class="fab fa-whatsapp"></i> 0734 458 036
+        </a>
+        <a href="mailto:business.brandinn@gmail.com">
+          <i class="fas fa-envelope"></i> business.brandinn@gmail.com
+        </a>
+      </div>
       <div class="footer-socials">
         <a href="#" class="footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/254727211191" target="_blank" class="footer-social" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
 
     <div class="footer-col">
       <h4>Product</h4>
       <ul>
+        <li><a href="#industries">Industries</a></li>
         <li><a href="#features">Features</a></li>
-        <li><a href="#deep-dive">Why BrandInn</a></li>
         <li><a href="#how">How it works</a></li>
-        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h4>For business</h4>
+      <h4>Get started</h4>
       <ul>
-        <li><a href="#inquiry">Get started</a></li>
+        <li><a href="#inquiry">Fill inquiry form</a></li>
         <li><a href="https://brandinn-business.vercel.app/p/bestfurnitures" target="_blank" rel="noopener">View live demo</a></li>
-        <li><a href="https://wa.me/254727211191" target="_blank">Support</a></li>
+        <li><a href="https://wa.me/254734458036" target="_blank">WhatsApp us</a></li>
       </ul>
     </div>
 
@@ -2471,17 +1854,16 @@ input, textarea, select { font-family: inherit; }
   const form = document.getElementById('inquiryForm');
   const submitBtn = document.getElementById('submitBtn');
 
-  // WhatsApp number — change this to your number
-  const WHATSAPP_NUMBER = '254727211191';
+  const WHATSAPP_NUMBER = '254734458036';
 
-  // Set minimum date to today (can't pick past dates)
+  // Set min date to today
   const dateInput = document.getElementById('appointmentDate');
   if (dateInput) {
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
   }
 
-  // Clear error when user starts typing
+  // Clear error on input
   form.querySelectorAll('input, textarea, select').forEach(el => {
     el.addEventListener('input', () => {
       const group = el.closest('.form-group');
@@ -2493,57 +1875,30 @@ input, textarea, select { font-family: inherit; }
     });
   });
 
-  // Validation
   function validate() {
     let valid = true;
 
-    // Business name
     const business = document.getElementById('businessName');
-    if (!business.value.trim()) {
-      business.closest('.form-group').classList.add('has-error');
-      valid = false;
-    }
+    if (!business.value.trim()) { business.closest('.form-group').classList.add('has-error'); valid = false; }
 
-    // Owner name
     const owner = document.getElementById('ownerName');
-    if (!owner.value.trim()) {
-      owner.closest('.form-group').classList.add('has-error');
-      valid = false;
-    }
+    if (!owner.value.trim()) { owner.closest('.form-group').classList.add('has-error'); valid = false; }
 
-    // Phone
     const phone = document.getElementById('phone');
-    const phoneClean = phone.value.replace(/\D/g, '');
-    if (phoneClean.length < 9) {
-      phone.closest('.form-group').classList.add('has-error');
-      valid = false;
-    }
+    if (phone.value.replace(/\D/g, '').length < 9) { phone.closest('.form-group').classList.add('has-error'); valid = false; }
 
-    // Category
     const category = document.getElementById('category');
-    if (!category.value) {
-      category.closest('.form-group').classList.add('has-error');
-      valid = false;
-    }
+    if (!category.value) { category.closest('.form-group').classList.add('has-error'); valid = false; }
 
-    // Location
     const location = document.getElementById('location');
-    if (!location.value.trim()) {
-      location.closest('.form-group').classList.add('has-error');
-      valid = false;
-    }
+    if (!location.value.trim()) { location.closest('.form-group').classList.add('has-error'); valid = false; }
 
-    // Appointment date
     const appointmentDate = document.getElementById('appointmentDate');
-    if (!appointmentDate.value) {
-      appointmentDate.closest('.form-group').classList.add('has-error');
-      valid = false;
-    }
+    if (!appointmentDate.value) { appointmentDate.closest('.form-group').classList.add('has-error'); valid = false; }
 
     return valid;
   }
 
-  // Format date nicely: "Monday, 12 May 2026"
   function formatDate(dateStr) {
     if (!dateStr) return '';
     const d = new Date(dateStr + 'T00:00:00');
@@ -2556,7 +1911,6 @@ input, textarea, select { font-family: inherit; }
     });
   }
 
-  // Build WhatsApp message
   function buildMessage() {
     const businessName = document.getElementById('businessName').value.trim();
     const ownerName = document.getElementById('ownerName').value.trim();
@@ -2571,67 +1925,48 @@ input, textarea, select { font-family: inherit; }
     const lines = [
       '*New Business Inquiry — BrandInn*',
       '',
-      '*Business Information*',
-      `• Business name: ${businessName}`,
+      '*Business Info*',
+      `• Business: ${businessName}`,
       `• Owner: ${ownerName}`,
-      `• Category: ${category}`,
+      `• Industry: ${category}`,
       `• Location: ${location}`,
-      ''
+      `• Phone: ${phone}`
     ];
 
-    if (email) {
-      lines.push(`• Email: ${email}`);
-    }
+    if (email) lines.push(`• Email: ${email}`);
 
-    lines.push(`• Phone: ${phone}`, '');
+    lines.push('', '*Appointment*');
+    if (appointmentDate) lines.push(`• Date: ${formatDate(appointmentDate)}`);
+    if (appointmentTime) lines.push(`• Time: ${appointmentTime}`);
 
-    lines.push('*Appointment Request*');
-    if (appointmentDate) {
-      lines.push(`• Date: ${formatDate(appointmentDate)}`);
-    }
-    if (appointmentTime) {
-      lines.push(`• Preferred time: ${appointmentTime}`);
-    }
-
-    if (notes) {
-      lines.push('', '*Additional notes*', notes);
-    }
+    if (notes) lines.push('', '*Notes*', notes);
 
     lines.push('', '_Sent from BrandInn Business landing page_');
 
     return lines.join('\n');
   }
 
-  // On submit — open WhatsApp with the message
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if (!validate()) {
-      // Scroll to first error
       const firstError = form.querySelector('.form-group.has-error');
-      if (firstError) {
-        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
     const message = buildMessage();
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-    // Loading state
     const originalHTML = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Opening WhatsApp...';
     submitBtn.disabled = true;
 
-    // Open WhatsApp in a new tab
     const wa = window.open(url, '_blank');
-
-    // If popup blocked, fallback to same tab
     if (!wa || wa.closed || typeof wa.closed === 'undefined') {
       window.location.href = url;
     }
 
-    // Restore button after a moment
     setTimeout(() => {
       submitBtn.innerHTML = originalHTML;
       submitBtn.disabled = false;
