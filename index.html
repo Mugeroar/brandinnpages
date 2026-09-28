@@ -90,6 +90,7 @@ body {
 
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 a { text-decoration: none; color: inherit; }
+input, textarea, select { font-family: inherit; }
 
 /* ═══════════════════ NAVBAR ═══════════════════ */
 .navbar {
@@ -474,7 +475,7 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.65;
 }
 
-/* ═══════════════════ QUICK FEATURES OVERVIEW ═══════════════════ */
+/* ═══════════════════ QUICK FEATURES ═══════════════════ */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -517,7 +518,7 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.6;
 }
 
-/* ═══════════════════ DEEP DIVE FEATURES ═══════════════════ */
+/* ═══════════════════ DEEP DIVE ═══════════════════ */
 .deep-dive-section {
   background: linear-gradient(180deg, var(--bg) 0%, var(--white) 100%);
   border-top: 1px solid var(--border-soft);
@@ -535,9 +536,7 @@ a { text-decoration: none; color: inherit; }
 .deep-feature.reverse > .deep-feature-content { order: 2; }
 .deep-feature.reverse > .deep-feature-visual { order: 1; }
 
-.deep-feature-content {
-  max-width: 520px;
-}
+.deep-feature-content { max-width: 520px; }
 
 .deep-feature-tag {
   display: inline-flex;
@@ -607,12 +606,8 @@ a { text-decoration: none; color: inherit; }
   flex-shrink: 0;
   margin-top: 1px;
 }
-.deep-feature-list li strong {
-  color: var(--text);
-  font-weight: 700;
-}
+.deep-feature-list li strong { color: var(--text); font-weight: 700; }
 
-/* Deep feature visual — a big illustrative mock */
 .deep-feature-visual {
   display: flex;
   justify-content: center;
@@ -630,7 +625,6 @@ a { text-decoration: none; color: inherit; }
   overflow: hidden;
   position: relative;
 }
-.deep-mock.wide { max-width: 100%; }
 
 .deep-mock-header {
   display: flex;
@@ -664,7 +658,6 @@ a { text-decoration: none; color: inherit; }
 
 .deep-mock-body { padding: 1rem; }
 
-/* Mini business page */
 .mini-page-banner {
   aspect-ratio: 3 / 1;
   border-radius: var(--radius-md);
@@ -729,9 +722,7 @@ a { text-decoration: none; color: inherit; }
   border-bottom: 1px solid var(--border-soft);
   margin-bottom: 0.9rem;
 }
-.mini-page-stat {
-  text-align: center;
-}
+.mini-page-stat { text-align: center; }
 .mini-page-stat strong {
   display: block;
   font-size: 0.9rem;
@@ -758,7 +749,6 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
-/* Mini product list (for shop mock) */
 .mini-products-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -779,9 +769,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--blue-500);
   font-size: 1.6rem;
 }
-.mini-product-info {
-  padding: 8px 10px 10px;
-}
+.mini-product-info { padding: 8px 10px 10px; }
 .mini-product-name {
   font-size: 0.72rem;
   font-weight: 800;
@@ -805,7 +793,6 @@ a { text-decoration: none; color: inherit; }
   margin-top: 4px;
 }
 
-/* Mini order flow (for orders mock) */
 .mini-order {
   display: flex;
   align-items: center;
@@ -852,7 +839,6 @@ a { text-decoration: none; color: inherit; }
   flex-shrink: 0;
 }
 
-/* Mini dashboard mock (for analytics) */
 .mini-dashboard {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -888,7 +874,6 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   gap: 4px;
 }
-.mini-stat-trend.down { color: #dc2626; }
 
 .mini-chart {
   background: var(--bg-alt);
@@ -910,7 +895,6 @@ a { text-decoration: none; color: inherit; }
   transition: height 0.3s;
 }
 
-/* Mini branding mock (for complete branding) */
 .mini-brand-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -952,9 +936,7 @@ a { text-decoration: none; color: inherit; }
   gap: 2rem;
   position: relative;
 }
-.step {
-  text-align: center;
-}
+.step { text-align: center; }
 .step-num {
   width: 56px;
   height: 56px;
@@ -983,6 +965,264 @@ a { text-decoration: none; color: inherit; }
   max-width: 300px;
   margin: 0 auto;
 }
+
+/* ═══════════════════ INQUIRY FORM ═══════════════════ */
+.inquiry-section {
+  background: linear-gradient(180deg, var(--white) 0%, var(--bg) 100%);
+  border-top: 1px solid var(--border-soft);
+}
+
+.inquiry-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.inquiry-content { max-width: 460px; }
+.inquiry-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-50);
+  color: var(--blue-700);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--blue-100);
+}
+.inquiry-tag i { color: var(--accent); font-size: 0.7rem; }
+.inquiry-content h2 {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+.inquiry-content h2 .accent {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--blue-600), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.inquiry-content p {
+  font-size: 1rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.inquiry-perks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.inquiry-perks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+.inquiry-perks li i {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #166534;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Form card */
+.inquiry-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+  position: sticky;
+  top: 90px;
+}
+
+.inquiry-card-head {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+.inquiry-card-head h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.inquiry-card-head p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group { margin-bottom: 1rem; }
+
+.form-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  margin-bottom: 0.4rem;
+}
+.form-label .req { color: #ef4444; }
+
+.input-wrap { position: relative; }
+.input-wrap > i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-light);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+.input-wrap input,
+.input-wrap textarea,
+.input-wrap select {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.6rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  background: var(--bg-alt);
+  color: var(--text);
+  transition: all 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.input-wrap input:focus,
+.input-wrap textarea:focus,
+.input-wrap select:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+}
+.input-wrap input::placeholder,
+.input-wrap textarea::placeholder {
+  color: var(--muted-light);
+}
+.input-wrap textarea {
+  resize: vertical;
+  min-height: 80px;
+  padding-top: 0.8rem;
+  line-height: 1.5;
+}
+.input-wrap select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 10px;
+  padding-right: 2.5rem;
+}
+
+.form-hint {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.form-hint i {
+  color: var(--blue-500);
+  font-size: 0.65rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.btn-whatsapp-submit {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #25d366, #1ea855);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s;
+  box-shadow: 0 12px 28px -8px rgba(37, 211, 102, 0.4);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 1.3rem;
+}
+.btn-whatsapp-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -10px rgba(37, 211, 102, 0.5);
+}
+.btn-whatsapp-submit:active {
+  transform: translateY(0);
+}
+.btn-whatsapp-submit i {
+  font-size: 1.15rem;
+}
+
+.form-footer-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 0.9rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.form-footer-note i {
+  color: var(--green);
+  font-size: 0.7rem;
+}
+
+/* Validation */
+.form-group.has-error input,
+.form-group.has-error textarea,
+.form-group.has-error select {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+.form-error {
+  font-size: 0.72rem;
+  color: #dc2626;
+  font-weight: 600;
+  margin-top: 4px;
+  display: none;
+  align-items: center;
+  gap: 4px;
+}
+.form-group.has-error .form-error { display: flex; }
 
 /* ═══════════════════ FAQ ═══════════════════ */
 .faq-list {
@@ -1029,9 +1269,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ═══════════════════ CTA ═══════════════════ */
-.cta-section {
-  padding: 5rem 5%;
-}
+.cta-section { padding: 5rem 5%; }
 .cta-inner {
   max-width: 1000px;
   margin: 0 auto;
@@ -1049,10 +1287,8 @@ a { text-decoration: none; color: inherit; }
 .cta-inner::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
+  top: -50%; right: -20%;
+  width: 600px; height: 600px;
   background: radial-gradient(circle, rgba(255,255,255,0.06), transparent 60%);
   border-radius: 50%;
 }
@@ -1251,6 +1487,17 @@ a { text-decoration: none; color: inherit; }
   .deep-feature.reverse > .deep-feature-visual { order: 2; }
   .deep-feature-content { max-width: 100%; }
   .deep-feature h3 { font-size: 1.7rem; }
+
+  .inquiry-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .inquiry-content { max-width: 100%; }
+  .inquiry-card {
+    position: static;
+    top: auto;
+  }
+  .inquiry-content h2 { font-size: 2rem; }
 }
 
 @media (max-width: 640px) {
@@ -1279,6 +1526,12 @@ a { text-decoration: none; color: inherit; }
 
   .deep-feature h3 { font-size: 1.5rem; }
   .deep-feature-desc { font-size: 0.95rem; }
+
+  .inquiry-content h2 { font-size: 1.7rem; }
+  .inquiry-content p { font-size: 0.92rem; }
+  .inquiry-card { padding: 1.4rem; }
+  .inquiry-card-head h3 { font-size: 1.15rem; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
 
   .cta-inner { padding: 3rem 1.5rem; }
   .cta-content h2 { font-size: 1.7rem; }
@@ -1309,12 +1562,13 @@ a { text-decoration: none; color: inherit; }
       <a href="#features">Features</a>
       <a href="#deep-dive">Why BrandInn</a>
       <a href="#how">How it works</a>
+      <a href="#inquiry">Get started</a>
       <a href="#faq">FAQ</a>
     </div>
 
     <div class="nav-actions">
-      <a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I'd%20like%20to%20get%20my%20business%20online" target="_blank" class="btn btn-primary">
-        <i class="fab fa-whatsapp"></i> Get started
+      <a href="#inquiry" class="btn btn-primary">
+        <i class="fas fa-rocket"></i> Get started
       </a>
     </div>
   </div>
@@ -1338,11 +1592,11 @@ a { text-decoration: none; color: inherit; }
       </p>
 
       <div class="hero-actions">
-        <a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I'd%20like%20to%20get%20my%20business%20online" target="_blank" class="btn btn-primary btn-lg">
-          <i class="fab fa-whatsapp"></i> Get started on WhatsApp
+        <a href="#inquiry" class="btn btn-primary btn-lg">
+          <i class="fas fa-rocket"></i> Get started free
         </a>
-        <a href="#deep-dive" class="btn btn-outline btn-lg">
-          <i class="fas fa-arrow-down"></i> See what you get
+        <a href="https://brandinn-business.vercel.app/p/bestfurnitures" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+          <i class="fas fa-eye"></i> View live demo
         </a>
       </div>
 
@@ -1394,7 +1648,7 @@ a { text-decoration: none; color: inherit; }
   </div>
 </header>
 
-<!-- ═══════════════════ QUICK FEATURES OVERVIEW ═══════════════════ -->
+<!-- ═══════════════════ QUICK FEATURES ═══════════════════ -->
 <section class="section" id="features">
   <div class="section-head">
     <h2>Everything your business <span class="accent">needs online</span></h2>
@@ -1417,7 +1671,7 @@ a { text-decoration: none; color: inherit; }
     <div class="feature-card">
       <div class="feature-icon"><i class="fas fa-compass"></i></div>
       <h3>Get discovered</h3>
-      <p>Your business appears on the BrandInn directory and YANGU feed — seen by customers actively looking for what you sell.</p>
+      <p>Your business appears in the BrandInn directory — seen by customers actively looking for what you sell.</p>
     </div>
 
     <div class="feature-card">
@@ -1440,7 +1694,7 @@ a { text-decoration: none; color: inherit; }
   </div>
 </section>
 
-<!-- ═══════════════════ DEEP DIVE FEATURES ═══════════════════ -->
+<!-- ═══════════════════ DEEP DIVE ═══════════════════ -->
 <section class="deep-dive-section" id="deep-dive">
   <div class="section">
     <div class="section-head">
@@ -1603,7 +1857,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </div>
 
-    <!-- Feature 3: Orders & Management -->
+    <!-- Feature 3: Order Management -->
     <div class="deep-feature">
       <div class="deep-feature-content">
         <div class="deep-feature-tag">
@@ -1675,7 +1929,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </div>
 
-    <!-- Feature 4: Discovery & Reach -->
+    <!-- Feature 4: Discovery -->
     <div class="deep-feature reverse">
       <div class="deep-feature-content">
         <div class="deep-feature-tag">
@@ -1683,7 +1937,7 @@ a { text-decoration: none; color: inherit; }
         </div>
         <h3>Get found by <span class="accent">new customers</span></h3>
         <p class="deep-feature-desc">
-          Your products and services appear on the BrandInn directory and YANGU — our consumer feed. Customers discover you through interest-based recommendations, not paid ads. Every product becomes a mini storefront.
+          Your business appears in the BrandInn directory, searchable by category, location, and name. Customers discover you while browsing — and every product becomes a mini storefront with its own shareable link.
         </p>
         <ul class="deep-feature-list">
           <li>
@@ -1692,7 +1946,7 @@ a { text-decoration: none; color: inherit; }
           </li>
           <li>
             <i class="fas fa-check"></i>
-            <span><strong>YANGU feed integration</strong> — your products show up in interest-based feeds.</span>
+            <span><strong>Product deep links</strong> — every product has a shareable, indexable URL.</span>
           </li>
           <li>
             <i class="fas fa-check"></i>
@@ -1700,11 +1954,11 @@ a { text-decoration: none; color: inherit; }
           </li>
           <li>
             <i class="fas fa-check"></i>
-            <span><strong>Product deep links</strong> — every product has a shareable, indexable URL.</span>
+            <span><strong>Social-ready</strong> — share any product to WhatsApp, Instagram, or Facebook.</span>
           </li>
           <li>
             <i class="fas fa-check"></i>
-            <span><strong>Social-ready</strong> — share any product to WhatsApp, Instagram, or Facebook.</span>
+            <span><strong>Search-friendly</strong> — pages are optimised so customers can find you.</span>
           </li>
         </ul>
       </div>
@@ -1715,7 +1969,7 @@ a { text-decoration: none; color: inherit; }
             <span class="dot r"></span>
             <span class="dot y"></span>
             <span class="dot g"></span>
-            <span class="url">yangu/discover</span>
+            <span class="url">brandinnpages.vercel.app/discover</span>
           </div>
           <div class="deep-mock-body">
             <div class="mini-order">
@@ -1747,7 +2001,7 @@ a { text-decoration: none; color: inherit; }
       </div>
     </div>
 
-    <!-- Feature 5: Insights & Analytics -->
+    <!-- Feature 5: Insights -->
     <div class="deep-feature">
       <div class="deep-feature-content">
         <div class="deep-feature-tag">
@@ -1909,7 +2163,171 @@ a { text-decoration: none; color: inherit; }
     <div class="step">
       <div class="step-num">3</div>
       <h3>Get discovered & start selling</h3>
-      <p>Your page goes live on BrandInn. Customers find you through the directory and YANGU — orders start flowing in.</p>
+      <p>Your page goes live on BrandInn. Customers find you through the directory — orders start flowing in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ INQUIRY FORM ═══════════════════ -->
+<section class="section inquiry-section" id="inquiry">
+  <div class="inquiry-wrapper">
+    <!-- Left: Content -->
+    <div class="inquiry-content">
+      <div class="inquiry-tag">
+        <i class="fas fa-rocket"></i> Get started
+      </div>
+      <h2>Let's get your business <span class="accent">online</span></h2>
+      <p>
+        Fill in the form and we'll reach out on WhatsApp to walk you through setup. We'll ask a few questions about your business, book a quick appointment, and get your page live — usually the same day.
+      </p>
+      <ul class="inquiry-perks">
+        <li>
+          <i class="fas fa-check"></i>
+          <span>Free consultation — no commitment</span>
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <span>We come to you (if within our service area)</span>
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <span>Your page can be live the same day</span>
+        </li>
+        <li>
+          <i class="fas fa-check"></i>
+          <span>WhatsApp support from start to finish</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="inquiry-card">
+      <div class="inquiry-card-head">
+        <h3>Tell us about your business</h3>
+        <p>We'll respond on WhatsApp within a few hours.</p>
+      </div>
+
+      <form id="inquiryForm" novalidate>
+        <!-- Business name -->
+        <div class="form-group" data-field="business">
+          <label class="form-label" for="businessName">Business name <span class="req">*</span></label>
+          <div class="input-wrap">
+            <input type="text" id="businessName" name="businessName" placeholder="e.g. Best Furniture Place" autocomplete="organization">
+            <i class="fas fa-store"></i>
+          </div>
+          <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please enter your business name</div>
+        </div>
+
+        <!-- Owner name -->
+        <div class="form-group" data-field="owner">
+          <label class="form-label" for="ownerName">Your name <span class="req">*</span></label>
+          <div class="input-wrap">
+            <input type="text" id="ownerName" name="ownerName" placeholder="e.g. John Kamau" autocomplete="name">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please enter your name</div>
+        </div>
+
+        <!-- Phone + Email -->
+        <div class="form-row">
+          <div class="form-group" data-field="phone">
+            <label class="form-label" for="phone">Phone <span class="req">*</span></label>
+            <div class="input-wrap">
+              <input type="tel" id="phone" name="phone" placeholder="+254 700 000000" autocomplete="tel">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="form-error"><i class="fas fa-exclamation-circle"></i> Enter a valid phone</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email (optional)</label>
+            <div class="input-wrap">
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+              <i class="fas fa-envelope"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business type -->
+        <div class="form-group" data-field="category">
+          <label class="form-label" for="category">What do you sell? <span class="req">*</span></label>
+          <div class="input-wrap">
+            <select id="category" name="category">
+              <option value="">Select a category</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Fashion & Clothing">Fashion & Clothing</option>
+              <option value="Food & Beverage">Food & Beverage</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Beauty & Wellness">Beauty & Wellness</option>
+              <option value="Fitness">Fitness</option>
+              <option value="Crafts & Art">Crafts & Art</option>
+              <option value="Services">Services</option>
+              <option value="Other">Other</option>
+            </select>
+            <i class="fas fa-tag"></i>
+          </div>
+          <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please choose a category</div>
+        </div>
+
+        <!-- Location -->
+        <div class="form-group" data-field="location">
+          <label class="form-label" for="location">Business location <span class="req">*</span></label>
+          <div class="input-wrap">
+            <input type="text" id="location" name="location" placeholder="e.g. Ngong Road, Nairobi" autocomplete="street-address">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="form-error"><i class="fas fa-exclamation-circle"></i> Please tell us where your business is</div>
+        </div>
+
+        <!-- Appointment date + time -->
+        <div class="form-row">
+          <div class="form-group" data-field="appointmentDate">
+            <label class="form-label" for="appointmentDate">Preferred appointment date <span class="req">*</span></label>
+            <div class="input-wrap">
+              <input type="date" id="appointmentDate" name="appointmentDate">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="form-error"><i class="fas fa-exclamation-circle"></i> Choose a date</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="appointmentTime">Preferred time</label>
+            <div class="input-wrap">
+              <select id="appointmentTime" name="appointmentTime">
+                <option value="">Any time</option>
+                <option value="Morning (8 AM – 12 PM)">Morning (8 AM – 12 PM)</option>
+                <option value="Afternoon (12 PM – 4 PM)">Afternoon (12 PM – 4 PM)</option>
+                <option value="Evening (4 PM – 7 PM)">Evening (4 PM – 7 PM)</option>
+              </select>
+              <i class="fas fa-clock"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="form-group">
+          <label class="form-label" for="notes">Anything else? (optional)</label>
+          <div class="input-wrap">
+            <textarea id="notes" name="notes" placeholder="Tell us about your business — how long you've been running, what you'd like to achieve, etc."></textarea>
+            <i class="fas fa-comment-alt" style="top: 14px; transform: none;"></i>
+          </div>
+          <div class="form-hint">
+            <i class="fas fa-info-circle"></i>
+            <span>The more you tell us, the faster we can set you up.</span>
+          </div>
+        </div>
+
+        <!-- Submit via WhatsApp -->
+        <button type="submit" class="btn-whatsapp-submit" id="submitBtn">
+          <i class="fab fa-whatsapp"></i>
+          Send inquiry via WhatsApp
+        </button>
+
+        <div class="form-footer-note">
+          <i class="fas fa-shield-alt"></i>
+          <span>Your details are sent directly to us on WhatsApp. We never share your information.</span>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -1951,13 +2369,6 @@ a { text-decoration: none; color: inherit; }
     </details>
 
     <details class="faq-item">
-      <summary>Can I change my plan later?</summary>
-      <div class="faq-item-body">
-        Yes. You can upgrade or downgrade anytime from your dashboard. Changes take effect immediately, and we prorate the difference automatically.
-      </div>
-    </details>
-
-    <details class="faq-item">
       <summary>What if I need help?</summary>
       <div class="faq-item-body">
         WhatsApp us anytime. Real people answer, usually within an hour during business hours.
@@ -1985,13 +2396,13 @@ a { text-decoration: none; color: inherit; }
   <div class="cta-inner">
     <div class="cta-content">
       <h2>Ready to get your business <span class="accent">online?</span></h2>
-      <p>Join hundreds of businesses already using BrandInn to sell online. Free to start — no credit card required.</p>
+      <p>Fill in the inquiry form above and we'll reach out on WhatsApp. Free to start — no credit card required.</p>
       <div class="cta-actions">
-        <a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I%20want%20to%20get%20my%20business%20online" target="_blank" class="cta-btn-primary">
-          <i class="fab fa-whatsapp"></i> Get started on WhatsApp
+        <a href="#inquiry" class="cta-btn-primary">
+          <i class="fas fa-rocket"></i> Fill the inquiry form
         </a>
-        <a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I'd%20like%20a%20demo" target="_blank" class="cta-btn-secondary">
-          <i class="fas fa-play"></i> Request a demo
+        <a href="https://brandinn-business.vercel.app/p/bestfurnitures" target="_blank" rel="noopener" class="cta-btn-secondary">
+          <i class="fas fa-eye"></i> View live demo
         </a>
       </div>
     </div>
@@ -2032,8 +2443,8 @@ a { text-decoration: none; color: inherit; }
     <div class="footer-col">
       <h4>For business</h4>
       <ul>
-        <li><a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I%20want%20to%20list%20my%20business" target="_blank">List your business</a></li>
-        <li><a href="https://wa.me/254727211191?text=Hi%20BrandInn,%20I'd%20like%20a%20demo" target="_blank">Request a demo</a></li>
+        <li><a href="#inquiry">Get started</a></li>
+        <li><a href="https://brandinn-business.vercel.app/p/bestfurnitures" target="_blank" rel="noopener">View live demo</a></li>
         <li><a href="https://wa.me/254727211191" target="_blank">Support</a></li>
       </ul>
     </div>
@@ -2053,6 +2464,181 @@ a { text-decoration: none; color: inherit; }
     <div>Built with <i class="fas fa-heart" style="color: #ec4899;"></i> for businesses everywhere</div>
   </div>
 </footer>
+
+<!-- ═══════════════════ FORM SUBMIT → WHATSAPP ═══════════════════ -->
+<script>
+(function() {
+  const form = document.getElementById('inquiryForm');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // WhatsApp number — change this to your number
+  const WHATSAPP_NUMBER = '254727211191';
+
+  // Set minimum date to today (can't pick past dates)
+  const dateInput = document.getElementById('appointmentDate');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+  }
+
+  // Clear error when user starts typing
+  form.querySelectorAll('input, textarea, select').forEach(el => {
+    el.addEventListener('input', () => {
+      const group = el.closest('.form-group');
+      if (group) group.classList.remove('has-error');
+    });
+    el.addEventListener('change', () => {
+      const group = el.closest('.form-group');
+      if (group) group.classList.remove('has-error');
+    });
+  });
+
+  // Validation
+  function validate() {
+    let valid = true;
+
+    // Business name
+    const business = document.getElementById('businessName');
+    if (!business.value.trim()) {
+      business.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    // Owner name
+    const owner = document.getElementById('ownerName');
+    if (!owner.value.trim()) {
+      owner.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    // Phone
+    const phone = document.getElementById('phone');
+    const phoneClean = phone.value.replace(/\D/g, '');
+    if (phoneClean.length < 9) {
+      phone.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    // Category
+    const category = document.getElementById('category');
+    if (!category.value) {
+      category.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    // Location
+    const location = document.getElementById('location');
+    if (!location.value.trim()) {
+      location.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    // Appointment date
+    const appointmentDate = document.getElementById('appointmentDate');
+    if (!appointmentDate.value) {
+      appointmentDate.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  // Format date nicely: "Monday, 12 May 2026"
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const d = new Date(dateStr + 'T00:00:00');
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-GB', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+  }
+
+  // Build WhatsApp message
+  function buildMessage() {
+    const businessName = document.getElementById('businessName').value.trim();
+    const ownerName = document.getElementById('ownerName').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const category = document.getElementById('category').value;
+    const location = document.getElementById('location').value.trim();
+    const appointmentDate = document.getElementById('appointmentDate').value;
+    const appointmentTime = document.getElementById('appointmentTime').value;
+    const notes = document.getElementById('notes').value.trim();
+
+    const lines = [
+      '*New Business Inquiry — BrandInn*',
+      '',
+      '*Business Information*',
+      `• Business name: ${businessName}`,
+      `• Owner: ${ownerName}`,
+      `• Category: ${category}`,
+      `• Location: ${location}`,
+      ''
+    ];
+
+    if (email) {
+      lines.push(`• Email: ${email}`);
+    }
+
+    lines.push(`• Phone: ${phone}`, '');
+
+    lines.push('*Appointment Request*');
+    if (appointmentDate) {
+      lines.push(`• Date: ${formatDate(appointmentDate)}`);
+    }
+    if (appointmentTime) {
+      lines.push(`• Preferred time: ${appointmentTime}`);
+    }
+
+    if (notes) {
+      lines.push('', '*Additional notes*', notes);
+    }
+
+    lines.push('', '_Sent from BrandInn Business landing page_');
+
+    return lines.join('\n');
+  }
+
+  // On submit — open WhatsApp with the message
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!validate()) {
+      // Scroll to first error
+      const firstError = form.querySelector('.form-group.has-error');
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    const message = buildMessage();
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+    // Loading state
+    const originalHTML = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Opening WhatsApp...';
+    submitBtn.disabled = true;
+
+    // Open WhatsApp in a new tab
+    const wa = window.open(url, '_blank');
+
+    // If popup blocked, fallback to same tab
+    if (!wa || wa.closed || typeof wa.closed === 'undefined') {
+      window.location.href = url;
+    }
+
+    // Restore button after a moment
+    setTimeout(() => {
+      submitBtn.innerHTML = originalHTML;
+      submitBtn.disabled = false;
+    }, 1500);
+  });
+})();
+</script>
 
 </body>
 </html>
